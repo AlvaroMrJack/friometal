@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
 
-		<title>Demo Shop 17 | Porto - Responsive HTML5 Template 5.7.2</title>	
+		<title>Nosotros</title>	
 
 		<meta name="keywords" content="HTML5 Template" />
 		<meta name="description" content="Porto - Responsive HTML5 Template">
@@ -162,12 +162,12 @@
 										<nav>
 											<ul class="nav nav-pills" id="sideNav">
 												<li class="pull-right">
-													<a href="<?=site_url('Contacto_Controller/index')?>">
+													<a href="<?=site_url('contacto/index')?>">
 														Contacto
 													</a>
 												</li>
 												<li class="pull-right">
-													<a href="<?=site_url('Nosotros_Controller/index')?>">
+													<a href="<?=site_url('nosotros/index')?>">
 														Sobre nosotros
 													</a>
 												</li>
@@ -190,8 +190,8 @@
 				<div class="mobile-nav-wrapper">
 					<ul class="mobile-side-menu">
 						<li><a href="<?=base_url()?>">Inicio</a></li>
-						<li><a href="<?=site_url('Nosotros_Controller/index')?>">Sobre nosotros</a></li>
-						<li><a href="<?=site_url('Contacto_Controller/index')?>">Contacto</a></li>
+						<li><a href="<?=site_url('nosotros/index')?>">Sobre nosotros</a></li>
+						<li><a href="<?=site_url('contacto/index')?>">Contacto</a></li>
 					</ul>
 				</div>
 			</div>

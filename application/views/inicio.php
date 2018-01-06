@@ -162,12 +162,12 @@
 										<nav>
 											<ul class="nav nav-pills" id="sideNav">
 												<li class="pull-right">
-													<a href="<?=site_url('Contacto_Controller/index')?>">
+													<a href="<?=site_url('contacto/index')?>">
 														Contacto
 													</a>
 												</li>
 												<li class="pull-right">
-													<a href="<?=site_url('Nosotros_Controller/index')?>">
+													<a href="<?=site_url('nosotros/index')?>">
 														Sobre nosotros
 													</a>
 												</li>
@@ -190,8 +190,8 @@
 				<div class="mobile-nav-wrapper">
 					<ul class="mobile-side-menu">
 						<li><a href="<?=base_url()?>">Inicio</a></li>
-						<li><a href="<?=site_url('Nosotros_Controller/index')?>">Sobre nosotros</a></li>
-						<li><a href="<?=site_url('Contacto_Controller/index')?>">Contacto</a></li>
+						<li><a href="<?=site_url('nosotros/index')?>">Sobre nosotros</a></li>
+						<li><a href="<?=site_url('contacto/index')?>">Contacto</a></li>
 					</ul>
 				</div>
 			</div>
@@ -239,12 +239,6 @@
 								data-transform_in="y:[100%];opacity:0;s:500;">Up to <span style="font-weight:800;">70% OFF</span> 
 								sdkjfaksdjfjasldkjfalksdjlfkajsdljfalksdjflkasd jasdjfasdjf asjdkf jasd jfasdlkjf kalsdj
 								</div>
-
-							<div class="tp-caption"
-								data-x="left"
-								data-y="top"
-								data-start="1200"
-								data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1000;" style="z-index: 4;"><img src="<?=base_url('resources/img/demos/shop/slides/shop17/item1.png')?>" alt="Item"></div>
 						</li>
 						<li data-transition="fade">
 							<img src="<?=base_url('resources/img/slides/sl1.jpg')?>"  
@@ -280,12 +274,6 @@
 								data-start="1500"
 								style="z-index: 5; font-size: 24px; font-weight: 300; line-height:1.5;color:#2c3232;"
 								data-transform_in="y:[100%];opacity:0;s:500;">Starting at $9.99</div>
-
-							<div class="tp-caption"
-								data-x="left"
-								data-y="top"
-								data-start="1200"
-								data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1000;" style="z-index: 4;"><img src="<?=base_url('resources/img/demos/shop/slides/shop17/item2.png')?>" alt="Item"></div>
 						</li>
 					</ul>
 				</div>
@@ -296,12 +284,12 @@
 					<li>
 						<div class="product">
 							<figure class="product-image-area">
-								<a href="<?=site_url('Categoria_Controller/index')?>" title="Fabricadoras de hielo" class="product-image">
+								<a href="<?=site_url('categoria/index')?>" title="Fabricadoras de hielo" class="product-image">
 									<img src="<?=base_url('resources/img/categorias/fabdehielo.jpg')?>" alt="Fabricadoras de hielo">
 								</a>
 							</figure>
 							<div class="product-details-area">
-								<h2 class="product-name"><a href="<?=site_url('Categoria_Controller/index')?>" title="Fabricadoras de hielo">Fabricadoras de hielo</a></h2>
+								<h2 class="product-name"><a href="<?=site_url('categoria/index')?>" title="Fabricadoras de hielo">Fabricadoras de hielo</a></h2>
 								<div class="product-price-box">
 									<span class="product-price">
 										Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion 
@@ -315,12 +303,12 @@
 					<li>
 						<div class="product">
 							<figure class="product-image-area">
-								<a href="<?=site_url('Categoria_Controller/index')?>" title="Conservadoras" class="product-image">
+								<a href="<?=site_url('categoria/index')?>" title="Conservadoras" class="product-image">
 									<img src="<?=base_url('resources/img/categorias/conservadora.jpg')?>" alt="Conservadoras">
 								</a>
 							</figure>
 							<div class="product-details-area">
-								<h2 class="product-name"><a href="<?=site_url('Categoria_Controller/index')?>" title="Conservadoras">Conservadoras</a></h2>
+								<h2 class="product-name"><a href="<?=site_url('categoria/index')?>" title="Conservadoras">Conservadoras</a></h2>
 								<div class="product-price-box">
 									<span class="product-price">
 										Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion 
@@ -333,12 +321,12 @@
 					<li>
 						<div class="product">
 							<figure class="product-image-area">
-								<a href="<?=site_url('Categoria_Controller/index')?>" title="Visicooler" class="product-image">
+								<a href="<?=site_url('categoria/index')?>" title="Visicooler" class="product-image">
 									<img src="<?=base_url('resources/img/categorias/visicooler.jpg')?>" alt="Visicooler">
 								</a>
 							</figure>
 							<div class="product-details-area">
-								<h2 class="product-name"><a href="<?=site_url('Categoria_Controller/index')?>" title="Visicooler">Visicooler</a></h2>
+								<h2 class="product-name"><a href="<?=site_url('categoria/index')?>" title="Visicooler">Visicooler</a></h2>
 								<div class="product-price-box">
 									<span class="product-price">
 										Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion 
@@ -351,12 +339,12 @@
 					<li>
 						<div class="product">
 							<figure class="product-image-area">
-								<a href="<?=site_url('Categoria_Controller/index')?>" title="Cámaras frigorificas" class="product-image">
+								<a href="<?=site_url('categoria/index')?>" title="Cámaras frigorificas" class="product-image">
 									<img src="<?=base_url('resources/img/categorias/camfrigo.jpg')?>" alt="Cámaras frigorificas">
 								</a>
 							</figure>
 							<div class="product-details-area">
-								<h2 class="product-name"><a href="<?=site_url('Categoria_Controller/index')?>" title="Cámaras frigorificas">Cámaras frigorificas</a></h2>
+								<h2 class="product-name"><a href="<?=site_url('categoria/index')?>" title="Cámaras frigorificas">Cámaras frigorificas</a></h2>
 								<div class="product-price-box">
 									<span class="product-price">
 										Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion 

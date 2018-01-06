@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Contacto_Controller extends CI_Controller {
+class Contacto extends CI_Controller {
 
 	public function index()
 	{
@@ -23,7 +23,8 @@ class Contacto_Controller extends CI_Controller {
   		    $this->output->set_output(json_encode(array("val" => 0)));
 		}
 	}
+
 }
 
-/* End of file Contacto.php */
-/* Location: ./application/controllers/Contacto.php */
+/* End of file contacto.php */
+/* Location: ./application/controllers/contacto.php */

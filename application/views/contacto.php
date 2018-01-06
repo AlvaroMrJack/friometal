@@ -165,12 +165,12 @@
 										<nav>
 											<ul class="nav nav-pills" id="sideNav">
 												<li class="pull-right">
-													<a href="<?=site_url('Contacto_Controller/index')?>">
+													<a href="<?=site_url('contacto/index')?>">
 														Contacto
 													</a>
 												</li>
 												<li class="pull-right">
-													<a href="<?=site_url('Nosotros_Controller/index')?>">
+													<a href="<?=site_url('nosotros/index')?>">
 														Sobre nosotros
 													</a>
 												</li>
@@ -193,8 +193,8 @@
 				<div class="mobile-nav-wrapper">
 					<ul class="mobile-side-menu">
 						<li><a href="<?=base_url()?>">Inicio</a></li>
-						<li><a href="<?=site_url('Nosotros_Controller/index')?>">Sobre nosotros</a></li>
-						<li><a href="<?=site_url('Contacto_Controller/index')?>">Contacto</a></li>
+						<li><a href="<?=site_url('nosotros/index')?>">Sobre nosotros</a></li>
+						<li><a href="<?=site_url('contacto/index')?>">Contacto</a></li>
 					</ul>
 				</div>
 			</div>
@@ -203,7 +203,9 @@
 
 			<div role="main" class="main">
 				<!-- Google Maps - Go to the bottom of the page to change settings and map location. -->
-				<div id="googlemaps" class="google-map"></div>
+				<div class="container">
+					<div id="googlemaps" class="google-map"></div>
+				</div>
 
 				<div class="section-contact-area">
 					<div class="container">
@@ -356,7 +358,7 @@
 				    $.ajax(
 		          {
 		          method:"POST",
-		          url: "<?=site_url('/Contacto_Controller/sendEmail')?>",
+		          url: "<?=site_url('/contacto/sendEmail')?>",
 		          datatype:'json',
 		          data: {"name": name, "email": email,"subject": subject, "message": message},
 		          success: function(response){

@@ -1484,7 +1484,6 @@ h2.word-rotator-title .word-rotate {
 }
 .banner:hover:before {
 	visibility: visible;
-	opacity: 0.1;
 }
 
 .clients-container {
@@ -1748,8 +1747,6 @@ h2.word-rotator-title .word-rotate {
 	height: 100%;
 	left: 0;
 	top: 0;
-	background-color: #393733;
-	opacity: .65;
 	filter: alpha(opacity=65);
 }
 

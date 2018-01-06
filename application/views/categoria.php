@@ -162,12 +162,12 @@
 										<nav>
 											<ul class="nav nav-pills" id="sideNav">
 												<li class="pull-right">
-													<a href="<?=site_url('Contacto_Controller/index')?>">
+													<a href="<?=site_url('contacto/index')?>">
 														Contacto
 													</a>
 												</li>
 												<li class="pull-right">
-													<a href="<?=site_url('Nosotros_Controller/index')?>">
+													<a href="<?=site_url('nosotros/index')?>">
 														Sobre nosotros
 													</a>
 												</li>
@@ -190,8 +190,8 @@
 				<div class="mobile-nav-wrapper">
 					<ul class="mobile-side-menu">
 						<li><a href="<?=base_url()?>">Inicio</a></li>
-						<li><a href="<?=site_url('Nosotros_Controller/index')?>">Sobre nosotros</a></li>
-						<li><a href="<?=site_url('Contacto_Controller/index')?>">Contacto</a></li>
+						<li><a href="<?=site_url('nosotros/index')?>">Sobre nosotros</a></li>
+						<li><a href="<?=site_url('contacto/index')?>">Contacto</a></li>
 					</ul>
 				</div>
 			</div>
@@ -248,7 +248,7 @@
 					<li>
 						<div class="product">
 							<figure class="product-image-area">
-								<a href="<?=site_url('Producto_Controller/index')?>" title="Product Name" class="product-image">
+								<a href="<?=site_url('producto/index')?>" title="Product Name" class="product-image">
 									<img src="<?=base_url('resources/img/demos/shop/products/product1.jpg')?>" alt="Product Name">
 									<img src="<?=base_url('resources/img/demos/shop/products/product1-2.jpg')?>" alt="Product Name" class="product-hover-image">
 								</a>
@@ -256,7 +256,7 @@
 								<div class="product-label"><span class="new">New</span></div>
 							</figure>
 							<div class="product-details-area">
-								<h2 class="product-name"><a href="<?=site_url('Producto_Controller/index')?>" title="Product Name">Noa Sheer Blouse</a></h2>
+								<h2 class="product-name"><a href="<?=site_url('producto/index')?>" title="Product Name">Noa Sheer Blouse</a></h2>
 
 								<div class="product-price-box">
 									<span class="old-price">$99.00</span>
