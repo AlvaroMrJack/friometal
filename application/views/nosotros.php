@@ -256,7 +256,7 @@
 				
 				<div class="footer-copyright">
 					<div class="container">
-						<a href="index.html" class="logo">
+						<a href="<?=base_url()?>" class="logo">
 							<img alt="" class="img-responsive" src="<?=base_url('resources/img/logos/friometal_logo.png')?>">
 						</a>
 						<ul class="social-icons">

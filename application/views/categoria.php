@@ -249,8 +249,8 @@
 						<div class="product">
 							<figure class="product-image-area">
 								<a href="<?=site_url('producto/index')?>" title="Product Name" class="product-image">
-									<img src="<?=base_url('resources/img/demos/shop/products/product1.jpg')?>" alt="Product Name">
-									<img src="<?=base_url('resources/img/demos/shop/products/product1-2.jpg')?>" alt="Product Name" class="product-hover-image">
+									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name">
+									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name" class="product-hover-image">
 								</a>
 								<div class="product-label"><span class="discount">-10%</span></div>
 								<div class="product-label"><span class="new">New</span></div>
@@ -277,8 +277,8 @@
 						<div class="product">
 							<figure class="product-image-area">
 								<a href="detalle.html" title="Product Name" class="product-image">
-									<img src="<?=base_url('resources/img/demos/shop/products/product2.jpg')?>" alt="Product Name">
-									<img src="<?=base_url('resources/img/demos/shop/products/product2-2.jpg')?>" alt="Product Name" class="product-hover-image">
+									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name">
+									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name" class="product-hover-image">
 								</a>
 								<div class="product-label"><span class="discount">-25%</span></div>
 							</figure>
@@ -304,7 +304,7 @@
 						<div class="product">
 							<figure class="product-image-area">
 								<a href="detalle.html" title="Product Name" class="product-image">
-									<img src="<?=base_url('resources/img/demos/shop/products/product3.jpg')?>" alt="Product Name">
+									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name">
 								</a>
 							</figure>
 							<div class="product-details-area">
@@ -328,7 +328,7 @@
 						<div class="product">
 							<figure class="product-image-area">
 								<a href="detalle.html" title="Product Name" class="product-image">
-									<img src="<?=base_url('resources/img/demos/shop/products/product3.jpg')?>" alt="Product Name">
+									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name">
 								</a>
 							</figure>
 							<div class="product-details-area">
@@ -357,7 +357,7 @@
 			<footer id="footer">
 				<div class="footer-copyright">
 					<div class="container">
-						<a href="index.html" class="logo">
+						<a href="<?=base_url()?>" class="logo">
 							<img alt="" class="img-responsive" src="<?=base_url('resources/img/logos/friometal_logo.png')?>">
 						</a>
 						<ul class="social-icons">

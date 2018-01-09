@@ -213,9 +213,6 @@
 			<div id="mobile-menu-overlay"></div>
 
 			<div role="main" class="main">
-			
-			
-
 
 			<section class="page-header">
 				<div class="container">
@@ -235,7 +232,7 @@
 							<div class="product-img-box col-sm-5">
 								<div class="product-img-box-wrapper">
                                     <div class="" ss="product-img-wrapper">
-                                    	<img id="product-zoom" src="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" alt="Product main image">
+                                    	<img id="product-zoom" src="<?=base_url('resources/img/product3.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" alt="Product main image">
                                     </div>
 
 									<a href="#" class="product-img-zoom" title="Zoom">
@@ -245,28 +242,28 @@
 
 								<div class="owl-carousel manual" id="productGalleryThumbs">
 									<div class="product-img-wrapper">
-										<a href="#" data-image="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" class="product-gallery-item">
-                                            <img src="<?=base_url('resources/img/demos/shop/products/single/thumbs/product1.jpg')?>" alt="product">
+										<a href="#" data-image="<?=base_url('resources/img/product3.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" class="product-gallery-item">
+                                            <img src="<?=base_url('resources/img/product1.jpg')?>" alt="product">
                                         </a>
 									</div>
 									<div class="product-img-wrapper">
 										<a href="#" data-image="<?=base_url('resources/img/demos/shop/products/single/product2.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product2.jpg')?>" class="product-gallery-item">
-                                            <img src="<?=base_url('resources/img/demos/shop/products/single/thumbs/product2.jpg')?>" alt="product">
+                                            <img src="<?=base_url('resources/img/product1.jpg')?>" alt="product">
                                         </a>
 									</div>
 									<div class="product-img-wrapper">
 										<a href="#" data-image="<?=base_url('resources/img/demos/shop/products/single/product3.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product3.jpg')?>" class="product-gallery-item">
-                                            <img src="<?=base_url('resources/img/demos/shop/products/single/thumbs/product3.jpg')?>" alt="product">
+                                            <img src="<?=base_url('resources/img/product1.jpg')?>" alt="product">
                                         </a>
 									</div>
 									<div class="product-img-wrapper">
 										<a href="#" data-image="<?=base_url('resources/img/demos/shop/products/single/product4.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product4.jpg')?>" class="product-gallery-item">
-                                            <img src="<?=base_url('resources/img/demos/shop/products/single/thumbs/product4.jpg')?>" alt="product">
+                                            <img src="<?=base_url('resources/img/product1.jpg')?>" alt="product">
                                         </a>
 									</div>
 									<div class="product-img-wrapper">
 										<a href="#" data-image="<?=base_url('resources/img/demos/shop/products/single/product5.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product5.jpg')?>" class="product-gallery-item">
-                                            <img src="<?=base_url('resources/img/demos/shop/products/single/thumbs/product5.jpg')?>" alt="product">
+                                            <img src="<?=base_url('resources/img/product1.jpg')?>" alt="product">
                                         </a>
 									</div>
 								</div>
@@ -414,7 +411,7 @@
 			<footer id="footer">
 				<div class="footer-copyright">
 					<div class="container">
-						<a href="index.html" class="logo">
+						<a href="<?=base_url()?>" class="logo">
 							<img alt="" class="img-responsive" src="<?=base_url('resources/img/logos/friometal_logo.png')?>">
 						</a>
 						<ul class="social-icons">
