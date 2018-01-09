@@ -13,7 +13,7 @@
 		<meta name="author" content="okler.net">
 
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="<?=base_url('resources/img/favicon.ico')?>" type="image/x-icon" />
+		<link rel="shortcut icon" href="<?=base_url('resources/img/logos/friometal.ico')?>" type="image/x-icon" />
 		<link rel="apple-touch-icon" href="<?=base_url('resources/img/apple-touch-icon.png')?>">
 
 		<!-- Mobile Metas -->
@@ -152,7 +152,7 @@
 							<div class="header-column">
 								<div class="header-logo">
 									<a href="<?=base_url()?>">
-										<img alt="Friometal" width="111" height="51" src="<?=base_url('resources/img/demos/shop/logo-shop-black.png')?>">
+										<img alt="Friometal" width="111" height="51" src="<?=base_url('resources/img/logos/friometal_logo.png')?>">
 									</a>
 								</div>
 							</div>
@@ -257,7 +257,7 @@
 				<div class="footer-copyright">
 					<div class="container">
 						<a href="index.html" class="logo">
-							<img alt="Porto Website Template" class="img-responsive" src="<?=base_url('resources/img/demos/shop/logo-footer-black.png')?>">
+							<img alt="" class="img-responsive" src="<?=base_url('resources/img/logos/friometal_logo.png')?>">
 						</a>
 						<ul class="social-icons">
 							<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
