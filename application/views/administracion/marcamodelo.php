@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="<?=base_url('resources/admin/plugins/select2/select2.min.css')?>">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?=base_url('resources/admin/plugins/datatables/dataTables.bootstrap.css')?>">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="<?=base_url('resources/img/logos/friometal.ico')?>" type="image/x-icon" />
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">

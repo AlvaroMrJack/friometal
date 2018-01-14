@@ -17,6 +17,8 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?=base_url('resources/admin/dist/css/skins/_all-skins.min.css')?>">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="<?=base_url('resources/img/logos/friometal.ico')?>" type="image/x-icon" />
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -25,7 +27,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="inicio.html" class="logo">
+    <a href="<?=site_url('adm_inicio')?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>F</b>M</span>
       <!-- logo for regular state and mobile devices -->
@@ -198,40 +200,40 @@
               </div>
               <div class="modal-body">
                 <div class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Nombre</label>
-                  <div class="col-sm-9">
-                    <input type="input" class="form-control" id="nombre" placeholder="Nombre">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Nombre</label>
+                      <div class="col-sm-9">
+                        <input type="input" class="form-control" id="nombre" placeholder="Nombre">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Descripción</label>
+                      <div class="col-sm-9">
+                        <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Banner</label>
+                      <div class="col-sm-9">
+                      <input type="file" id="banner">
+                        <p class="help-block">Seleccione una imagen que será portada de la categoría.</p>
+                      </div>
+                    </div>
                   </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <button type="button" class="btn btn-block btn-primary">Guardar cambios</button>
+                      </div>
+                      <div class="col-md-6">
+                        <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.box-footer -->
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Descripción</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Banner</label>
-                  <div class="col-sm-9">
-                  <input type="file" id="banner">
-                    <p class="help-block">Seleccione una imagen que será portada de la categoría.</p>
-                  </div>
-                </div>
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <div class="row">
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-primary">Guardar cambios</button>
-                  </div>
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
-                  </div>
-                </div>
-              </div>
-              <!-- /.box-footer -->
-            </div>
               </div>
             </div>
             <!-- /.modal-content -->

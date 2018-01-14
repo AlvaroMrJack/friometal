@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url('resources/admin/dist/css/AdminLTE.min.css')?>">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="<?=base_url('resources/admin/plugins/iCheck/square/blue.css')?>">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="<?=base_url('resources/img/logos/friometal.ico')?>" type="image/x-icon" />
 
 </head>
 <body class="hold-transition login-page" style="background-image: url(<?=base_url('resources/admin/dist/img/back.jpg')?>"); background-repeat: no-repeat;">

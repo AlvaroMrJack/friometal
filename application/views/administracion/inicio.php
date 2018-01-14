@@ -17,6 +17,8 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?=base_url('resources/admin/dist/css/skins/_all-skins.min.css')?>">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="<?=base_url('resources/img/logos/friometal.ico')?>" type="image/x-icon" />
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -141,9 +143,99 @@
             </div>
           </div>
           <!-- /.box -->
-
+          <div class="box box-info">
+            <div class="box-header">
+              <h3 class="box-title">Edita o elimina una oferta</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Título</th>
+                    <th>Subtitutlo</th>
+                    <th>Texto</th>
+                    <th class="text-center">Editar</th>
+                    <th class="text-center">Eliminar</th>
+                  </tr>
+                  <tr>
+                    <td>1.</td>
+                    <td>Titulo</td>
+                    <td>Subtitulo</td>
+                    <td>Texto</td>
+                    <td class="text-center">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-edit"></i>
+                      </button>
+                    </td>
+                    <td class="text-center">
+                      <button type="button" class="btn btn-danger">
+                      <i class="fa fa-trash-o"></i>
+                    </button></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
     </section>
     <!-- /.content -->
+
+    <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Editar categoría</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-horizontal">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Título</label>
+                      <div class="col-sm-9">
+                        <input type="input" class="form-control" id="titulo" placeholder="Título">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Subtitulo</label>
+
+                      <div class="col-sm-9">
+                        <input type="password" class="form-control" id="Subtitulo" placeholder="Subtitulo">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Texto</label>
+                      <div class="col-sm-9">
+                        <textarea class="form-control" rows="2" id="texto" placeholder="Texto ..."></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <!-- /.box-body -->
+              <div class="box-footer">
+                <div class="row">
+                  <div class="col-md-6">
+                    <button type="button" class="btn btn-block btn-primary">Guardar cambios</button>
+                  </div>
+                  <div class="col-md-6">
+                    <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-footer -->
+            </div>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
   </div>
   <!-- /.content-wrapper -->
   <!-- Add the sidebar's background. This div must be placed
