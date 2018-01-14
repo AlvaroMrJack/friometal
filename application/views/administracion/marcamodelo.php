@@ -29,7 +29,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="inicio.html" class="logo">
+    <a href="<?=site_url('adm_inicio')?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>F</b>M</span>
       <!-- logo for regular state and mobile devices -->
@@ -38,7 +38,7 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
-      <a href="login.html" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <a href="<?=site_url('adm_inicio')?>" class="sidebar-toggle" data-toggle="offcanvas" role="button">
       </a>
 
       <div class="navbar-custom-menu">
