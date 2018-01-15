@@ -62,82 +62,36 @@
 				<div class="header-body">
 					<div class="header-top">
 						<div class="container">
-							<div class="header-search">
-								<a href="#" class="search-toggle"><i class="fa fa-search"></i> <span>Buscar</span></a>
-								<form action="#" method="get">
-									<div class="header-search-wrapper">
-										<input type="text" class="form-control" name="q" id="q" placeholder="Buscar..." required>
-										<select id="cat" name="cat">
-											<option value="">Todas las categorías</option>
-											<option value="4">Fashion</option>
-											<option value="12">Women</option>
-                                        </select>
-										<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-									</div>
-								</form>
-							</div>
-
+							
 							<div class="cart-dropdown">
 								<a href="#" class="cart-dropdown-icon">
 									<i class="minicart-icon"></i>
 									<span class="cart-info">
-										<span class="cart-qty">2</span>
-										<span class="cart-text">item(s)</span>
+										<span id="cart-qty" class="cart-qty">0</span>
+										<span class="cart-text">Producto(s)</span>
 									</span>
 								</a>
 
 								<div class="cart-dropdownmenu right">
 									<div class="dropdownmenu-wrapper">
 										<div class="cart-products">
-											<div class="product product-sm">
-												<a href="#" class="btn-remove" title="Remove Product">
-													<i class="fa fa-times"></i>
-												</a>
-												<figure class="product-image-area">
-													<a href="demo-shop-17-product-details.html" title="Product Name" class="product-image">
-														<img src="<?=base_url('resources/img/demos/shop/products/thumbs/cart-product1.jpg')?>" alt="Product Name">
-													</a>
-												</figure>
-												<div class="product-details-area">
-													<h2 class="product-name"><a href="demo-shop-17-product-details.html" title="Product Name">Blue Women Top</a></h2>
 
-													<div class="cart-qty-price">
-														1 X 
-														<span class="product-price">$65.00</span>
-													</div>
-												</div>
-											</div>
-											<div class="product product-sm">
-												<a href="#" class="btn-remove" title="Remove Product">
-													<i class="fa fa-times"></i>
-												</a>
-												<figure class="product-image-area">
-													<a href="demo-shop-17-product-details.html" title="Product Name" class="product-image">
-														<img src="<?=base_url('resources/img/demos/shop/products/thumbs/cart-product2.jpg')?>" alt="Product Name">
-													</a>
-												</figure>
-												<div class="product-details-area">
-													<h2 class="product-name"><a href="demo-shop-17-product-details.html" title="Product Name">Black Utility Top</a></h2>
 
-													<div class="cart-qty-price">
-														1 X 
-														<span class="product-price">$39.00</span>
-													</div>
-												</div>
-											</div>
+										<div id="list_cart" class="product product-sm">
+											
+										</div>
 										</div>
 
 										<div class="cart-totals">
-											Total: <span>$104.00</span>
+											Total: <span id="totalcart">$0</span>
 										</div>
 
 										<div class="cart-actions">
-											<a href="#" class="btn btn-primary">View Cart</a>
-											<a href="#" class="btn btn-primary">Checkout</a>
+											<a href="#" class="btn btn-success">Confirmar</a>
 										</div>
 									</div>
 								</div>
-							</div>		
+							</div>			
 							
 							<p class="welcome-msg">Contáctenos al: <i class="fa fa-phone"></i> (+562) 9876 5432</p>
 
@@ -353,7 +307,48 @@
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url('resources/js/theme.init.js')?>"></script>
 
+		<script type="text/javascript" charset="utf-8" >
 
+			$(function (argument) {
+				cargar_carrito();
+			})
+
+			$(document).on('click', '.removecart', function(event) {
+				var id = $(this).attr("idremove");
+				var objcart = JSON.parse(localStorage.getItem("carrito")) || [];
+
+				var idaeliminar = 0;
+				if (!$.isEmptyObject(objcart)) {
+					$.each(objcart, function(index, val) {
+						if (parseInt(val.id) == parseInt(id))idaeliminar = index;
+					});
+					objcart.splice(idaeliminar, 1);
+				};
+				localStorage.setItem('carrito', JSON.stringify(objcart));
+				cargar_carrito();
+			});
+
+			function cargar_carrito () {
+				$("#list_cart").text("");
+				var i = 0;
+				var  total = 0;
+				var objcart = JSON.parse(localStorage.getItem("carrito"));
+				$.each(objcart, function(index, val) {
+					$("#list_cart").append('<a class="fa fa-times removecart" idremove="'+val.id+'" ></a><div class="product-details-area"><h2 class="product-name"><a title="'+val.nom+'">'+val.nom+'</a></h2><div class="cart-qty-price">1 X <span class="product-price">'+val.precioformated+'</span></div></div>');
+					total += parseInt(val.precio);
+					 i++;
+				});
+				$("#cart-qty").text(i);
+				$("#totalcart").text(total.format(0, 3, '.', ','));
+			}
+
+			Number.prototype.format = function(n, x, s, c) {
+			    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+			        num = this.toFixed(Math.max(0, ~~n));
+
+			    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+			};
+		</script>
 
 
 

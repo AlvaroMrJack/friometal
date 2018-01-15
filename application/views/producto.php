@@ -76,20 +76,7 @@
 				<div class="header-body">
 					<div class="header-top">
 						<div class="container">
-							<div class="header-search">
-								<a href="#" class="search-toggle"><i class="fa fa-search"></i> <span>Buscar</span></a>
-								<form action="#" method="get">
-									<div class="header-search-wrapper">
-										<input type="text" class="form-control" name="q" id="q" placeholder="Buscar..." required>
-										<select id="cat" name="cat">
-											<option value="">Todas las categorías</option>
-											<option value="4">Fashion</option>
-											<option value="12">Women</option>
-                                        </select>
-										<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-									</div>
-								</form>
-							</div>
+							
 
 							<div class="cart-dropdown">
 								<a href="#" class="cart-dropdown-icon">
