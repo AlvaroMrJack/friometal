@@ -291,10 +291,13 @@
 							<div id="product-desc" class="tab-pane active">
 								<div class="product-desc-area">
 									<div class="embed-container">
-										<iframe width="854" height="480" src="<?= $producto->get("prod_link_video") ?>" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+										<iframe width="854" height="480" src="https://www.youtube.com/watch?v=C_mQqK-H0us" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 									</div>
 								</div>
 							</div>
+							<!-- de este link          https://www.youtube.com/watch?v=C_mQqK-H0us
+								 tiene pasar a ser asi https://www.youtube.com/embed/C_mQqK-H0us
+								  -->
 							<div id="product-reviews" class="tab-pane">
 
 								<div class="add-product-review">
@@ -317,7 +320,7 @@
 							<img alt="" class="img-responsive" src="<?=base_url('resources/img/logos/friometal_logo.png')?>">
 						</a>
 						<a class="logo">
-							<img title="Sitio web optimizado con HTML5" alt="Sitio web optimizado con HTML5" class="img-responsive" src="<?=base_url('resources/img/html5.png')?>">
+							<img title="Sitio web optimizado con HTML5" style="width: 120px;" alt="Sitio web optimizado con HTML5" class="img-responsive" src="<?=base_url('resources/img/html5.png')?>">
 						</a>
 						<ul class="social-icons">
 							<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
