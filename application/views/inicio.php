@@ -203,156 +203,74 @@
 			<div class="slider-container rev_slider_wrapper" style="height: 688px;">
 				<div id="revolutionSlider" class="slider rev_slider manual">
 					<ul>
-						<li data-transition="fade">
-							<img src="<?=base_url('resources/img/slides/sl1.jpg')?>"  
-								alt="slide bg"
-								data-bgposition="center center" 
-								data-bgfit="cover" 
-								data-bgrepeat="no-repeat"
-								class="rev-slidebg">
+						<?php if ($anuncios != null): ?>
+							<?php foreach ($anuncios as $key => $value): ?>
+								<li data-transition="fade">
+								<img src="<?=base_url('resources/img/slides/sl1.jpg')?>"  
+									alt="slide bg"
+									data-bgposition="center center" 
+									data-bgfit="cover" 
+									data-bgrepeat="no-repeat"
+									class="rev-slidebg">
 
-							<div class="tp-caption text-primary"
-								data-x="left" data-hoffset="78"
-								data-y="center" data-voffset="-40"
-								data-start="500"
-								data-whitespace="nowrap"						 
-								data-transform_in="y:[100%];s:500;"
-								data-transform_out="opacity:0;s:500;"
-								style="z-index: 5; font-size: 26px; text-transform: uppercase; font-weight:600; line-height:1;color:#2c3232;"
-								data-mask_in="x:0px;y:0px;">Professional</div>
+								<div class="tp-caption text-primary"
+									data-x="left" data-hoffset="78"
+									data-y="center" data-voffset="-40"
+									data-start="500"
+									data-whitespace="nowrap"						 
+									data-transform_in="y:[100%];s:500;"
+									data-transform_out="opacity:0;s:500;"
+									style="z-index: 5; font-size: 26px; text-transform: uppercase; font-weight:600; line-height:1;color:#2c3232;"
+									data-mask_in="x:0px;y:0px;"><?= $value->get("anuncio_titulo")  ?></div>
 
-							<div class="tp-caption"
-								data-x="left" data-hoffset="73"
-								data-y="center" data-voffset="12"
-								data-start="1000"
-								data-whitespace="nowrap"						 
-								data-transform_in="y:[100%];s:500;"
-								data-transform_out="opacity:0;s:500;"
-								style="z-index: 5; font-size: 79px; text-transform: uppercase; font-weight:800; letter-spacing: -0.05em; padding-right: 0.05em;line-height:1;color:#2c3232;"
-								data-mask_in="x:0px;y:0px;">Cosmeticssdfgsdfgs</div>
+								<div class="tp-caption"
+									data-x="left" data-hoffset="73"
+									data-y="center" data-voffset="12"
+									data-start="1000"
+									data-whitespace="nowrap"						 
+									data-transform_in="y:[100%];s:500;"
+									data-transform_out="opacity:0;s:500;"
+									style="z-index: 5; font-size: 79px; text-transform: uppercase; font-weight:800; letter-spacing: -0.05em; padding-right: 0.05em;line-height:1;color:#2c3232;"
+									data-mask_in="x:0px;y:0px;"><?= $value->get("anuncio_subtitulo")  ?></div>
 
-							<div class="tp-caption"
-								data-x="left" data-hoffset="78"
-								data-y="center" data-voffset="70"
-								data-start="1500"
-								style="z-index: 5; font-size: 24px; font-weight: 300; line-height:1.5;color:#2c3232;"
-								data-transform_in="y:[100%];opacity:0;s:500;">Up to <span style="font-weight:800;">70% OFF</span> 
-								sdkjfaksdjfjasldkjfalksdjlfkajsdljfalksdjflkasd jasdjfasdjf asjdkf jasd jfasdlkjf kalsdj
-								</div>
-						</li>
-						<li data-transition="fade">
-							<img src="<?=base_url('resources/img/slides/sl1.jpg')?>"  
-								alt="slide bg"
-								data-bgposition="center center" 
-								data-bgfit="cover" 
-								data-bgrepeat="no-repeat"
-								class="rev-slidebg">
-
-							<div class="tp-caption"
-								data-x="center"
-								data-y="center" data-voffset="-10"
-								data-start="500"
-								data-whitespace="nowrap"						 
-								data-transform_in="y:[100%];s:500;"
-								data-transform_out="opacity:0;s:500;"
-								style="z-index: 5; font-size: 26px; text-transform: uppercase; font-weight:600; line-height:1;color:#2c3232;"
-								data-mask_in="x:0px;y:0px;">Check out the new</div>
-
-							<div class="tp-caption"
-								data-x="center" 
-								data-y="center" data-voffset="37"
-								data-start="1000"
-								data-whitespace="nowrap"						 
-								data-transform_in="y:[100%];s:500;"
-								data-transform_out="opacity:0;s:500;"
-								style="z-index: 5; font-size: 54px; text-transform: uppercase; font-weight:800; line-height:1;color:#2c3232;"
-								data-mask_in="x:0px;y:0px;">Gloss for Lips</div>
-
-							<div class="tp-caption"
-								data-x="center" 
-								data-y="center" data-voffset="85"
-								data-start="1500"
-								style="z-index: 5; font-size: 24px; font-weight: 300; line-height:1.5;color:#2c3232;"
-								data-transform_in="y:[100%];opacity:0;s:500;">Starting at $9.99</div>
-						</li>
+								<div class="tp-caption"
+									data-x="left" data-hoffset="78"
+									data-y="center" data-voffset="70"
+									data-start="1500"
+									style="z-index: 5; font-size: 24px; font-weight: 300; line-height:1.5;color:#2c3232;"
+									data-transform_in="y:[100%];opacity:0;s:500;"><?= $value->get("anuncio_texto")  ?>
+									</div>
+							</li>
+							<?php endforeach ?>
+						<?php endif ?>
 					</ul>
 				</div>
 			</div>
 
 			<div class="container">
 				<ul class="products-grid columns4">
-					<li>
-						<div class="product">
-							<figure class="product-image-area">
-								<a href="<?=site_url('categoria/index')?>" title="Fabricadoras de hielo" class="product-image">
-									<img src="<?=base_url('resources/img/categorias/fabdehielo.jpg')?>" alt="Fabricadoras de hielo">
-								</a>
-							</figure>
-							<div class="product-details-area">
-								<h2 class="product-name"><a href="<?=site_url('categoria/index')?>" title="Fabricadoras de hielo">Fabricadoras de hielo</a></h2>
-								<div class="product-price-box">
-									<span class="product-price">
-										Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion 
-									</span>
-								</div>
-							</div>
+					<?php if ($categorias != null): ?>
+						<?php foreach ($categorias as $key => $value): ?>
+							<li>
+								<div class="product">
+									<figure class="product-image-area">
+										<a href="<?=site_url('categoria/index/').$value->get("cat_id")?>" title="<?= $value->get("cat_nombre") ?>" class="product-image">
+											<img src="<?=base_url('resources/img/categorias/').$value->get("cat_img_ruta")?>" alt="<?= $value->get("cat_nombre") ?>">
+										</a>
+									</figure>
+									<div class="product-details-area">
+										<h2 class="product-name"><a href="<?=site_url('categoria/index/').$value->get("cat_id")?>" title="<?= $value->get("cat_nombre")  ?>"><?= $value->get("cat_nombre")  ?></a></h2>
+										<div class="product-price-box">
+											<span class="product-price">
+												<?= $value->get("cat_desc")  ?>
+											</span>
+										</div>
+									</div>
 
-						</div>
-					</li>
-
-					<li>
-						<div class="product">
-							<figure class="product-image-area">
-								<a href="<?=site_url('categoria/index')?>" title="Conservadoras" class="product-image">
-									<img src="<?=base_url('resources/img/categorias/conservadora.jpg')?>" alt="Conservadoras">
-								</a>
-							</figure>
-							<div class="product-details-area">
-								<h2 class="product-name"><a href="<?=site_url('categoria/index')?>" title="Conservadoras">Conservadoras</a></h2>
-								<div class="product-price-box">
-									<span class="product-price">
-										Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion 
-									</span>
 								</div>
-							</div>
-						</div>
-					</li>
-
-					<li>
-						<div class="product">
-							<figure class="product-image-area">
-								<a href="<?=site_url('categoria/index')?>" title="Visicooler" class="product-image">
-									<img src="<?=base_url('resources/img/categorias/visicooler.jpg')?>" alt="Visicooler">
-								</a>
-							</figure>
-							<div class="product-details-area">
-								<h2 class="product-name"><a href="<?=site_url('categoria/index')?>" title="Visicooler">Visicooler</a></h2>
-								<div class="product-price-box">
-									<span class="product-price">
-										Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion 
-									</span>
-								</div>
-							</div>
-						</div>
-					</li>
-
-					<li>
-						<div class="product">
-							<figure class="product-image-area">
-								<a href="<?=site_url('categoria/index')?>" title="Cámaras frigorificas" class="product-image">
-									<img src="<?=base_url('resources/img/categorias/camfrigo.jpg')?>" alt="Cámaras frigorificas">
-								</a>
-							</figure>
-							<div class="product-details-area">
-								<h2 class="product-name"><a href="<?=site_url('categoria/index')?>" title="Cámaras frigorificas">Cámaras frigorificas</a></h2>
-								<div class="product-price-box">
-									<span class="product-price">
-										Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion 
-									</span>
-								</div>
-							</div>
-						</div>
-					</li>
+							</li>	
+						<?php endforeach ?>
+					<?php endif ?>
 				</ul>
 			</div>
 			<br><br>

@@ -215,141 +215,44 @@
 				<div class="container">
 					<ul class="breadcrumb">
 						<li><a href="demo-shop-17.html">Inicio</a></li>
-						<li class="active">Categoría 1</li>
+						<li class="active"><?= $categoria->get("cat_nombre")  ?></li>
 					</ul>
 				</div>
 			</section>
 
 			<div class="container">
-				<div class="toolbar mb-none">
-					<div class="sorter">
-						<div class="sort-by">
-							<label>Ordenar por:</label>
-							<select>
-								<option value="Name">Nombre</option>
-								<option value="Price">Precio</option>
-							</select>
-							<a href="#" title="Set Desc Direction">
-								<img src="<?=base_url('resources/img/demos/shop/i_asc_arrow.gif')?>" alt="Set Desc Direction">
-							</a>
-						</div>
-
-						<div class="view-mode">
-							<span title="Grid">
-								<i class="fa fa-th"></i>
-							</span>
-							<a href="#" title="List">
-								<i class="fa fa-list-ul"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-
 				<ul class="products-grid columns4">
-					<li>
-						<div class="product">
-							<figure class="product-image-area">
-								<a href="<?=site_url('producto/index')?>" title="Product Name" class="product-image">
-									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name">
-									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name" class="product-hover-image">
-								</a>
-								<div class="product-label"><span class="discount">-10%</span></div>
-								<div class="product-label"><span class="new">New</span></div>
-							</figure>
-							<div class="product-details-area">
-								<h2 class="product-name"><a href="<?=site_url('producto/index')?>" title="Product Name">Noa Sheer Blouse</a></h2>
+					<?php if ($productos != null): ?>
+						<?php foreach ($productos as $key => $value): ?>
+							<li>
+								<div class="product">
+									<figure class="product-image-area">
+										<a href="<?=site_url('producto/index/').$value->get("prod_id")?>" title="<?= $value->get("prod_nombre")  ?>" class="product-image">
+											<img src="<?=base_url('resources/products/').$value->get("prod_imagen1")?>" alt="<?= $value->get("prod_nombre")  ?>">
+											<img src="<?=base_url('resources/products/').$value->get("prod_imagen2")?>" alt="<?= $value->get("prod_nombre")  ?>" class="product-hover-image">
+										</a>
+										<div class="product-label"><span class="discount"><?= $value->get("prod_tipo") ?></span></div>
+										<div class="product-label"><span class="new">New</span></div>
+									</figure>
+									<div class="product-details-area">
+										<h2 class="product-name"><a href="<?=site_url('producto/index')?>" title="<?= $value->get("prod_nombre")  ?>"><?= $value->get("prod_nombre")  ?></a></h2>
 
-								<div class="product-price-box">
-									<span class="old-price">$99.00</span>
-									<span class="product-price">$89.00</span>
+										<div class="product-price-box">
+											<span class="product-price"><?= $value->moneda_chilena() ?></span>
+										</div>
+
+										<div class="product-actions">
+											<a href="#" class="addtocart" title="Agregar al carro">
+												<i class="fa fa-shopping-cart"></i>
+												<span>Agregar al carro</span>
+											</a>
+										</div>
+									</div>
 								</div>
-
-								<div class="product-actions">
-									<a href="#" class="addtocart" title="Agregar al carro">
-										<i class="fa fa-shopping-cart"></i>
-										<span>Agregar al carro</span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-
-					<li>
-						<div class="product">
-							<figure class="product-image-area">
-								<a href="detalle.html" title="Product Name" class="product-image">
-									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name">
-									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name" class="product-hover-image">
-								</a>
-								<div class="product-label"><span class="discount">-25%</span></div>
-							</figure>
-							<div class="product-details-area">
-								<h2 class="product-name"><a href="detalle.html" title="Product Name">Women Fashion Blouse</a></h2>
-
-								<div class="product-price-box">
-									<span class="old-price">$120.00</span>
-									<span class="product-price">$90.00</span>
-								</div>
-
-								<div class="product-actions">
-									<a href="#" class="addtocart" title="Agregar al carro">
-										<i class="fa fa-shopping-cart"></i>
-										<span>Agregar al carro</span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-
-					<li>
-						<div class="product">
-							<figure class="product-image-area">
-								<a href="detalle.html" title="Product Name" class="product-image">
-									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name">
-								</a>
-							</figure>
-							<div class="product-details-area">
-								<h2 class="product-name"><a href="detalle.html" title="Product Name">Fashion Dress</a></h2>
-
-								<div class="product-price-box">
-									<span class="product-price">$70.00</span>
-								</div>
-
-								<div class="product-actions">
-									<a href="#" class="addtocart" title="Agregar al carro">
-										<i class="fa fa-shopping-cart"></i>
-										<span>Agregar al carro</span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-
-					<li>
-						<div class="product">
-							<figure class="product-image-area">
-								<a href="detalle.html" title="Product Name" class="product-image">
-									<img src="<?=base_url('resources/img/product3.jpg')?>" alt="Product Name">
-								</a>
-							</figure>
-							<div class="product-details-area">
-								<h2 class="product-name"><a href="detalle.html" title="Product Name">Fashion Dress</a></h2>
-
-								<div class="product-price-box">
-									<span class="product-price">$70.00</span>
-								</div>
-
-								<div class="product-actions">
-									<a href="#" class="addtocart" title="Agregar al carro">
-										<i class="fa fa-shopping-cart"></i>
-										<span>Agregar al carro</span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</li>
-
-					
+							</li>
+							
+						<?php endforeach ?>
+					<?php endif ?>
 				</ul>
 			</div>
 
@@ -391,12 +294,8 @@
 		<!-- Theme Base, Components and Settings -->
 		<script src="<?=base_url('resources/js/theme.js')?>"></script>
 
-
-
 		<!-- Current Page Vendor and Views -->
 		<script src="<?=base_url('resources/js/views/view.contact.js')?>"></script>
-
-
 
 		<!-- Demo -->
 		<script src="<?=base_url('resources/js/demos/demo-shop-17.js')?>"></script>
@@ -406,9 +305,6 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url('resources/js/theme.init.js')?>"></script>
-
-
-
 
 
 
