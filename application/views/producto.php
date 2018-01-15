@@ -299,7 +299,7 @@
 
 								<div class="add-product-review">
 									<h3 class="text-uppercase heading-text-color font-weight-semibold">Aquí encontrarás todo tipo de información relacionada al producto</h3>
-									<p>How do you rate this product? *</p>
+									<p>Desea ver mas información de este producto? *</p>
 
 									<a href="<?= $producto->get("prod_link_esp") ?>" class="fa fa-eye" title="Manual">Manual de uso</a>
 								</div>
