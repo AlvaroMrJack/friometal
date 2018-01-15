@@ -168,7 +168,7 @@
 									class="rev-slidebg">
 
 								<div class="tp-caption text-primary"
-									data-x="center" data-hoffset="78"
+									data-x="left" data-hoffset="78"
 									data-y="center" data-voffset="-40"
 									data-start="500"
 									data-whitespace="nowrap"						 
@@ -178,7 +178,7 @@
 									data-mask_in="x:0px;y:0px;"><?= $value->get("anuncio_titulo")  ?></div>
 
 								<div class="tp-caption"
-									data-x="center" data-hoffset="73"
+									data-x="left" data-hoffset="73"
 									data-y="center" data-voffset="12"
 									data-start="1000"
 									data-whitespace="nowrap"						 
@@ -188,7 +188,7 @@
 									data-mask_in="x:0px;y:0px;"><?= $value->get("anuncio_subtitulo")  ?></div>
 
 								<div class="tp-caption"
-									data-x="center" data-hoffset="78"
+									data-x="left" data-hoffset="78"
 									data-y="center" data-voffset="70"
 									data-start="1500"
 									style="z-index: 5; font-size: 24px; font-weight: 300; line-height:1.5;color:#2c3232;"
@@ -258,6 +258,9 @@
 					<div class="container">
 						<a href="<?=base_url()?>" class="logo">
 							<img alt="" class="img-responsive" src="<?=base_url('resources/img/logos/friometal_logo.png')?>">
+						</a>
+						<a class="logo">
+							<img title="Sitio web optimizado con HTML5" alt="Sitio web optimizado con HTML5" class="img-responsive" src="<?=base_url('resources/img/html5.png')?>">
 						</a>
 						<ul class="social-icons">
 							<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
