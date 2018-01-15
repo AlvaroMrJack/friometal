@@ -408,8 +408,8 @@
 
 			// Map Markers
 			var mapMarkers = [{
-				address: "Los Pamperos 248, Recoleta",
-				html: "<strong>Friometal</strong><br>Los Pamperos, 248",
+				address: "Los Pamperos 238, Recoleta",
+				html: "<strong>Friometal</strong><br>Los Pamperos, 238",
 				icon: {
 					image: "<?=base_url('resources/img/pin.png')?>",
 					iconsize: [26, 46],

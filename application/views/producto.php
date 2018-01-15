@@ -221,10 +221,6 @@
                                     <div class="" ss="product-img-wrapper">
                                     	<img id="product-zoom" src="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" alt="Product main image">
                                     </div>
-
-									<a href="#" class="product-img-zoom" title="Zoom">
-										<span class="glyphicon glyphicon-search"></span>
-									</a>
 								</div>
 
 								<div class="owl-carousel manual" id="productGalleryThumbs">
@@ -269,11 +265,6 @@
 										<i class="fa fa-shopping-cart"></i>
 										<span>Agregar al carro</span>
 									</a>
-								</div>
-
-								<div class="product-share-box">
-									<div class="addthis_inline_share_toolbox"></div>
-									 
 								</div>
 							</div>
 						</div>
@@ -352,8 +343,6 @@
 		<!-- Theme Base, Components and Settings -->
 		<script src="<?=base_url('resources/js/theme.js')?>"></script>
 
-
-
 		<!-- Current Page Vendor and Views -->
 		<script src="<?=base_url('resources/js/views/view.contact.js')?>"></script>
 
@@ -368,7 +357,6 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url('resources/js/theme.init.js')?>"></script>
-
 
 		<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-581b726c069c6315"></script>
 
