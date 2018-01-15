@@ -84,6 +84,8 @@ class Product_model extends CI_Model {
 	public function findByCat($id = null){
 	$id = intval($id);
     $this->load->database();
+    $this->db->join('modelo', 'modelo.modelo_id = productos.prod_modelo_id');
+    $this->db->join('marca', 'marca.marca_id = modelo.modelo_marca_id');
 	$res = $this->db->get_where('productos',array('prod_cat_id' =>$id));
 	$productos =null;
 	if ($res->num_rows() > 0) {

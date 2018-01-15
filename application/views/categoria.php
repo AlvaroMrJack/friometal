@@ -184,19 +184,19 @@
 									<figure class="product-image-area">
 										<a href="<?=site_url('producto/index/').$value->get("prod_id")?>" title="<?= $value->get("prod_nombre")  ?>" class="product-image">
 											<img src="<?=base_url('resources/img/products/').$value->get("prod_imagen1")?>" alt="<?= $value->get("prod_nombre")  ?>">
-											<!-- <img src="<?=base_url('resources/img/products/').$value->get("prod_imagen2")?>" alt="<?= $value->get("prod_nombre")  ?>" class="product-hover-image"> -->
+											
 										</a>
 										<div class="product-label"><span class="new"><?= $value->get("prod_tipo") ?></span></div>
 									</figure>
 									<div class="product-details-area">
-										<h2 class="product-name"><a href="<?=site_url('producto/index')?>" title="<?= $value->get("prod_nombre")  ?>"><?= $value->get("prod_nombre")  ?></a></h2>
+										<h2 class="product-name"><a href="<?=site_url('producto/index')?>" title="<?= $value->get("prod_nombre")  ?>"><?= $value->get("prod_nombre")  ?> (<?= $value->get("modelo_nombre")."-".$value->get("marca_nombre")  ?>)</a></h2>
 
 										<div class="product-price-box">
 											<span class="product-price"><?= $value->moneda_chilena() ?></span>
 										</div>
 
 										<div class="product-actions">
-											<a href="#" idprod="<?= $value->get("prod_id") ?>" nom="<?= $value->get("prod_nombre") ?>" precio="<?= $value->get("prod_precio") ?>" precio_formated="<?= $value->moneda_chilena()  ?>" class="addtocart" title="Agregar al carro">
+											<a href="#" idprod="<?= $value->get("prod_id") ?>" nom="<?= $value->get("prod_nombre") ?>" precio="<?= $value->get("prod_precio") ?>" precio_formated="<?= $value->moneda_chilena() ?>" class="addtocart" title="Agregar al carro">
 												<i class="fa fa-shopping-cart"></i>
 												<span>Agregar al carro</span>
 											</a>

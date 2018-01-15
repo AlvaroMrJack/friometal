@@ -219,7 +219,7 @@
 							<div class="product-img-box col-sm-5">
 								<div class="product-img-box-wrapper">
                                     <div class="" ss="product-img-wrapper">
-                                    	<img id="product-zoom" src="<?=base_url('resources/img/product3.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" alt="Product main image">
+                                    	<img id="product-zoom" src="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" alt="Product main image">
                                     </div>
 
 									<a href="#" class="product-img-zoom" title="Zoom">
@@ -229,47 +229,31 @@
 
 								<div class="owl-carousel manual" id="productGalleryThumbs">
 									<div class="product-img-wrapper">
-										<a href="#" data-image="<?=base_url('resources/img/product3.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" class="product-gallery-item">
-                                            <img src="<?=base_url('resources/img/product1.jpg')?>" alt="product">
+										<a href="#" data-image="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" data-zoom-image="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" class="product-gallery-item">
+                                            <img src="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" alt="product">
                                         </a>
 									</div>
 									<div class="product-img-wrapper">
-										<a href="#" data-image="<?=base_url('resources/img/demos/shop/products/single/product2.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product2.jpg')?>" class="product-gallery-item">
-                                            <img src="<?=base_url('resources/img/product1.jpg')?>" alt="product">
+										<a href="#" data-image="<?=base_url('resources/img/products/').$producto->get("prod_imagen2") ?>" data-zoom-image="<?=base_url('resources/img/products/').$producto->get("prod_imagen2") ?>" class="product-gallery-item">
+                                            <img src="<?=base_url('resources/img/products/').$producto->get("prod_imagen2") ?>" alt="product">
                                         </a>
 									</div>
-									<div class="product-img-wrapper">
-										<a href="#" data-image="<?=base_url('resources/img/demos/shop/products/single/product3.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product3.jpg')?>" class="product-gallery-item">
-                                            <img src="<?=base_url('resources/img/product1.jpg')?>" alt="product">
-                                        </a>
-									</div>
-									<div class="product-img-wrapper">
-										<a href="#" data-image="<?=base_url('resources/img/demos/shop/products/single/product4.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product4.jpg')?>" class="product-gallery-item">
-                                            <img src="<?=base_url('resources/img/product1.jpg')?>" alt="product">
-                                        </a>
-									</div>
-									<div class="product-img-wrapper">
-										<a href="#" data-image="<?=base_url('resources/img/demos/shop/products/single/product5.jpg')?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product5.jpg')?>" class="product-gallery-item">
-                                            <img src="<?=base_url('resources/img/product1.jpg')?>" alt="product">
-                                        </a>
-									</div>
+									
 								</div>
 							</div>
 
 							<div class="product-details-box col-sm-7">
 								<h1 class="product-name">
-									Black Maxi Dress
+									<?= $producto->get("prod_nombre");  ?>
 								</h1>
 
                                 <div class="product-short-desc">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<p><?= $producto->get("prod_desc");  ?></p>
 								</div>
 
 								<div class="product-detail-info">
 									<div class="product-price-box">
-										<span class="old-price">$99.00</span>
-										<span class="product-price">$89.00</span>
+										<span class="product-price"><?= $producto->moneda_chilena();  ?></span>
 									</div>
 									<p class="availability">
 										<span class="font-weight-semibold">Disponibilidad:</span>
@@ -307,86 +291,17 @@
 							<div id="product-desc" class="tab-pane active">
 								<div class="product-desc-area">
 									<div class="embed-container">
-										<iframe width="854" height="480" src="https://www.youtube.com/embed/TGlzfgBQa9M" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+										<iframe width="854" height="480" src="<?= $producto->get("prod_link_video") ?>" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 									</div>
 								</div>
 							</div>
 							<div id="product-reviews" class="tab-pane">
 
 								<div class="add-product-review">
-									<h3 class="text-uppercase heading-text-color font-weight-semibold">WRITE YOUR OWN REVIEW</h3>
+									<h3 class="text-uppercase heading-text-color font-weight-semibold">Aquí encontrarás todo tipo de información relacionada al producto</h3>
 									<p>How do you rate this product? *</p>
 
-									<form action="#">
-										<table class="ratings-table">
-											<thead>
-												<tr>
-													<th>&nbsp;</th>
-													<th>1 star</th>
-													<th>2 stars</th>
-													<th>3 stars</th>
-													<th>4 stars</th>
-													<th>5 stars</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Quality</td>
-													<td>
-														<input type="radio" name="ratings[1]" id="Quality_1" value="1" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="ratings[1]" id="Quality_2" value="2" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="ratings[1]" id="Quality_3" value="3" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="ratings[1]" id="Quality_4" value="4" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="ratings[1]" id="Quality_5" value="5" class="radio">
-													</td>
-												</tr>
-												<tr>
-													<td>Value</td>
-													<td>
-														<input type="radio" name="value[1]" id="Value_1" value="1" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="value[1]" id="Value_2" value="2" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="value[1]" id="Value_3" value="3" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="value[1]" id="Value_4" value="4" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="value[1]" id="Value_5" value="5" class="radio">
-													</td>
-												</tr>
-												<tr>
-													<td>Price</td>
-													<td>
-														<input type="radio" name="price[1]" id="Price_1" value="1" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="price[1]" id="Price_2" value="2" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="price[1]" id="Price_3" value="3" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="price[1]" id="Price_4" value="4" class="radio">
-													</td>
-													<td>
-														<input type="radio" name="price[1]" id="Price_5" value="5" class="radio">
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</form>
+									<a href="<?= $producto->get("prod_link_esp") ?>" class="fa fa-eye" title="Manual">Manual de uso</a>
 								</div>
 							</div>
 						</div>
