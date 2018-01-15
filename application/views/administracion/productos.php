@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="<?=base_url('resources/admin/plugins/select2/select2.min.css')?>">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?=base_url('resources/admin/plugins/datatables/dataTables.bootstrap.css')?>">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?=base_url('resources/admin/plugins/iCheck/all.css')?>">
   <!-- Favicon -->
   <link rel="shortcut icon" href="<?=base_url('resources/img/logos/friometal.ico')?>" type="image/x-icon" />
 
@@ -153,11 +155,25 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label class="col-sm-1 control-label">Tipo de producto</label>
+                  <div class="col-sm-11">
+                    <label>
+                      <input type="radio" name="r1" class="minimal" checked>
+                      Producto nuevo
+                    </label><br>
+                    <label>
+                      <input type="radio" name="r1" class="minimal">
+                      Producto reacondicionado
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
                   <label class="col-sm-1 control-label">Descripción</label>
                   <div class="col-sm-11">
                     <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
                   </div>
                 </div>
+
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Imagenes</label>
                   <div class="col-sm-11">
@@ -322,6 +338,19 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label class="col-sm-2 control-label">Tipo de producto</label>
+                  <div class="col-sm-9">
+                    <label>
+                      <input type="radio" name="r1" class="minimal" checked>
+                      Producto nuevo
+                    </label><br>
+                    <label>
+                      <input type="radio" name="r1" class="minimal">
+                      Producto reacondicionado
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
                   <label class="col-sm-2 control-label">Descripción</label>
                   <div class="col-sm-9">
                     <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
@@ -396,6 +425,8 @@
 <script src="<?=base_url('resources/admin/dist/js/app.min.js')?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?=base_url('resources/admin/dist/js/demo.js')?>"></script>
+<!-- iCheck 1.0.1 -->
+<script src="<?=base_url('resources/admin/plugins/iCheck/icheck.min.js')?>"></script>
 
 
 <script>
@@ -404,6 +435,11 @@
     $(".select2").select2();
     //Datatable
     $("#example1").DataTable();
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
   });
 </script>
 </body>

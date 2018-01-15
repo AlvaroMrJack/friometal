@@ -184,7 +184,7 @@
 									<figure class="product-image-area">
 										<a href="<?=site_url('producto/index/').$value->get("prod_id")?>" title="<?= $value->get("prod_nombre")  ?>" class="product-image">
 											<img src="<?=base_url('resources/img/products/').$value->get("prod_imagen1")?>" alt="<?= $value->get("prod_nombre")  ?>">
-											<img src="<?=base_url('resources//products/').$value->get("prod_imagen2")?>" alt="<?= $value->get("prod_nombre")  ?>" class="product-hover-image">
+											<!-- <img src="<?=base_url('resources/img/products/').$value->get("prod_imagen2")?>" alt="<?= $value->get("prod_nombre")  ?>" class="product-hover-image"> -->
 										</a>
 										<div class="product-label"><span class="new"><?= $value->get("prod_tipo") ?></span></div>
 									</figure>
