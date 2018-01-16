@@ -244,7 +244,10 @@
 
 							<div class="product-details-box col-sm-7">
 								<h1 class="product-name">
-									<?= $producto->get("prod_nombre");  ?>
+									<?= $producto->get("prod_nombre"); ?> (<?= $producto->get("modelo_nombre")."-".$producto->get("marca_nombre")  ?>)
+									<div class="product-label"><span class="discount"></span></div>
+										<div class="product-label"><span class="new"><u>Producto: </u> <?= $producto->get("prod_tipo") ?></span></div>
+
 								</h1>
 
                                 <div class="product-short-desc">
@@ -256,8 +259,8 @@
 										<span class="product-price"><?= $producto->moneda_chilena();  ?></span>
 									</div>
 									<p class="availability">
-										<span class="font-weight-semibold">Disponibilidad:</span>
-										En stock
+										<span class="font-weight-semibold">Disponible:</span>
+										En <?= $producto->get("prod_rentorsale") ?>
 									</p>
 								</div>
 

@@ -186,6 +186,7 @@
 											<img src="<?=base_url('resources/img/products/').$value->get("prod_imagen1")?>" alt="<?= $value->get("prod_nombre")  ?>">
 											
 										</a>
+										<div class="product-label"><span class="discount"><?= $value->get("prod_rentorsale") ?></span></div>
 										<div class="product-label"><span class="new"><?= $value->get("prod_tipo") ?></span></div>
 									</figure>
 									<div class="product-details-area">
