@@ -196,7 +196,9 @@
 					</ul>
 				</div>
 			</div>
-
+			<div class="container">
+				<h1 class="h1 heading-primary mt-lg clearfix center">VENTA Y ARRIENDO DE MAQUINAS</h1>
+			</div>
 			<div class="container">
 				<ul class="products-grid columns4">
 					<?php if ($categorias != null): ?>

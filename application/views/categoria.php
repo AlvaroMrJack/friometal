@@ -203,19 +203,13 @@
 
 									<div class="product-details-box center">
 										<div class="product-actions">
+											<div class="product-detail-qty">
+		                                        <input type="text" value="1" class="vertical-spinner" id="product-vqty">
+		                                    </div>
 											<a href="#" idprod="<?= $value->get("prod_id") ?>" nom="<?= $value->get("prod_nombre") ?>" precio="<?= $value->get("prod_precio") ?>" precio_formated="<?= $value->moneda_chilena() ?>" class="addtocart" title="Agregar al carro">
 												<i class="fa fa-shopping-cart"></i>
 												<span>Agregar al carro</span>
 											</a>
-											<div class="input-group number-spinner center" style="">
-												<span class="input-group-btn data-dwn">
-													<button class="btn btn-default btn-info" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
-												</span>
-												<input type="text" class="form-control text-center" value="1" min="1" max="40">
-												<span class="input-group-btn data-up">
-													<button class="btn btn-default btn-info" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
-												</span>
-											</div>
 										</div>
 									</div>
 								</div>
