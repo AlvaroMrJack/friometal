@@ -115,7 +115,7 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Nombre</label>
                   <div class="col-sm-9">
-                    <input type="input" class="form-control" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
                   </div>
                 </div>
               </div>
@@ -146,7 +146,7 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Nombre</label>
                   <div class="col-sm-9">
-                    <input type="input" class="form-control" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
                   </div>
                 </div>
                 <div class="form-group">
@@ -309,7 +309,7 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Nombre</label>
                   <div class="col-sm-9">
-                    <input type="input" class="form-control" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
                   </div>
                 </div>
               </div>
@@ -356,7 +356,7 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Nombre</label>
                   <div class="col-sm-9">
-                    <input type="input" class="form-control" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
                   </div>
                 </div>
               </div>

@@ -115,7 +115,7 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Nombre</label>
                   <div class="col-sm-11">
-                    <input type="input" class="form-control" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
                   </div>
                 </div>
 
@@ -123,7 +123,7 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Precio</label>
                   <div class="col-sm-11">
-                    <input type="input" class="form-control" id="precio" placeholder="Precio">
+                    <input type="text" class="form-control" id="precio" placeholder="Precio">
                   </div>
                 </div>
                 <div class="form-group">
@@ -209,7 +209,7 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Link de Youtube</label>
                   <div class="col-sm-11">
-                    <input type="input" class="form-control" id="linkyoutube" placeholder="Link de video de Youtube">
+                    <input type="text" class="form-control" id="linkyoutube" placeholder="Link de video de Youtube">
                   </div>
                 </div>
               </div>
@@ -316,7 +316,7 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Nombre</label>
                   <div class="col-sm-9">
-                    <input type="input" class="form-control" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
                   </div>
                 </div>
 
@@ -324,7 +324,7 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Precio</label>
                   <div class="col-sm-9">
-                    <input type="input" class="form-control" id="precio" placeholder="Precio">
+                    <input type="text" class="form-control" id="precio" placeholder="Precio">
                   </div>
                 </div>
                 <div class="form-group">
@@ -408,7 +408,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Link de Youtube</label>
                   <div class="col-sm-8">
-                    <input type="input" class="form-control" id="linkyoutube" placeholder="Link de video de Youtube">
+                    <input type="text" class="form-control" id="linkyoutube" placeholder="Link de video de Youtube">
                   </div>
                 </div>
               </div>                  

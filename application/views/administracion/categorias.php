@@ -98,7 +98,7 @@
     <!-- Main content -->
     <section class="content">
 
-      <div class="box box-info">
+          <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Crea una categoría</h3>
             </div>
@@ -109,7 +109,7 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Nombre</label>
                   <div class="col-sm-11">
-                    <input type="input" class="form-control" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
                   </div>
                 </div>
                 <div class="form-group">
@@ -129,15 +129,11 @@
                     <button type="button" class="btn btn-block btn-danger">Borrar campos</button>
                   </div>
                 </div>
-                
-                
               </div>
               <!-- /.box-footer -->
-              
             </div>
           </div>
           <!-- /.box -->
-
           <div class="box box-info">
             <div class="box-header">
               <h3 class="box-title">Edita o elimina una categoría</h3>
@@ -197,7 +193,7 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Nombre</label>
                       <div class="col-sm-9">
-                        <input type="input" class="form-control" id="nombre" placeholder="Nombre">
+                        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
                       </div>
                     </div>
                     <div class="form-group">
