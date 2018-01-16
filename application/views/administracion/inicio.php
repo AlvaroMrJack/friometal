@@ -103,25 +103,26 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <div class="form-horizontal">
+            <form action="<?=site_url('Adm_inicio/crearanuncio')?>" method="post" accept-charset="utf-8">
+              <div class="form-horizontal">
               <div class="box-body">
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Título</label>
                   <div class="col-sm-11">
-                    <input type="input" class="form-control" id="titulo" placeholder="Título">
+                    <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Título">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Subtitulo</label>
 
                   <div class="col-sm-11">
-                    <input type="password" class="form-control" id="Subtitulo" placeholder="Subtitulo">
+                    <input type="text" name="subtitulo" class="form-control" id="Subtitulo" placeholder="Subtitulo">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Texto</label>
                   <div class="col-sm-11">
-                    <textarea class="form-control" rows="5" id="texto" placeholder="Texto ..."></textarea>
+                    <textarea class="form-control" name="texto" rows="5" id="texto" placeholder="Texto ..."></textarea>
                   </div>
                 </div>
               </div>
@@ -129,18 +130,15 @@
               <div class="box-footer">
                 <div class="row">
                   <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-primary">Aceptar</button>
-                  </div>
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-danger">Cancelar</button>
+                    <button type="submit" class="btn btn-block btn-primary">Aceptar</button>
                   </div>
                 </div>
                 
                 
               </div>
               <!-- /.box-footer -->
-              
             </div>
+            </form>
           </div>
           <!-- /.box -->
           <div class="box box-info">
@@ -159,21 +157,25 @@
                     <th class="text-center">Editar</th>
                     <th class="text-center">Eliminar</th>
                   </tr>
-                  <tr>
-                    <td>1.</td>
-                    <td>Titulo</td>
-                    <td>Subtitulo</td>
-                    <td>Texto</td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-                        <i class="fa fa-edit"></i>
-                      </button>
-                    </td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-danger">
-                      <i class="fa fa-trash-o"></i>
-                    </button></td>
-                  </tr>
+                  <?php if ($anuncios != null): ?>
+                    <?php foreach ($anuncios as $key => $value): ?>
+                      <tr>
+                        <td><?= $value->get("anuncio_id")  ?></td>
+                        <td id="titulo_<?= $value->get("anuncio_id")?>"><?= $value->get("anuncio_titulo")  ?></td>
+                        <td id="subtitulo_<?= $value->get("anuncio_id")?>"><?= $value->get("anuncio_subtitulo")  ?></td>
+                        <td id="texto_<?= $value->get("anuncio_id")?>"><?= $value->get("anuncio_texto")  ?></td>
+                        <td class="text-center">
+                          <button type="button" id="<?= $value->get("anuncio_id") ?>" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-edit"></i>
+                          </button>
+                        </td>
+                        <td class="text-center">
+                          <a href="<?=site_url('Adm_inicio/eliminaranuncio/').$value->get("anuncio_id")?>" type="button" class="btn btn-danger">
+                          <i class="fa fa-trash-o"></i>
+                        </a></td>
+                      </tr>
+                    <?php endforeach ?>
+                  <?php endif ?>
                 </table>
               </div>
             </div>
@@ -192,41 +194,45 @@
                 <h4 class="modal-title">Editar una oferta</h4>
               </div>
               <div class="modal-body">
-                <div class="form-horizontal">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label">Título</label>
-                      <div class="col-sm-9">
-                        <input type="input" class="form-control" id="titulo" placeholder="Título">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label">Subtitulo</label>
 
-                      <div class="col-sm-9">
-                        <input type="password" class="form-control" id="Subtitulo" placeholder="Subtitulo">
+                <form action="<?=site_url('Adm_inicio/editaranuncio')?>" method="post" accept-charset="utf-8">
+                  <input id="idanunciohidden" type="text" name="id" hidden>
+                      <div class="form-horizontal">
+                        <div class="box-body">
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label">Título</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="titulo" id="tituloedit" placeholder="Título">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label">Subtitulo</label>
+
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="subtitulo" id="subtituloedit" placeholder="Subtitulo">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 control-label">Texto</label>
+                            <div class="col-sm-9">
+                              <textarea class="form-control" name="texto" rows="2" id="textoedit" placeholder="Texto ..."></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                        <!-- /.box-body -->
+                    <div class="box-footer">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <button type="submit" class="btn btn-block btn-primary">Guardar cambios</button>
+                        </div>
+                        <div class="col-md-6">
+                          <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label">Texto</label>
-                      <div class="col-sm-9">
-                        <textarea class="form-control" rows="2" id="texto" placeholder="Texto ..."></textarea>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                  <!-- /.box-body -->
-              <div class="box-footer">
-                <div class="row">
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-primary">Guardar cambios</button>
-                  </div>
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
-                  </div>
-                </div>
-              </div>
-              <!-- /.box-footer -->
+                    <!-- /.box-footer -->
+                </form>
             </div>
               </div>
             </div>
@@ -256,5 +262,18 @@
 <script src="<?=base_url('resources/admin/dist/js/app.min.js')?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?=base_url('resources/admin/dist/js/demo.js')?>"></script>
+
+<script>
+  $('#myModal').on('shown.bs.modal', function (argument) {
+    var id = argument.relatedTarget.id;
+    var titulo = $("#titulo_"+id).text();
+    var subtitulo = $("#subtitulo_"+id).text();
+    var texto = $("#texto_"+id).text();
+    $("#idanunciohidden").val(id);
+    $("#tituloedit").val(titulo);
+    $("#subtituloedit").val(subtitulo);
+    $("#textoedit").val(texto);
+  });
+</script>
 </body>
 </html>

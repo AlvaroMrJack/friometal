@@ -54,7 +54,6 @@ class Anuncio_model extends CI_Model {
 
     public function findById($id = null){
 	$id = intval($id);
-	$this->db->database();
 	$res = $this->db->get_where('anuncios',array('anuncio_id' =>$id));
 	$product = null;
 		if ($res->num_rows() == 1) {
