@@ -118,13 +118,6 @@
                     <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-1 control-label">Banner</label>
-                  <div class="col-sm-11">
-                  <input type="file" id="banner">
-                    <p class="help-block">Seleccione una imagen que será portada de la categoría.</p>
-                  </div>
-                </div>
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
@@ -211,13 +204,6 @@
                       <label class="col-sm-2 control-label">Descripción</label>
                       <div class="col-sm-9">
                         <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label">Banner</label>
-                      <div class="col-sm-9">
-                      <input type="file" id="banner">
-                        <p class="help-block">Seleccione una imagen que será portada de la categoría.</p>
                       </div>
                     </div>
                   </div>
