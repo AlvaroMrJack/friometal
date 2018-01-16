@@ -195,8 +195,12 @@
 										<div class="product-price-box">
 											<span class="product-price"><?= $value->moneda_chilena() ?></span>
 										</div>
-
+									</div><br>
+									<div class="product-details-box center">
 										<div class="product-actions">
+											<div class="product-detail-qty">
+		                                        <input type="text" value="1" class="vertical-spinner" id="product-vqty">
+		                                    </div>
 											<a href="#" idprod="<?= $value->get("prod_id") ?>" nom="<?= $value->get("prod_nombre") ?>" precio="<?= $value->get("prod_precio") ?>" precio_formated="<?= $value->moneda_chilena() ?>" class="addtocart" title="Agregar al carro">
 												<i class="fa fa-shopping-cart"></i>
 												<span>Agregar al carro</span>
@@ -205,7 +209,6 @@
 									</div>
 								</div>
 							</li>
-							
 						<?php endforeach ?>
 					<?php endif ?>
 				</ul>
@@ -255,6 +258,9 @@
 		<!-- Current Page Vendor and Views -->
 		<script src="<?=base_url('resources/js/views/view.contact.js')?>"></script>
 
+		<script src="<?=base_url('resources/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js')?>"></script>
+		<script src="<?=base_url('resources/vendor/elevatezoom/jquery.elevatezoom.js')?>"></script>
+
 		<!-- Demo -->
 		<script src="<?=base_url('resources/js/demos/demo-shop-17.js')?>"></script>
 		
@@ -263,6 +269,12 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url('resources/js/theme.init.js')?>"></script>
+
+		<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-581b726c069c6315"></script>
+
+
+
+
 
 		<script type="text/javascript" charset="utf-8" >
 

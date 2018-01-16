@@ -34,7 +34,6 @@
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="<?=base_url('resources/css/theme.css')?>">
 		<link rel="stylesheet" href="<?=base_url('resources/css/theme-elements.css')?>">
-		<link rel="stylesheet" href="<?=base_url('resources/css/theme-blog.css')?>">
 		<link rel="stylesheet" href="<?=base_url('resources/css/theme-shop.css')?>">
 
 		<!-- Current Page CSS -->
@@ -47,9 +46,6 @@
 
 		<!-- Demo CSS -->
 		<link rel="stylesheet" href="<?=base_url('resources/css/demos/demo-shop-17.css')?>">
-
-		<!-- Theme Custom CSS -->
-		<link rel="stylesheet" href="<?=base_url('resources/css/custom.css')?>">
 
 		<!-- Head Libs -->
 		<script src="<?=base_url('resources/vendor/modernizr/modernizr.min.js')?>"></script>

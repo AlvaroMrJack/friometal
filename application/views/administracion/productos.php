@@ -155,18 +155,32 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-1 control-label">Tipo de producto</label>
+                  <label class="col-sm-1 control-label">Estado del producto</label>
                   <div class="col-sm-11">
                     <label>
                       <input type="radio" name="r1" class="minimal" checked>
-                      Producto nuevo
+                      Producto en venta
                     </label><br>
                     <label>
                       <input type="radio" name="r1" class="minimal">
+                      Producto en arriendo
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">Tipo de producto</label>
+                  <div class="col-sm-11">
+                    <label>
+                      <input type="radio" name="r2" class="minimal" checked>
+                      Producto nuevo
+                    </label><br>
+                    <label>
+                      <input type="radio" name="r2" class="minimal">
                       Producto reacondicionado
                     </label>
                   </div>
                 </div>
+
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Descripción</label>
                   <div class="col-sm-11">
@@ -338,14 +352,27 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label class="col-sm-2 control-label">Estado del producto</label>
+                  <div class="col-sm-9">
+                    <label>
+                      <input type="radio" name="r3" class="minimal" checked>
+                      Producto en venta
+                    </label><br>
+                    <label>
+                      <input type="radio" name="r3" class="minimal">
+                      Producto en arriendo
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
                   <label class="col-sm-2 control-label">Tipo de producto</label>
                   <div class="col-sm-9">
                     <label>
-                      <input type="radio" name="r1" class="minimal" checked>
+                      <input type="radio" name="r4" class="minimal" checked>
                       Producto nuevo
                     </label><br>
                     <label>
-                      <input type="radio" name="r1" class="minimal">
+                      <input type="radio" name="r4" class="minimal">
                       Producto reacondicionado
                     </label>
                   </div>
