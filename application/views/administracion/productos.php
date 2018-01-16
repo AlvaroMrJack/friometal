@@ -159,11 +159,15 @@
                   <div class="col-sm-11">
                     <label>
                       <input type="radio" name="r1" class="minimal" checked>
-                      Producto en venta
+                      Producto para venta
                     </label><br>
                     <label>
                       <input type="radio" name="r1" class="minimal">
-                      Producto en arriendo
+                      Producto para arriendo
+                    </label><br>
+                    <label>
+                      <input type="radio" name="r1" class="minimal">
+                      Producto para venta y arriendo
                     </label>
                   </div>
                 </div>
@@ -356,11 +360,15 @@
                   <div class="col-sm-9">
                     <label>
                       <input type="radio" name="r3" class="minimal" checked>
-                      Producto en venta
+                      Producto para venta
                     </label><br>
                     <label>
                       <input type="radio" name="r3" class="minimal">
-                      Producto en arriendo
+                      Producto para arriendo
+                    </label><br>
+                    <label>
+                      <input type="radio" name="r3" class="minimal">
+                      Producto para venta y arriendo
                     </label>
                   </div>
                 </div>

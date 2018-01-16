@@ -53,7 +53,8 @@
 
 		<!-- Head Libs -->
 		<script src="<?=base_url('resources/vendor/modernizr/modernizr.min.js')?>"></script>
-
+		<style type="text/css">
+		</style>
 	</head>
 	<body>
 
@@ -196,15 +197,25 @@
 											<span class="product-price"><?= $value->moneda_chilena() ?></span>
 										</div>
 									</div><br>
+
+
+
+
 									<div class="product-details-box center">
 										<div class="product-actions">
-											<div class="product-detail-qty">
-		                                        <input type="text" value="1" class="vertical-spinner" id="product-vqty">
-		                                    </div>
 											<a href="#" idprod="<?= $value->get("prod_id") ?>" nom="<?= $value->get("prod_nombre") ?>" precio="<?= $value->get("prod_precio") ?>" precio_formated="<?= $value->moneda_chilena() ?>" class="addtocart" title="Agregar al carro">
 												<i class="fa fa-shopping-cart"></i>
 												<span>Agregar al carro</span>
 											</a>
+											<div class="input-group number-spinner center" style="">
+												<span class="input-group-btn data-dwn">
+													<button class="btn btn-default btn-info" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+												</span>
+												<input type="text" class="form-control text-center" value="1" min="1" max="40">
+												<span class="input-group-btn data-up">
+													<button class="btn btn-default btn-info" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+												</span>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -270,7 +281,6 @@
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url('resources/js/theme.init.js')?>"></script>
 
-		<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-581b726c069c6315"></script>
 
 
 
@@ -342,6 +352,49 @@
 
 			    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
 			};
+
+
+
+
+
+
+			/*input spinner*/
+			$(function() {
+			    var action;
+			    $(".number-spinner button").on('mousedown touchstart', function () {
+			        btn = $(this);
+			        input = btn.closest('.number-spinner').find('input');
+			        btn.closest('.number-spinner').find('button').prop("disabled", false);
+
+			    	if (btn.attr('data-dir') == 'up') {
+			            action = setInterval(function(){
+			                if ( input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max')) ) {
+			                    input.val(parseInt(input.val())+1);
+			                }else{
+			                    btn.prop("disabled", true);
+			                    clearInterval(action);
+			                }
+			            }, 50);
+			    	} else {
+			            action = setInterval(function(){
+			                if ( input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min')) ) {
+			                    input.val(parseInt(input.val())-1);
+			                }else{
+			                    btn.prop("disabled", true);
+			                    clearInterval(action);
+			                }
+			            }, 50);
+			    	}
+			    }).on('mouseup touchend', function () {
+			        clearInterval(action);
+			    });
+			});
+			/*input spinner*/
+
+
+
+
+
 		</script>
 
 
