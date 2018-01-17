@@ -104,7 +104,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="<?=site_url('Adm_categorias/crearcategoria')?>" method="post" accept-charset="utf-8">
+            <form action="<?=site_url('Adm_categorias/crearcategoria')?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
               <div class="form-horizontal">
                 <div class="box-body">
                   <div class="form-group">
@@ -162,14 +162,14 @@
                           <td><?= $value->get("cat_nombre")  ?></td>
                           <td><?= $value->get("cat_desc")  ?></td>
                           <td class="text-center">
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-                              <i class="fa fa-edit"></i>
-                            </button>
-                          </td>
-                          <td class="text-center">
-                            <button type="button" class="btn btn-danger">
-                            <i class="fa fa-trash-o"></i>
-                          </button></td>
+                          <button type="button" id="<?= $value->get("cat_id") ?>" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-edit"></i>
+                          </button>
+                        </td>
+                        <td class="text-center">
+                          <a href="<?=site_url('Adm_categorias/eliminarcategoria/').$value->get("cat_id")?>" type="button" class="btn btn-danger">
+                          <i class="fa fa-trash-o"></i>
+                        </a></td>
                         </tr>
                     <?php endforeach ?>
                   <?php endif ?>

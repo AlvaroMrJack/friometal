@@ -5,6 +5,8 @@ class Adm_marca_modelo extends CI_Controller {
 
 	public function index()
 	{
+		$marcas = $this->marca->findAll();
+		$data["marcas"] = $marcas;
 		$this->load->view('administracion/marcamodelo');
 	}
 
