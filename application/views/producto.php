@@ -78,66 +78,34 @@
 							
 
 							<div class="cart-dropdown">
-								<a href="#" class="cart-dropdown-icon">
-									<i class="minicart-icon"></i>
-									<span class="cart-info">
-										<span class="cart-qty">2</span>
-										<span class="cart-text">item(s)</span>
-									</span>
-								</a>
+									<a href="#" class="cart-dropdown-icon">
+										<i class="minicart-icon"></i>
+										<span class="cart-info">
+											<span id="cart-qty" class="cart-qty">0</span>
+											<span class="cart-text">Producto(s)</span>
+										</span>
+									</a>
 
-								<div class="cart-dropdownmenu right">
-									<div class="dropdownmenu-wrapper">
-										<div class="cart-products">
-											<div class="product product-sm">
-												<a href="#" class="btn-remove" title="Remove Product">
-													<i class="fa fa-times"></i>
-												</a>
-												<figure class="product-image-area">
-													<a href="demo-shop-17-product-details.html" title="Product Name" class="product-image">
-														<img src="<?=base_url('resources/img/demos/shop/products/thumbs/cart-product1.jpg')?>" alt="Product Name">
-													</a>
-												</figure>
-												<div class="product-details-area">
-													<h2 class="product-name"><a href="demo-shop-17-product-details.html" title="Product Name">Blue Women Top</a></h2>
+									<div class="cart-dropdownmenu right">
+										<div class="dropdownmenu-wrapper">
+											<div class="cart-products">
 
-													<div class="cart-qty-price">
-														1 X 
-														<span class="product-price">$65.00</span>
-													</div>
-												</div>
+
+											<div id="list_cart" class="product product-sm">
+												
 											</div>
-											<!-- <div class="product product-sm">
-												<a href="#" class="btn-remove" title="Remove Product">
-													<i class="fa fa-times"></i>
-												</a>
-												<figure class="product-image-area">
-													<a href="demo-shop-17-product-details.html" title="Product Name" class="product-image">
-														<img src="<?=base_url('resources/img/demos/shop/products/thumbs/cart-product2.jpg')?>" alt="Product Name">
-													</a>
-												</figure>
-												<div class="product-details-area">
-													<h2 class="product-name"><a href="demo-shop-17-product-details.html" title="Product Name">Black Utility Top</a></h2>
+											</div>
 
-													<div class="cart-qty-price">
-														1 X 
-														<span class="product-price">$39.00</span>
-													</div>
-												</div>
-											</div> -->
-										</div>
+											<div class="cart-totals">
+												Total: <span id="totalcart">$0</span>
+											</div>
 
-										<div class="cart-totals">
-											Total: <span>$104.00</span>
-										</div>
-
-										<div class="cart-actions">
-											<a href="#" class="btn btn-primary">View Cart</a>
-											<a href="#" class="btn btn-primary">Checkout</a>
+											<div class="cart-actions">
+												<a href="#" class="btn btn-success">Confirmar</a>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>		
+								</div>		
 							
 							<p class="welcome-msg">Contáctenos al: <i class="fa fa-phone"></i> (+562) 9876 5432</p>
 
@@ -265,9 +233,9 @@
 
 								<div class="product-actions">
 									<div class="product-detail-qty">
-                                        <input type="text" value="1" class="vertical-spinner" id="product-vqty">
+                                        <input type="text" value="1" id="cantidad_<?= $producto->get("prod_id") ?>" class="vertical-spinner product-vqty">
                                     </div>
-									<a href="#" class="addtocart" title="Agregar al cart-product2">
+									<a href="#" idprod="<?= $producto->get("prod_id") ?>" nom="<?= $producto->get("prod_nombre") ?>" precio="<?= $producto->get("prod_precio") ?>" precio_formated="<?= $producto->moneda_chilena() ?>" class="addtocart" title="Agregar al carro">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Agregar al carro</span>
 									</a>
@@ -288,7 +256,7 @@
 							<div id="product-desc" class="tab-pane active">
 								<div class="product-desc-area">
 									<div class="embed-container">
-										<iframe width="854" height="480" src="https://www.youtube.com/watch?v=C_mQqK-H0us" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+										<iframe width="854" height="480" src="https://www.youtube.com/embed/C_mQqK-H0us" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 									</div>
 								</div>
 							</div>
@@ -301,7 +269,7 @@
 									<h3 class="text-uppercase heading-text-color font-weight-semibold">Aquí encontrarás todo tipo de información relacionada al producto</h3>
 									<p>Desea ver mas información de este producto? *</p>
 
-									<a href="<?= $producto->get("prod_link_esp") ?>" class="fa fa-eye" title="Manual">Manual de uso</a>
+									<a href="<?= $producto->get("prod_link_esp") ?>" class="fa fa-file-pdf-o" title="Manual">&nbsp;Manual de uso</a>
 								</div>
 							</div>
 						</div>
@@ -363,20 +331,113 @@
 
 		<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-581b726c069c6315"></script>
 
+				<script type="text/javascript" charset="utf-8" >
+
+			$(function (argument) {
+				cargar_carrito();
+			})
+
+			$(".addtocart").click(function (argument) {
+				var oldItems = JSON.parse(localStorage.getItem('carrito')) || [];
+				var productos_carrito = new Array();
+				var id = $(this).attr("idprod");
+				var nom = $(this).attr("nom");
+				var precio = $(this).attr("precio");
+				var precioformated = $(this).attr("precio_formated");
+				var cantidad = $("#cantidad_"+id).val() || 1;
+				var flag = false;
+				var objcart = JSON.parse(localStorage.getItem("carrito"));
+
+				if (!$.isEmptyObject(objcart)) {
+					$.each(objcart, function(index, val) {
+						if (val.id == id)flag = true;
+					});
+				};
+				if (flag == false) {
+						var newItem = {"id":id,"nom":nom,"precio":precio,"precioformated":precioformated,"cantidad":cantidad};
+						oldItems.push(newItem);
+
+					};
+
+				localStorage.setItem('carrito', JSON.stringify(oldItems));
+				cargar_carrito();
+			})
+
+			$(document).on('click', '.removecart', function(event) {
+				var id = $(this).attr("idremove");
+				var objcart = JSON.parse(localStorage.getItem("carrito")) || [];
+
+				var idaeliminar = 0;
+				if (!$.isEmptyObject(objcart)) {
+					$.each(objcart, function(index, val) {
+						if (parseInt(val.id) == parseInt(id))idaeliminar = index;
+					});
+					objcart.splice(idaeliminar, 1);
+				};
+				localStorage.setItem('carrito', JSON.stringify(objcart));
+				cargar_carrito();
+			});
+
+			function cargar_carrito () {
+				$("#list_cart").text("");
+				var i = 0;
+				var  total = 0;
+				var objcart = JSON.parse(localStorage.getItem("carrito"));
+				$.each(objcart, function(index, val) {
+					$("#list_cart").append('<a class="fa fa-times removecart" idremove="'+val.id+'" ></a><div class="product-details-area"><h2 class="product-name"><a title="'+val.nom+'">'+val.nom+'</a></h2><div class="cart-qty-price">'+val.cantidad+' X <span class="product-price">'+val.precioformated+'</span></div></div>');
+					total += parseInt(val.precio)*parseInt(val.cantidad);
+					 i++;
+				});
+				$("#cart-qty").text(i);
+				$("#totalcart").text(total.format(0, 3, '.', ','));
+			}
+
+			Number.prototype.format = function(n, x, s, c) {
+			    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+			        num = this.toFixed(Math.max(0, ~~n));
+
+			    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+			};
+
+
+			/*input spinner*/
+			$(function() {
+			    var action;
+			    $(".number-spinner button").on('mousedown touchstart', function () {
+			        btn = $(this);
+			        input = btn.closest('.number-spinner').find('input');
+			        btn.closest('.number-spinner').find('button').prop("disabled", false);
+
+			    	if (btn.attr('data-dir') == 'up') {
+			            action = setInterval(function(){
+			                if ( input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max')) ) {
+			                    input.val(parseInt(input.val())+1);
+			                }else{
+			                    btn.prop("disabled", true);
+			                    clearInterval(action);
+			                }
+			            }, 50);
+			    	} else {
+			            action = setInterval(function(){
+			                if ( input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min')) ) {
+			                    input.val(parseInt(input.val())-1);
+			                }else{
+			                    btn.prop("disabled", true);
+			                    clearInterval(action);
+			                }
+			            }, 50);
+			    	}
+			    }).on('mouseup touchend', function () {
+			        clearInterval(action);
+			    });
+			});
+			/*input spinner*/
 
 
 
-		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-			ga('create', 'UA-12345678-1', 'auto');
-			ga('send', 'pageview');
+
+
 		</script>
-		 -->
 
 
 	</body>

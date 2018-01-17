@@ -170,7 +170,7 @@
                           </button>
                         </td>
                         <td class="text-center">
-                          <a href="<?=site_url('Adm_inicio/eliminaranuncio/').$value->get("anuncio_id")?>" type="button" class="btn btn-danger">
+                          <a href="<?=site_url('Adm_inicio/eliminaranuncio/').$value->get("anuncio_id")?>" onclick="return confirm('Estas seguro de eliminar este registro, recuerda que esta acción es irreversible?')" type="button" class="btn btn-danger">
                           <i class="fa fa-trash-o"></i>
                         </a></td>
                       </tr>

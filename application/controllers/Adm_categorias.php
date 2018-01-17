@@ -54,7 +54,7 @@ class Adm_categorias extends CI_Controller {
 		if ($categoria != null) {
 
 		   $imagen=null;
-           if ($_FILES['files']['error'] == UPLOAD_ERR_OK) {
+           if ($_FILES['files']['error'] == UPLOAD_ERR_OK && isset($_FILES['files'])) {
 				$datimg=$_FILES["files"];
 				//imagescale($datimg['tmp_name'], 200, 200, IMG_BICUBIC);
 				$this->load->model('Archivo_model',false);

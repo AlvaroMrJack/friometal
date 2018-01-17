@@ -159,15 +159,15 @@
                     <?php foreach ($categorias as $key => $value): ?>
                         <tr>
                           <td><?= $value->get("cat_id")  ?></td>
-                          <td><?= $value->get("cat_nombre")  ?></td>
-                          <td><?= $value->get("cat_desc")  ?></td>
+                          <td id="nombre_<?= $value->get("cat_id")?>"><?= $value->get("cat_nombre")  ?></td>
+                          <td id="desc_<?= $value->get("cat_id")?>"><?= $value->get("cat_desc")  ?></td>
                           <td class="text-center">
-                          <button type="button" id="<?= $value->get("cat_id") ?>" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                          <button type="button" id="<?= $value->get("cat_id")."&".$value->get("cat_img_ruta") ?>" class="btn btn-default" data-toggle="modal" data-target="#myModal">
                             <i class="fa fa-edit"></i>
                           </button>
                         </td>
                         <td class="text-center">
-                          <a href="<?=site_url('Adm_categorias/eliminarcategoria/').$value->get("cat_id")?>" type="button" class="btn btn-danger">
+                          <a href="<?=site_url('Adm_categorias/eliminarcategoria/').$value->get("cat_id")?>" onclick="return confirm('Estas seguro de eliminar este registro, recuerda que esta acción es irreversible?')" type="button" class="btn btn-danger">
                           <i class="fa fa-trash-o"></i>
                         </a></td>
                         </tr>
@@ -196,42 +196,48 @@
                 <h4 class="modal-title">Editar categoría</h4>
               </div>
               <div class="modal-body">
-                <div class="form-horizontal">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label">Nombre</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+
+
+              <form action="<?=site_url('Adm_categorias/editarcategoria')?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                <input id="idcathidden" type="text" name="id" hidden>
+                  <div class="form-horizontal">
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="nombre_edit" name="nombre" placeholder="Nombre">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Descripción</label>
+                        <div class="col-sm-9">
+                          <textarea class="form-control" rows="2" id="descripcion_edit" name="desc" placeholder="Descripción ..."></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Imagen</label>
+                        <div class="col-sm-9 center">
+                          <img class="center-block" id="img_base" src="" width="60%">
+                          <p class="help-block">Seleccione una nueva imagen para la categoría.</p>
+                          <input type="file" id="files" name="files">
+                        </div>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label">Descripción</label>
-                      <div class="col-sm-9">
-                        <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <button type="submit" class="btn btn-block btn-primary">Guardar cambios</button>
+                        </div>
+                        <div class="col-md-6">
+                          <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label">Imagen</label>
-                      <div class="col-sm-9 center">
-                        <img class="center-block" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
-                        <p class="help-block">Seleccione una nueva imagen para la categoría.</p>
-                        <input type="file" id="files" name="files">
-                      </div>
-                    </div>
+                    <!-- /.box-footer -->
                   </div>
-                  <!-- /.box-body -->
-                  <div class="box-footer">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <button type="button" class="btn btn-block btn-primary">Guardar cambios</button>
-                      </div>
-                      <div class="col-md-6">
-                        <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.box-footer -->
-                </div>
+
+
               </div>
             </div>
             <!-- /.modal-content -->
@@ -267,6 +273,18 @@
 <script src="<?=base_url('resources/admin/dist/js/demo.js')?>"></script>
 
 <script>
+    $('#myModal').on('shown.bs.modal', function (argument) {
+    var id = argument.relatedTarget.id;
+    var nn = id.split("&");
+    id = nn[0];
+    var img = nn[1];
+    var nombre = $("#nombre_"+id).text();
+    var desc = $("#desc_"+id).text();
+    $("#idcathidden").val(id);
+    $("#nombre_edit").val(nombre);
+    $("#descripcion_edit").val(desc);
+    $("#img_base").attr('src', '<?=base_url("resources/img/categorias/")?>'+img);
+  });
 </script>
 </body>
 </html>
