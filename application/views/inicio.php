@@ -83,11 +83,8 @@
 										</div>
 
 										<div class="cart-actions">
-<<<<<<< HEAD
-											<a id="confirmar_pedido" class="btn btn-success">Confirmar</a>
-=======
-											<a class="btn btn-success" data-toggle="modal" data-target="#myModal">Confirmar</a>
->>>>>>> 42fa57d00b882d625010a35477e19e93e989b3b7
+											<a class="btn btn-success" data-toggle="modal" id="confirmar_pedido" data-target="#myModal">Confirmar</a>
+
 										</div>
 									</div>
 								</div>
@@ -244,13 +241,13 @@
 			      <div class="modal-body">
 			        <div class="form-group">
 					  <label>Correo electrónico:</label>
-					  <input type="text" class="form-control">
+					  <input type="text" id="email_cliente" class="form-control">
 					</div>
 			      </div>
 			      <div class="modal-body">
 			        <div class="form-group">
 					  <label>Nombre:</label>
-					  <input type="text" class="form-control">
+					  <input type="text" id="nombre_cliente" class="form-control">
 					</div>
 			      </div>
 			      <div class="modal-body">
@@ -277,24 +274,8 @@
 									</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-								</tr>
+							<tbody id="detalle_cotizacion">
+								
 							</tbody>
 						</table>
 					  </div>
@@ -411,7 +392,7 @@
 				var objcart = JSON.parse(localStorage.getItem("carrito"));
 				$.each(objcart, function(index, val) {
 					$("#list_cart").append('<a class="fa fa-times removecart" idremove="'+val.id+'" ></a><div class="product-details-area"><h2 class="product-name"><a title="'+val.nom+'">'+val.nom+'</a></h2><div class="cart-qty-price">1 X <span class="product-price">'+val.precioformated+'</span></div></div>');
-					total += parseInt(val.precio);
+					total += parseInt(val.precio)*parseInt(val.cantidad);
 					 i++;
 				});
 				$("#cart-qty").text(i);
@@ -422,9 +403,22 @@
 				var objcart = JSON.parse(localStorage.getItem("carrito"));
 				var email = $.trim($("#email_cliente").val());
 				var nombre = $.trim($("#nombre_cliente").val());
-				var adicional = $.trim($("#nombre_cliente").val());
+				var adicional = $.trim($("#adicional_cliente").val());
+
 
 				if (!$.isEmptyObject(objcart) && email != "" && nombre != "") {
+
+					$.each(objcart, function(index, val) {
+						total += parseInt(val.precio)*parseInt(val.cantidad);
+						$("#detalle_cotizacion").append('<tr><td>'+val.id+'</td><td>'+val.cantidad+'</td><td>'+val.nom+'</td><td>'+val.precioformated+'</td><td>'+total+'</td></tr>');
+					});
+
+
+
+
+
+
+
 					$.ajax({
 				          method:"POST",
 				          url: "<?=site_url('/contacto/sendEmailCotizacion')?>",
