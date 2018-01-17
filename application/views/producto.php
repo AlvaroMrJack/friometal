@@ -244,7 +244,8 @@
 										<span class="discount"></span>
 									</div><br>
 									<div class="product-label">
-										<span><u>Producto</u> : <?= $producto->get("prod_tipo") ?></span>
+										<u>Producto</u>:
+										<span style="color: #3685c0;"><?= $producto->get("prod_tipo") ?></span>
 									</div>
 								</h1>
 
@@ -312,9 +313,6 @@
 			<footer id="footer">
 				<div class="footer-copyright">
 					<div class="container">
-						<a href="<?=base_url()?>" class="logo">
-							<img alt="" class="img-responsive" src="<?=base_url('resources/img/logos/friometal_logo.png')?>">
-						</a>
 						<a class="logo">
 							<img title="Sitio web optimizado con HTML5" style="width: 120px;" alt="Sitio web optimizado con HTML5" class="img-responsive" src="<?=base_url('resources/img/html5.png')?>">
 						</a>
