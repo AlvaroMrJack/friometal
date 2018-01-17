@@ -98,6 +98,17 @@ class Product_model extends CI_Model {
 	return $productos;
 	}
 
+	public function findByArray($myarray = null)
+    {
+        $this->load->database();
+        $res    = $this->db->get_where('productos', $myarray);
+        $result = null;
+        foreach ($res->result() as $row) {
+            $result[] = $this->create($row);
+        }
+        return $result;
+    }
+
 	public function create($row){
 	$prod =  new Product_model();
 	$prod->setColumns($row);

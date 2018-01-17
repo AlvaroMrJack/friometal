@@ -20,7 +20,7 @@ class Adm_categorias extends CI_Controller {
 			if(isset($_FILES["files"])){
 				$datimg=$_FILES["files"];
 				$this->load->model('Archivo_model',false);
- 				$archivo = new Archivo_model(htmlspecialchars($datimg['name']),htmlspecialchars($datimg['size']),htmlspecialchars($datimg['type']),htmlspecialchars($datimg['tmp_name']));
+ 				$archivo = new Archivo_model($datimg['name'],htmlspecialchars($datimg['size']),htmlspecialchars($datimg['type']),htmlspecialchars($datimg['tmp_name']),"resources/img/categorias/");
 			    if ($archivo->validate()) {
 					$imagen = $archivo->upload();
 				}
@@ -52,10 +52,25 @@ class Adm_categorias extends CI_Controller {
 		$id = $this->input->post('id');
 		$categoria = $this->cat->findById($id);
 		if ($categoria != null) {
+
+		   $imagen=null;
+           if ($_FILES['files']['error'] == UPLOAD_ERR_OK) {
+				$datimg=$_FILES["files"];
+				//imagescale($datimg['tmp_name'], 200, 200, IMG_BICUBIC);
+				$this->load->model('Archivo_model',false);
+     			$archivo = new Archivo_model(htmlspecialchars($datimg['name']),htmlspecialchars($datimg['size']),htmlspecialchars($datimg['type']),htmlspecialchars($datimg['tmp_name']),"resources/img/categorias/");
+				if ($archivo->validate()) {
+				$imagen = $archivo->upload();
+				}
+           }else{
+           $imagen = $categoria->get("cat_img_ruta");
+           }
+
 			$this->cat->setColumns(array(
 								     'cat_id' =>$id,
 								     'cat_nombre' =>$nombre,
-								     'cat_desc' =>$desc
+								     'cat_desc' =>$desc,
+								     'cat_img_ruta' => $imagen
 									));
 			$this->cat->save();
 		}

@@ -6,7 +6,7 @@ private $_name ="";
 private $_size =0;
 private $_type ="";
 private $_tmp  ="";
-protected static $RUTA = 'img/products/';
+private $_dinamicpath ="";
 protected static $TYPES = array('image/png','image/jpeg','image/jpg');
 protected static $SIZE = 200000000;
 
@@ -15,7 +15,7 @@ $ext = explode("/", $this->_type);
 $ext = ".".$ext[1];
 $randomName = self::generateRandomString(7);
 $name = "img_".$randomName.$ext;
-if (move_uploaded_file($this->_tmp, self::$RUTA.$name)) {
+if (move_uploaded_file($this->_tmp, $this->_dinamicpath.$name)) {
     return $name;
 	}else{
 	    return null;
@@ -37,11 +37,12 @@ public static function generateRandomString($length = 10) {
     return $randomString;
 }
 
-function __construct($name = null,$size = null ,$type = null,$tmp=null){
+function __construct($name = null,$size = null ,$type = null,$tmp=null,$path=null){
 	$this->_name = $name;
 	$this->_size = $size;
 	$this->_type = $type;
 	$this->_tmp = $tmp;
+    $this->_dinamicpath = $path;
 } 
 
 function __get($attr){
