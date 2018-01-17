@@ -129,7 +129,7 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <button type="submit" class="btn btn-block btn-primary">Aceptar</button>
                   </div>
                 </div>

@@ -122,11 +122,8 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <button type="button" class="btn btn-block btn-primary">Agregar</button>
-                  </div>
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-danger">Borrar campo</button>
                   </div>
                 </div>
               </div>
@@ -167,11 +164,8 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <button type="button" class="btn btn-block btn-primary">Agregar</button>
-                  </div>
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-danger">Borrar campos</button>
                   </div>
                 </div>
               </div>
