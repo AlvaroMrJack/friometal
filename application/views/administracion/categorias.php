@@ -210,6 +210,12 @@
                         <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Imagen</label>
+                      <div class="col-sm-9">
+                        <img class="center-block" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
+                      </div>
+                    </div>
                   </div>
                   <!-- /.box-body -->
                   <div class="box-footer">
