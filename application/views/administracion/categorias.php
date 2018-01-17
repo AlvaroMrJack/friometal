@@ -104,31 +104,40 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <div class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label class="col-sm-1 control-label">Nombre</label>
-                  <div class="col-sm-11">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+            <form action="<?=site_url('Adm_categorias/crearcategoria')?>" method="post" accept-charset="utf-8">
+              <div class="form-horizontal">
+                <div class="box-body">
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label">Nombre</label>
+                    <div class="col-sm-11">
+                      <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label">Descripción</label>
+                    <div class="col-sm-11">
+                      <textarea class="form-control" rows="2" id="desc" name="desc" placeholder="Descripción ..."></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label">Imagen</label>
+                    <div class="col-sm-11">
+                    <input type="file" id="files" name="files">
+                      <p class="help-block">Seleccione una imagen que será portada de la categoría.</p>
+                    </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-1 control-label">Descripción</label>
-                  <div class="col-sm-11">
-                    <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-block btn-primary">Agregar</button>
+                    </div>
                   </div>
                 </div>
+                <!-- /.box-footer -->
               </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <div class="row">
-                  <div class="col-md-12">
-                    <button type="button" class="btn btn-block btn-primary">Agregar</button>
-                  </div>
-                </div>
-              </div>
-              <!-- /.box-footer -->
-            </div>
+            </form>
           </div>
           <!-- /.box -->
           <div class="box box-info">
@@ -143,25 +152,27 @@
                     <th style="width: 10px">#</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
-                    <th>Imagen</th>
                     <th class="text-center">Editar</th>
                     <th class="text-center">Eliminar</th>
                   </tr>
-                  <tr>
-                    <td>1.</td>
-                    <td>Categoría 1</td>
-                    <td>descripción</td>
-                    <td>imagen.jpg</td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-                        <i class="fa fa-edit"></i>
-                      </button>
-                    </td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-danger">
-                      <i class="fa fa-trash-o"></i>
-                    </button></td>
-                  </tr>
+                  <?php if ($categorias !=  null): ?>
+                    <?php foreach ($categorias as $key => $value): ?>
+                        <tr>
+                          <td><?= $value->get("cat_id")  ?></td>
+                          <td><?= $value->get("cat_nombre")  ?></td>
+                          <td><?= $value->get("cat_desc")  ?></td>
+                          <td class="text-center">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </td>
+                          <td class="text-center">
+                            <button type="button" class="btn btn-danger">
+                            <i class="fa fa-trash-o"></i>
+                          </button></td>
+                        </tr>
+                    <?php endforeach ?>
+                  <?php endif ?>
                 </table>
               </div>
             </div>

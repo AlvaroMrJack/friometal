@@ -349,10 +349,6 @@
 			};
 
 
-
-
-
-
 			/*input spinner*/
 			$(function() {
 			    var action;
