@@ -83,7 +83,11 @@
 										</div>
 
 										<div class="cart-actions">
+<<<<<<< HEAD
 											<a id="confirmar_pedido" class="btn btn-success">Confirmar</a>
+=======
+											<a class="btn btn-success" data-toggle="modal" data-target="#myModal">Confirmar</a>
+>>>>>>> 42fa57d00b882d625010a35477e19e93e989b3b7
 										</div>
 									</div>
 								</div>
@@ -226,6 +230,86 @@
 				</ul>
 			</div>
 			<br><br>
+
+			<!-- Modal -->
+			<div id="myModal" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
+
+			    <!-- Modal content-->
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">Ingrese sus datos para entregar la cotización.</h4>
+			      </div>
+			      <div class="modal-body">
+			        <div class="form-group">
+					  <label>Correo electrónico:</label>
+					  <input type="text" class="form-control">
+					</div>
+			      </div>
+			      <div class="modal-body">
+			        <div class="form-group">
+					  <label>Nombre:</label>
+					  <input type="text" class="form-control">
+					</div>
+			      </div>
+			      <div class="modal-body">
+			        <div class="form-group">
+					  <label>Detalle:</label>
+					  <div class="table-responsive">
+					  	<table class="table">
+							<thead>
+								<tr>
+									<th>
+										ID
+									</th>
+									<th>
+										Cantidad
+									</th>
+									<th>
+										Nombre
+									</th>
+									<th>
+										Precio
+									</th>
+									<th>
+										Total
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										[CONTENT]
+									</td>
+									<td>
+										[CONTENT]
+									</td>
+									<td>
+										[CONTENT]
+									</td>
+									<td>
+										[CONTENT]
+									</td>
+									<td>
+										[CONTENT]
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					  </div>
+					</div>
+			      </div>
+
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			      </div>
+			    </div>
+
+			  </div>
+			</div>
+			<!-- Modal -->
+
 			<div class="clients-container">
 				<div class="container">
 					<div class="clients-wrapper">
