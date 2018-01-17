@@ -85,10 +85,10 @@ class Adm_marca_modelo extends CI_Controller {
 	public function editarmodelo()
 	{
 		$id = $this->input->post('id');
+		$nombre = $this->input->post('nombre');
+		$marca = $this->input->post('marca');
 		$modelo = $this->modelo->findById($id);
 		if ($modelo != null) {
-			$nombre = $this->input->post('nombre') || $modelo->get("modelo_nombre");
-			$marca = $this->input->post('marca') || $modelo->get("modelo_marca");
 			$this->modelo->setColumns(array('modelo_id' =>$id,
 								     'modelo_nombre' =>$nombre,
 								     'modelo_marca_id' =>$marca,
