@@ -3088,7 +3088,7 @@ h2.word-rotator-title .word-rotate {
 	margin-right: 7px;
 	width: 60px;
 }
-.product-details-box .product-detail-qty #product-vqty {
+.product-details-box .product-detail-qty .product-vqty {
 	border-radius: 0;
 	width: 35px !important;
 	border-color: #e1e1e1;

@@ -5,6 +5,8 @@ class Adm_categorias extends CI_Controller {
 
 	public function index()
 	{
+		$categorias = $this->cat->findAll();
+		$data["categorias"] = $categorias;
 		$this->load->view('administracion/categorias');		
 	}
 

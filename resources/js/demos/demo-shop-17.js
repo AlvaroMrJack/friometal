@@ -136,6 +136,9 @@ Theme Version:	5.7.2
 		$('#product-vqty').TouchSpin({
 			verticalbuttons: true
 	    });
+	    $('.product-vqty').TouchSpin({
+			verticalbuttons: true
+	    });
 	}
 
 	// Filter Price Slider

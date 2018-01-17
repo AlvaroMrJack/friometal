@@ -204,7 +204,7 @@
 									<div class="product-details-box center">
 										<div class="product-actions">
 											<div class="product-detail-qty">
-		                                        <input type="text" value="1" class="vertical-spinner" id="product-vqty">
+		                                        <input type="text" value="1" id="cantidad_<?= $value->get("prod_id") ?>" class="vertical-spinner product-vqty">
 		                                    </div>
 											<a href="#" idprod="<?= $value->get("prod_id") ?>" nom="<?= $value->get("prod_nombre") ?>" precio="<?= $value->get("prod_precio") ?>" precio_formated="<?= $value->moneda_chilena() ?>" class="addtocart" title="Agregar al carro">
 												<i class="fa fa-shopping-cart"></i>
@@ -293,6 +293,7 @@
 				var nom = $(this).attr("nom");
 				var precio = $(this).attr("precio");
 				var precioformated = $(this).attr("precio_formated");
+				var cantidad = $("#cantidad_"+id).val() || 1;
 				var flag = false;
 				var objcart = JSON.parse(localStorage.getItem("carrito"));
 
@@ -302,7 +303,7 @@
 					});
 				};
 				if (flag == false) {
-						var newItem = {"id":id,"nom":nom,"precio":precio,"precioformated":precioformated};
+						var newItem = {"id":id,"nom":nom,"precio":precio,"precioformated":precioformated,"cantidad":cantidad};
 						oldItems.push(newItem);
 
 					};
@@ -332,8 +333,8 @@
 				var  total = 0;
 				var objcart = JSON.parse(localStorage.getItem("carrito"));
 				$.each(objcart, function(index, val) {
-					$("#list_cart").append('<a class="fa fa-times removecart" idremove="'+val.id+'" ></a><div class="product-details-area"><h2 class="product-name"><a title="'+val.nom+'">'+val.nom+'</a></h2><div class="cart-qty-price">1 X <span class="product-price">'+val.precioformated+'</span></div></div>');
-					total += parseInt(val.precio);
+					$("#list_cart").append('<a class="fa fa-times removecart" idremove="'+val.id+'" ></a><div class="product-details-area"><h2 class="product-name"><a title="'+val.nom+'">'+val.nom+'</a></h2><div class="cart-qty-price">'+val.cantidad+' X <span class="product-price">'+val.precioformated+'</span></div></div>');
+					total += parseInt(val.precio)*parseInt(val.cantidad);
 					 i++;
 				});
 				$("#cart-qty").text(i);
