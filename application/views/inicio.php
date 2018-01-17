@@ -83,7 +83,7 @@
 										</div>
 
 										<div class="cart-actions">
-											<a href="#" class="btn btn-success">Confirmar</a>
+											<a id="confirmar_pedido" class="btn btn-success">Confirmar</a>
 										</div>
 									</div>
 								</div>
@@ -333,6 +333,45 @@
 				$("#cart-qty").text(i);
 				$("#totalcart").text(total.format(0, 3, '.', ','));
 			}
+
+			$("#confirmar_pedido").click(function(event) {
+				var objcart = JSON.parse(localStorage.getItem("carrito"));
+				var email = $.trim($("#email_cliente").val());
+				var nombre = $.trim($("#nombre_cliente").val());
+				var adicional = $.trim($("#nombre_cliente").val());
+
+				if (!$.isEmptyObject(objcart) && email != "" && nombre != "") {
+					$.ajax({
+				          method:"POST",
+				          url: "<?=site_url('/contacto/sendEmailCotizacion')?>",
+				          datatype:'json',
+				          data: {"nombre": nombre, "email": email,"subject": subject, "message": message},
+				          success: function(response){
+				              	if (response.val == 1)
+				              	{
+				              		new PNotify({
+				                          title: 'Sí!',
+				                          text: 'Mensaje enviado exitosamente!.',
+				                          type: 'success'
+				                      });
+				              		$("#name").val("");
+						            $("#email").val("");
+						            $("#subject").val("");
+						            $("#message").val("");
+				              	}else if(response.val == 0)
+				              	{
+				              		new PNotify({
+				                      title: 'Oh No!',
+				                      text: 'Algo salió mal.',
+				                      type: 'notice'
+				                  });
+				              	}
+				              }
+				          });
+				}else{
+					alert("Lo sentimos no tiene ningun producto en su carrito de cotizaciones");
+				}
+			});
 
 			Number.prototype.format = function(n, x, s, c) {
 			    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
