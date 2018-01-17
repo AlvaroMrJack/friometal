@@ -155,33 +155,37 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-1 control-label">Estado del producto</label>
-                  <div class="col-sm-11">
-                    <label>
-                      <input type="radio" name="r1" class="minimal" checked>
-                      Producto para venta
-                    </label><br>
-                    <label>
-                      <input type="radio" name="r1" class="minimal">
-                      Producto para arriendo
-                    </label><br>
-                    <label>
-                      <input type="radio" name="r1" class="minimal">
-                      Producto para venta y arriendo
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-1 control-label">Tipo de producto</label>
-                  <div class="col-sm-11">
-                    <label>
-                      <input type="radio" name="r2" class="minimal" checked>
-                      Producto nuevo
-                    </label><br>
-                    <label>
-                      <input type="radio" name="r2" class="minimal">
-                      Producto reacondicionado
-                    </label>
+                  <div class="row">
+                    <div class="col-md-6">
+                    <label class="col-md-4 control-label">Estado</label>
+                    <div class="col-sm-8">
+                      <label>
+                        <input type="radio" name="r1" class="minimal" checked>
+                        <span style="font-weight: normal;">Producto para venta</span>
+                      </label><br>
+                      <label>
+                        <input type="radio" name="r1" class="minimal">
+                        <span style="font-weight: normal;">Producto para arriendo</span>
+                      </label><br>
+                      <label>
+                        <input type="radio" name="r1" class="minimal">
+                        <span style="font-weight: normal;">Producto para venta y arriendo</span>
+                      </label>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="col-sm-3 control-label">Tipo</label>
+                      <div class="col-sm-8">
+                        <label>
+                          <input type="radio" name="r2" class="minimal" checked>
+                          <span style="font-weight: normal;">Producto nuevo</span>
+                        </label><br>
+                        <label>
+                          <input type="radio" name="r2" class="minimal">
+                          <span style="font-weight: normal;">Producto reacondicionado</span>
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -195,14 +199,37 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Imagenes</label>
                   <div class="col-sm-11">
-                  <input type="file" multiple="true" id="imagenes">
                     <p class="help-block">Seleccione las imagenes de este producto.</p>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th style="text-align: center;">
+                              IMAGEN 1
+                            </th>
+                            <th style="text-align: center;">
+                              IMAGEN 2
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <input name="file1" id="" type="file" required>
+                            </td>
+                            <td>
+                              <input name="file2" id="" type="file" required>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-1 control-label">PDF</label>
                   <div class="col-sm-11">
-                  <input type="file" accept="application/pdf"  id="esp">
+                  <input type="file" accept="application/pdf" name="file" id="esp">
                     <p class="help-block">Seleccione un archivo PDF con la información del producto.</p>
                   </div>
                 </div>
@@ -299,8 +326,8 @@
     <!-- /.content -->
 
 
-    <div class="modal modal-large fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog">
+    <div class="modal fade bs-example-modal-lg" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -353,33 +380,37 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Estado del producto</label>
-                  <div class="col-sm-9">
-                    <label>
-                      <input type="radio" name="r3" class="minimal" checked>
-                      Producto para venta
-                    </label><br>
-                    <label>
-                      <input type="radio" name="r3" class="minimal">
-                      Producto para arriendo
-                    </label><br>
-                    <label>
-                      <input type="radio" name="r3" class="minimal">
-                      Producto para venta y arriendo
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Tipo de producto</label>
-                  <div class="col-sm-9">
-                    <label>
-                      <input type="radio" name="r4" class="minimal" checked>
-                      Producto nuevo
-                    </label><br>
-                    <label>
-                      <input type="radio" name="r4" class="minimal">
-                      Producto reacondicionado
-                    </label>
+                  <div class="row">
+                    <div class="col-md-6">
+                    <label class="col-md-4 control-label">Estado</label>
+                    <div class="col-sm-8">
+                      <label>
+                        <input type="radio" name="r1" class="minimal" checked>
+                        <span style="font-weight: normal;">Producto para venta</span>
+                      </label><br>
+                      <label>
+                        <input type="radio" name="r1" class="minimal">
+                        <span style="font-weight: normal;">Producto para arriendo</span>
+                      </label><br>
+                      <label>
+                        <input type="radio" name="r1" class="minimal">
+                        <span style="font-weight: normal;">Producto para venta y arriendo</span>
+                      </label>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="col-sm-3 control-label">Tipo</label>
+                      <div class="col-sm-8">
+                        <label>
+                          <input type="radio" name="r2" class="minimal" checked>
+                          <span style="font-weight: normal;">Producto nuevo</span>
+                        </label><br>
+                        <label>
+                          <input type="radio" name="r2" class="minimal">
+                          <span style="font-weight: normal;">Producto reacondicionado</span>
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">
@@ -388,13 +419,41 @@
                     <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
                   </div>
                 </div>
+                <br>
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Imagenes</label>
                   <div class="col-sm-9">
-                  <input type="file" multiple="true" id="imagenes">
-                    <p class="help-block">Seleccione las imagenes de este producto.</p>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th style="text-align: center;">
+                              IMAGEN 1
+                            </th>
+                            <th style="text-align: center;">
+                              IMAGEN 2
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <img class="center-block" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
+                              <input type="file" id="files" name="files2">
+                              <p class="help-block">Seleccione una nueva imagen para el producto.</p>
+                            </td>
+                            <td>
+                              <img class="center-block" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
+                              <input type="file" id="files" name="files2">
+                              <p class="help-block">Seleccione una nueva imagen para el producto.</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
+                <br>
                 <div class="form-group">
                   <label class="col-sm-2 control-label">PDF</label>
                   <div class="col-sm-9">
@@ -408,6 +467,13 @@
                     <input type="text" class="form-control" id="linkyoutube" placeholder="Link de video de Youtube">
                   </div>
                 </div>
+                <!-- <div class="form-group">
+                  <div class="col-sm-9 center">
+                    <img class="center-block" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
+                    <p class="help-block">Seleccione una nueva imagen para el producto.</p>
+                    <input type="file" id="files" name="files">
+                  </div>
+                </div> -->
               </div>                  
                   <!-- /.box-body -->
                   <div class="box-footer">
