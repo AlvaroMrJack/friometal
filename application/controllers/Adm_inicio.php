@@ -15,7 +15,6 @@ class Adm_inicio extends CI_Controller {
 		$titulo = $this->input->post('titulo');
 		$subtitulo = $this->input->post('subtitulo');
 		$texto = $this->input->post('texto');
-
 		if (isset($titulo) and isset($subtitulo) and isset($texto)) {
 			$this->anuncio->setColumns(array('anuncio_id' =>0,
 								     'anuncio_titulo' =>$titulo,
@@ -24,9 +23,7 @@ class Adm_inicio extends CI_Controller {
 									));
 			$this->anuncio->save();
 		}
-
 		redirect('adm_inicio','refresh');
-
 	}
 
 	public function eliminaranuncio($ideliminar = null)

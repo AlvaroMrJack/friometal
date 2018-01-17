@@ -110,25 +110,28 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <div class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Nombre</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+            <form action="<?=site_url('Adm_marca_modelo/crearmarca')?>" method="post" accept-charset="utf-8">
+              <div class="form-horizontal">
+                <div class="box-body">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Nombre</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <div class="row">
-                  <div class="col-md-12">
-                    <button type="button" class="btn btn-block btn-primary">Agregar</button>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-block btn-primary">Agregar</button>
+                    </div>
                   </div>
                 </div>
+                <!-- /.box-footer -->
               </div>
-              <!-- /.box-footer -->
-            </div>
+            </form>
+
           </div>
         </div>
         <div class="col-md-6">
@@ -138,39 +141,39 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <div class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Nombre</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+            <form action="<?=site_url('Adm_marca_modelo/crearmodelo')?>" method="post" accept-charset="utf-8">
+              <div class="form-horizontal">
+                <div class="box-body">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Nombre</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Marca</label><!--  -->
+                    <div class="col-sm-9">
+                      <select name="marca" class="form-control select2" style="width: 100%;">
+                        <?php if ($marcas != null): ?>
+                          <?php foreach ($marcas as $key => $value): ?>
+                              <option value="<?= $value->get("marca_id")  ?>"><?= $value->get("marca_nombre")  ?></option>
+                          <?php endforeach ?>
+                        <?php endif ?>
+                      </select>
+                    </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Categoría</label><!--  -->
-                  <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
-                    </select>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-block btn-primary">Agregar</button>
+                    </div>
                   </div>
                 </div>
+                <!-- /.box-footer -->
               </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <div class="row">
-                  <div class="col-md-12">
-                    <button type="button" class="btn btn-block btn-primary">Agregar</button>
-                  </div>
-                </div>
-              </div>
-              <!-- /.box-footer -->
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -193,33 +196,22 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>Trident</td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal1">
-                        <i class="fa fa-edit"></i>
-                      </button>
-                    </td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal1">
-                        <i class="fa fa-edit"></i>
-                      </button>
-                    </td>
-                    <td class="text-center">
-                    </button>
-                      <button type="button" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                      </button>
-                    </td>
-                  </tr>
+                    <?php if ($marcas != null): ?>
+                      <?php foreach ($marcas as $key => $value): ?>
+                         <tr>
+                            <td id="nombre_marca_<?= $value->get("marca_id")?>"><?= $value->get("marca_nombre")  ?></td>
+                            <td class="text-center">
+                              <button type="button" id="<?= $value->get("marca_id") ?>" class="btn btn-default" data-toggle="modal" data-target="#myModal1">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </td>
+                            <td class="text-center">
+                              <a href="<?=site_url('Adm_marca_modelo/eliminarmarca/').$value->get("marca_id")?>" type="button" class="btn btn-danger">
+                              <i class="fa fa-trash-o"></i>
+                            </a></td>
+                          </tr>
+                      <?php endforeach ?>
+                    <?php endif ?>
                   </tbody>
                 </table>
               </div>
@@ -241,41 +233,29 @@
                         <thead>
                         <tr>
                           <th>Nombre</th>
-                          <th>Categoría</th>
+                          <th>Marca</th>
                           <th class="text-center">Editar</th>
                           <th class="text-center">eliminar</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                          <td>Trident</td>
-                          <td>Trident</td>
-                          <td class="text-center">
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
-                              <i class="fa fa-edit"></i>
-                            </button>
-                          </td>
-                          <td class="text-center">
-                            <button type="button" class="btn btn-danger">
-                              <i class="fa fa-trash-o"></i>
-                            </button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Trident</td>
-                          <td>Trident</td>
-                          <td class="text-center">
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
-                              <i class="fa fa-edit"></i>
-                            </button>
-                          </td>
-                          <td class="text-center">
-                          </button>
-                            <button type="button" class="btn btn-danger">
-                              <i class="fa fa-trash-o"></i>
-                            </button>
-                          </td>
-                        </tr>
+                          <?php if ($modelos != null): ?>
+                            <?php foreach ($modelos as $key => $value): ?>
+                                <tr>
+                                  <td id="nombre_modelo_<?= $value->get("modelo_id")?>"><?= $value->get("modelo_nombre")  ?></td>
+                                  <td><?= $value->get("marca_nombre")  ?></td>
+                                  <td class="text-center">
+                                    <button type="button" id="<?= $value->get("modelo_id").'-'.$value->get("marca_id") ?>" class="btn btn-default" data-toggle="modal" data-target="#myModal2">
+                                      <i class="fa fa-edit"></i>
+                                    </button>
+                                  </td>
+                                  <td class="text-center">
+                                    <a href="<?=site_url('Adm_marca_modelo/eliminarmodelo/').$value->get("modelo_id")?>" type="button" class="btn btn-danger">
+                                    <i class="fa fa-trash-o"></i>
+                                  </a></td>
+                                </tr>
+                            <?php endforeach ?>
+                          <?php endif ?>
                         </tbody>
                       </table>
                     </div>
@@ -298,28 +278,32 @@
                 <h4 class="modal-title">Editar marca</h4>
               </div>
               <div class="modal-body">
+
+                <form action="<?=site_url('Adm_marca_modelo/editarmarca')?>" method="post" accept-charset="utf-8">
+                <input id="idmarcahidden" type="text" name="id" hidden>
                 <div class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Nombre</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Nombre</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" name="nombre" id="nombre_marca" placeholder="Nombre">
+                      </div>
+                    </div>
                   </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <button type="submit" class="btn btn-block btn-primary">Guardar cambios</button>
+                      </div>
+                      <div class="col-md-6">
+                        <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.box-footer -->
+                </form>
                 </div>
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <div class="row">
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-primary">Guardar cambios</button>
-                  </div>
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
-                  </div>
-                </div>
-              </div>
-              <!-- /.box-footer -->
-            </div>
               </div>
             </div>
             <!-- /.modal-content -->
@@ -342,46 +326,48 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Editar categoría</h4>
+                <h4 class="modal-title">Editar modelo</h4>
               </div>
               <div class="modal-body">
+
+              <form action="<?=site_url('Adm_marca_modelo/editarmodelo')?>" method="post" accept-charset="utf-8">
+                <input id="idmodelohidden" type="text" name="id" hidden>
                 <div class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Nombre</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-                  </div>
-                </div>
-              </div>
-              <div class="box-body">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Categoría</label>
-                  <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                      </select>
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Nombre</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" name="nombre" id="nombre_modelo" placeholder="Nombre">
+                      </div>
                     </div>
                   </div>
-                </div>
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Marca</label>
+                      <div class="col-sm-9">
+                         <select name="marca" id="marca_modelo" class="form-control" style="width: 100%;">
+                            <?php if ($marcas != null): ?>
+                              <?php foreach ($marcas as $key => $value): ?>
+                                  <option value="<?=$value->get("marca_id")?>"><?=$value->get("marca_nombre")?></option>
+                              <?php endforeach ?>
+                            <?php endif ?>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
 
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <div class="row">
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-primary">Guardar cambios</button>
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <button type="submit" class="btn btn-block btn-primary">Guardar cambios</button>
+                      </div>
+                      <div class="col-md-6">
+                        <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Cancelar</button>
-                  </div>
-                </div>
-              </div>
+                </form>
               <!-- /.box-footer -->
             </div>
               </div>
@@ -439,6 +425,27 @@
     $("#example1").DataTable();
     $("#example2").DataTable();
   });
+
+  $('#myModal1').on('shown.bs.modal', function (argument) {
+      var id = argument.relatedTarget.id;
+      var nombre = $("#nombre_marca_"+id).text();
+      $("#idmarcahidden").val(id);
+      $("#nombre_marca").val(nombre);
+  });
+
+  $('#myModal2').on('shown.bs.modal', function (argument) {
+      var id = argument.relatedTarget.id;
+      var nn = id.split("-")
+      id = nn[0];
+      var nombre = $("#nombre_modelo_"+id).text();
+      var marca = nn[1];
+      $("#idmodelohidden").val(id);
+      $("#nombre_modelo").val(nombre);
+      $("#marca_modelo").val(marca);
+  });
+
+
+
 </script>
 
 </body>

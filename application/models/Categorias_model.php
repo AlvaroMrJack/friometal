@@ -6,8 +6,7 @@ class Categorias_model extends CI_Model {
      'cat_id' =>0,
      'cat_nombre' =>'',
      'cat_desc' =>'',
-     'cat_img_ruta' =>'',
-     'cat_img_banner' =>''
+     'cat_img_ruta' =>''
 	);
 
 	public function __construct()

@@ -63,6 +63,17 @@ class Modelo_model extends CI_Model {
 		return $product;
 	}
 
+	public function findByArray($myarray = null)
+    {
+        $this->load->database();
+        $res    = $this->db->get_where('modelo', $myarray);
+        $result = null;
+        foreach ($res->result() as $row) {
+            $result[] = $this->create($row);
+        }
+        return $result;
+    }
+
 	public function create($row){
 	$prod =  new Modelo_model();
 	$prod->setColumns($row);
