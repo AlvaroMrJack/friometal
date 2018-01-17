@@ -243,12 +243,15 @@
 					  <label>Correo electrónico:</label>
 					  <input type="text" id="email_cliente" class="form-control">
 					</div>
-			      </div>
-			      <div class="modal-body">
 			        <div class="form-group">
 					  <label>Nombre:</label>
 					  <input type="text" id="nombre_cliente" class="form-control">
 					</div>
+					<div class="form-group">
+					  <label>Texto:</label>
+					  <input type="text" class="form-control">
+					</div>
+
 			      </div>
 			      <div class="modal-body">
 			        <div class="form-group">
