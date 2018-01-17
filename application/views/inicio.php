@@ -236,12 +236,6 @@
 							<a title="Brema Ice Makers" class="client">
 								<img class="img-responsive" src="<?=base_url('resources/img/marcas/brema.png')?>" alt="Brema Ice Makers">
 							</a>
-							<a href="#" title="Brand Name" class="client">
-								<img class="img-responsive" src="<?=base_url('resources/img/demos/shop/brands/shop17/brand3.png')?>" alt="Brand">
-							</a>
-							<a href="#" title="Brand Name" class="client">
-								<img class="img-responsive" src="<?=base_url('resources/img/demos/shop/brands/shop17/brand4.png')?>" alt="Brand">
-							</a>
 						</div>
 					</div>
 				</div>

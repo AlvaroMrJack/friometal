@@ -34,7 +34,6 @@
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="<?=base_url('resources/css/theme.css')?>">
 		<link rel="stylesheet" href="<?=base_url('resources/css/theme-elements.css')?>">
-		<link rel="stylesheet" href="<?=base_url('resources/css/theme-blog.css')?>">
 		<link rel="stylesheet" href="<?=base_url('resources/css/theme-shop.css')?>">
 
 		<!-- Current Page CSS -->

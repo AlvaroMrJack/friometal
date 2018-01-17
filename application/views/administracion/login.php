@@ -21,7 +21,7 @@
 <body class="hold-transition login-page" style="background-image: url(<?=base_url('resources/admin/dist/img/back.jpg')?>"); background-repeat: no-repeat;">
 <div class="login-box">
   <div class="login-logo">
-    <a href="login.html"><b>Frío</b>metal</a>
+    <a><b>Frío</b>metal</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

@@ -34,7 +34,6 @@
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="<?=base_url('resources/css/theme.css')?>">
 		<link rel="stylesheet" href="<?=base_url('resources/css/theme-elements.css')?>">
-		<link rel="stylesheet" href="<?=base_url('resources/css/theme-blog.css')?>">
 		<link rel="stylesheet" href="<?=base_url('resources/css/theme-shop.css')?>">
 
 		<!-- Current Page CSS -->
@@ -243,7 +242,7 @@
 									<?= $producto->get("prod_nombre"); ?> (<?= $producto->get("modelo_nombre")."-".$producto->get("marca_nombre")  ?>)
 									<div class="product-label">
 										<span class="discount"></span>
-									</div>
+									</div><br>
 									<div class="product-label">
 										<span><u>Producto</u> : <?= $producto->get("prod_tipo") ?></span>
 									</div>
