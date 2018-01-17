@@ -122,7 +122,7 @@
                   <div class="form-group">
                     <label class="col-sm-1 control-label">Imagen</label>
                     <div class="col-sm-11">
-                    <input type="file" id="files" name="files">
+                      <input type="file" id="files" name="files">
                       <p class="help-block">Seleccione una imagen que será portada de la categoría.</p>
                     </div>
                   </div>
@@ -212,8 +212,10 @@
                     </div>
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Imagen</label>
-                      <div class="col-sm-9">
+                      <div class="col-sm-9 center">
                         <img class="center-block" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
+                        <p class="help-block">Seleccione una nueva imagen para la categoría.</p>
+                        <input type="file" id="files" name="files">
                       </div>
                     </div>
                   </div>

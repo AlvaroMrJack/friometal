@@ -103,7 +103,7 @@
     <section class="content">
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Ingresa una marca</h3>
@@ -134,7 +134,7 @@
 
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
           <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Ingresa un modelo</h3>
@@ -178,12 +178,12 @@
         </div>
       </div>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="box box-info">
-            <div class="box-header">
-              <h3 class="box-title">Edita o elimina una marca</h3>
-            </div>
-            <!-- /.box-header -->
+                <div class="box-header">
+                  <h3 class="box-title">Edita o elimina una marca</h3>
+                </div>
+                <!-- /.box-header -->
 
             <div class="box-body">
               <div class="table-responsive">
@@ -220,7 +220,7 @@
           </div>
           <!-- /.box -->
               </div>
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <div class="box box-info">
                   <div class="box-header">
                     <h3 class="box-title">Edita o elimina un modelo</h3>
