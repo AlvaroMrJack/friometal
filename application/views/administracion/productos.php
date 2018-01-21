@@ -26,6 +26,23 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="<?=base_url('resources/img/logos/friometal.ico')?>" type="image/x-icon" />
 
+  <style type="text/css">
+    .video {
+        position: relative;
+        padding-bottom: 56.25%;
+        overflow: hidden;
+    }
+
+    .video iframe{
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+  </style>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -416,9 +433,11 @@
                                 <tbody>
                                   <tr>
                                     <td>
+                                      <img class="center-block" id="img_base" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
                                       <input name="files1" id="" type="file" required>
                                     </td>
                                     <td>
+                                      <img class="center-block" id="img_base" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
                                       <input name="files2" id="" type="file" required>
                                     </td>
                                   </tr>
@@ -437,7 +456,12 @@
                         <div class="form-group">
                           <label class="col-sm-1 control-label">Link de Youtube</label>
                           <div class="col-sm-11">
-                            <input type="text" class="form-control" name="linkyoutube" placeholder="Link de video de Youtube">
+                            <div class="embed-container">
+                              <div class="video">
+                                <iframe width="640" height="360" src="https://www.youtube.com/embed/1Bx1Wu1Txi0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                              </div>
+                            </div>
+                            <input type="text" class="form-control" name="linkyoutube" placeholder="Link del nuevo video de Youtube">
                           </div>
                         </div>
                       </div>  
