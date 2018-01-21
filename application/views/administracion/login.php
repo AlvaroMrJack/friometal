@@ -27,17 +27,24 @@
   <div class="login-box-body">
     <p class="login-box-msg">Ingresa tus credenciales</p>
 
-    <form action="<?= site_url('login')?>" method="POST" class="formulario" name="login">
-      <div class="form-group">
-        <i class="icono izquierda fa fa-user"></i><input type="text" name="usuario" id="usuario" class="usuario" placeholder="Usuario">
+    <form action="<?=site_url('login')?>" method="POST" class="formulario" name="login">
+      <div class="form-group has-feedback">
+        <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-      <div class="form-group">
-        <i class="icono izquierda fa fa-lock"></i><input type="password" name="password" id="password" class="password_btn" placeholder="Contraseña">
-        <input type="submit" class="btn-info fa fa-arrow-right" value="Ir">
+      <div class="form-group has-feedback">
+        <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <div class="g-recaptcha" data-sitekey="6Leg4Q4UAAAAAMZxNrkN2X0AVZxSH1uHnRT0NdXK"></div>
+      <div class="row">
+        <!-- /.col -->
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar sesión</button>
+        </div>
+        <!-- /.col -->
+      </div>
     </form>
-    
+
       <?php if(!empty($errores)): ?>
         <div class="error">
           <ul>
