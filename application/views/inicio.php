@@ -296,11 +296,17 @@
 				<div class="container">
 					<div class="clients-wrapper">
 						<div class="owl-carousel owl-theme manual clients-carousel owl-no-narrow">
+							<a title="Brema Ice Makers" class="client">
+								<img class="img-responsive" src="<?=base_url('resources/img/marcas/marca.png')?>" alt="Brema Ice Makers">
+							</a>
+							<a title="Brema Ice Makers" class="client">
+								<img class="img-responsive" src="<?=base_url('resources/img/marcas/brema.png')?>" alt="Brema Ice Makers">
+							</a>
 							<a title="ITV Ice Makers" class="client">
 								<img class="img-responsive" src="<?=base_url('resources/img/marcas/itv.png')?>" alt="ITV Ice Makers">
 							</a>
 							<a title="Brema Ice Makers" class="client">
-								<img class="img-responsive" src="<?=base_url('resources/img/marcas/brema.png')?>" alt="Brema Ice Makers">
+								<img class="img-responsive" src="<?=base_url('resources/img/marcas/marca.png')?>" alt="Brema Ice Makers">
 							</a>
 						</div>
 					</div>

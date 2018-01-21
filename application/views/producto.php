@@ -187,7 +187,7 @@
 							<div class="product-img-box col-sm-5">
 								<div class="product-img-box-wrapper">
                                     <div class="" ss="product-img-wrapper">
-                                    	<img id="product-zoom" src="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" data-zoom-image="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" alt="Product main image">
+                                    	<img src="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" alt="Product main image">
                                     </div>
 								</div>
 
