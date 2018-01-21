@@ -156,7 +156,7 @@
 
 			<div role="main" class="main">
 			
-			<div class="fullwidth-banner" style=" background-image: url(<?=base_url('resources/img/categorias/banner/banner.jpg')?>);">
+			<div class="fullwidth-banner" style=" background-image: url(<?=base_url('resources/img/categorias/banner/banner2.jpg')?>);">
 				<img class="fullwidth-banner" src="<?=base_url('resources/img/categorias/banner/fabhielos.png')?>" style="width: 100%"">
 				<div>
 					<h2 style="-webkit-text-fill-color: white; -webkit-text-stroke: 1px black;">Fabricadoras de Hielo</h2>
