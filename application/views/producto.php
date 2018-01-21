@@ -257,7 +257,9 @@
 							<div id="product-desc" class="tab-pane active">
 								<div class="product-desc-area">
 									<div class="embed-container">
-										<iframe width="854" height="480" src="<?= $producto->get("prod_link_video") ?>" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+										<div class="video">
+											<iframe width="640" height="360" src="<?= $producto->get("prod_link_video") ?>" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+										</div>
 									</div>
 								</div>
 							</div>
