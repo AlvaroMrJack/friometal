@@ -187,7 +187,7 @@
 							<div class="product-img-box col-sm-5">
 								<div class="product-img-box-wrapper">
                                     <div class="" ss="product-img-wrapper">
-                                    	<img id="product-zoom" src="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" data-zoom-image="<?=base_url('resources/img/demos/shop/products/single/product1.jpg')?>" alt="Product main image">
+                                    	<img id="product-zoom" src="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" data-zoom-image="<?=base_url('resources/img/products/').$producto->get("prod_imagen1") ?>" alt="Product main image">
                                     </div>
 								</div>
 
@@ -267,7 +267,7 @@
 									<h3 class="text-uppercase heading-text-color font-weight-semibold">Aquí encontrarás todo tipo de información relacionada al producto</h3>
 									<p>Desea ver mas información de este producto? *</p>
 
-									<a href="<?= $producto->get("prod_link_esp") ?>" class="fa fa-file-pdf-o" title="Manual">&nbsp;Manual de uso</a>
+									<a href="<?= $producto->get("prod_link_esp") ?>" target="_blank" class="fa fa-file-pdf-o" title="Manual">&nbsp;Manual de uso</a>
 								</div>
 							</div>
 						</div>
@@ -391,8 +391,6 @@
 		<script src="<?=base_url('resources/js/theme.init.js')?>"></script>
 		<script src="<?=base_url('resources/js/pnotify.custom.min.js')?>"></script>
 
-		<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-581b726c069c6315"></script>
-
 				<script type="text/javascript" charset="utf-8" >
 
 			$(function (argument) {
@@ -426,7 +424,8 @@
 				new PNotify({
                           title: 'Bien!',
                           text: 'Producto añadido correctamente!.',
-                          type: 'success'
+                          type: 'success',
+                          delay: 1000
                       });
 			})
 
@@ -494,7 +493,8 @@
 				              		new PNotify({
 				                          title: 'Sí!',
 				                          text: 'Mensaje enviado exitosamente!.',
-				                          type: 'success'
+				                          type: 'success',
+				                          delay: 1000
 				                      });
 				              		$("#email_cliente").val("");
 						            $("#nombre_cliente").val("");
@@ -504,7 +504,8 @@
 				              		new PNotify({
 				                      title: 'Oh No!',
 				                      text: 'Algo salió mal.',
-				                      type: 'notice'
+				                      type: 'notice',
+				                      delay: 1000
 				                  });
 				              	}
 				              }

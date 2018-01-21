@@ -43,7 +43,7 @@
         <ul class="nav navbar-nav">
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="<?=site_url('login')?>"><i class="fa fa-sign-out"></i></a>
+            <a href="<?=site_url('login/salir')?>"><i class="fa fa-sign-out"></i></a>
           </li>
         </ul>
       </div>

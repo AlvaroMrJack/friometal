@@ -3,9 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuario_model extends CI_Model {
  	private $columns = array(
-     'usu_Id' =>0,
-     'usu_Name' =>'',
-     'usu_Pass' =>'',
+     'usu_id' =>0,
+     'usu_apodo' =>'',
+     'usu_nombre' =>'',
+     'usu_password' =>''
 	);
 
 	public function __construct()
@@ -31,11 +32,11 @@ class Usuario_model extends CI_Model {
 
     public function save(){
 		$this->load->database();
-		if($this->columns['usu_Id'] == 0){
+		if($this->columns['usu_id'] == 0){
 			$this->db->insert("usuario",$this->columns);
-			$this->columns['usu_Id'] = $this->db->insert_id();
+			$this->columns['usu_id'] = $this->db->insert_id();
 		}else{
-			$this->db->where('usu_Id',$this->columns['usu_Id']);
+			$this->db->where('usu_id',$this->columns['usu_id']);
 			$this->db->update('usuario',$this->columns);
 		}
 		
@@ -49,7 +50,7 @@ class Usuario_model extends CI_Model {
 
     public function findByName($name = ''){
 	$this->load->database();
-	$res = $this->db->get_where('usuario',array('usu_Name' =>$name));
+	$res = $this->db->get_where('usuario',array('usu_apodo' =>$name));
 	$product = null;
 		if ($res->num_rows() == 1) {
 			$product = $this->create($res->row_object());
@@ -65,7 +66,7 @@ class Usuario_model extends CI_Model {
 
     function eliminar($id)
 	{
-		$this->db->where('usu_Id',$id);
+		$this->db->where('usu_id',$id);
 		return $this->db->delete('usuario');
 	}
 	

@@ -27,35 +27,24 @@
   <div class="login-box-body">
     <p class="login-box-msg">Ingresa tus credenciales</p>
 
-    <form action="<?=site_url('adm_inicio')?>" method="post">
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Identificador">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    <form action="<?= site_url('login')?>" method="POST" class="formulario" name="login">
+      <div class="form-group">
+        <i class="icono izquierda fa fa-user"></i><input type="text" name="usuario" id="usuario" class="usuario" placeholder="Usuario">
       </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Contraseña">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      <div class="form-group">
+        <i class="icono izquierda fa fa-lock"></i><input type="password" name="password" id="password" class="password_btn" placeholder="Contraseña">
+        <input type="submit" class="btn-info fa fa-arrow-right" value="Ir">
       </div>
-      <div class="row">
-        <!-- /.col -->
-        <div class="col-xs-12">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar sesión</button>
-        </div>
-        <!-- /.col -->
-      </div>
+      <div class="g-recaptcha" data-sitekey="6Leg4Q4UAAAAAMZxNrkN2X0AVZxSH1uHnRT0NdXK"></div>
     </form>
-
-    <!-- <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div> -->
-    <!-- /.social-auth-links -->
-
-    <!-- <a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a> -->
+    
+      <?php if(!empty($errores)): ?>
+        <div class="error">
+          <ul>
+            <?php echo $errores; ?>
+          </ul>
+        </div>
+      <?php endif; ?>
 
   </div>
   <!-- /.login-box-body -->
