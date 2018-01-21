@@ -347,11 +347,11 @@
 						<a class="logo">
 							<img title="Sitio web optimizado con HTML5" style="width: 120px;" alt="Sitio web optimizado con HTML5" class="img-responsive" src="<?=base_url('resources/img/html5.png')?>">
 						</a>
-						<ul class="social-icons">
+						<!-- <ul class="social-icons">
 							<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
 							<li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
 							<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-						</ul>
+						</ul> -->
 						<p class="copyright-text">© Copyright 2018. Todos los derechos reservados.</p>
 					</div>
 				</div>
