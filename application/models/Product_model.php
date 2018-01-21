@@ -12,7 +12,7 @@ class Product_model extends CI_Model {
      'prod_imagen2' =>'',
      'prod_link_esp' =>'',
      'prod_link_video' =>'',
-     'prod_link_estado' => 1,
+     'prod_estado' => 1,
      'prod_cat_id' => 0,
 	);
 
@@ -28,6 +28,9 @@ class Product_model extends CI_Model {
 
 	public function findAll(){
 	$this->load->database();
+	$this->db->join('modelo', 'modelo.modelo_id = productos.prod_modelo_id');
+    $this->db->join('marca', 'marca.marca_id = modelo.modelo_marca_id');
+    $this->db->join('categorias', 'categorias.cat_id = productos.prod_cat_id');
 	$res = $this->db->get('productos');
 	if ($res->num_rows() > 0) {
 		foreach ($res->result() as $value) {

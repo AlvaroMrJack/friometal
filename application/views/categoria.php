@@ -53,6 +53,7 @@
 
 		<!-- Head Libs -->
 		<script src="<?=base_url('resources/vendor/modernizr/modernizr.min.js')?>"></script>
+		<link rel="stylesheet" href="<?=base_url('resources/css/pnotify.custom.min.css')?>">
 		<style type="text/css">
 		</style>
 	</head>
@@ -70,7 +71,7 @@
 									<i class="minicart-icon"></i>
 									<span class="cart-info">
 										<span id="cart-qty" class="cart-qty">0</span>
-										<span class="cart-text">Producto(s)</span>
+										<span class="cart-text" id="resaltar_texto">Producto(s)</span>
 									</span>
 								</a>
 
@@ -89,7 +90,7 @@
 										</div>
 
 										<div class="cart-actions">
-											<a class="btn btn-success" data-toggle="modal" data-target="#myModal">Confirmar</a>
+											<a class="btn btn-success" data-toggle="modal" id="cargar_detalle_cotizacion" data-target="#myModal">Confirmar</a>
 										</div>
 									</div>
 								</div>
@@ -233,15 +234,15 @@
 			      <div class="modal-body">
 			        <div class="form-group">
 					  <label>Correo electrónico:</label>
-					  <input type="text" class="form-control">
+					  <input type="email" id="email_cliente" class="form-control">
 					</div>
 			        <div class="form-group">
 					  <label>Nombre:</label>
-					  <input type="text" class="form-control">
+					  <input type="text" id="nombre_cliente" class="form-control">
 					</div>
 					<div class="form-group">
 					  <label>Texto:</label>
-					  <input type="text" class="form-control">
+					  <input type="text" id="adicional_cliente" class="form-control">
 					</div>
 
 			      </div>
@@ -253,41 +254,21 @@
 							<thead>
 								<tr>
 									<th>
-										ID
-									</th>
-									<th>
-										Cantidad
-									</th>
-									<th>
 										Nombre
 									</th>
 									<th>
-										Precio
+										Precio/Unitario
+									</th>
+									<th>
+										Cantidad
 									</th>
 									<th>
 										Total
 									</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-								</tr>
-							</tbody>
+							<tbody id="detalle_cotizacion"></tbody>
+							<tfoot id="detalle_foot"></tfoot>
 						</table>
 					  </div>
 					</div>
@@ -295,6 +276,7 @@
 
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			        <button type="button" class="btn btn-success" id="enviar_cotizacion" data-dismiss="modal">Enviar</button>
 			      </div>
 			    </div>
 
@@ -351,6 +333,7 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url('resources/js/theme.init.js')?>"></script>
+		<script src="<?=base_url('resources/js/pnotify.custom.min.js')?>"></script>
 
 
 
@@ -387,6 +370,17 @@
 
 				localStorage.setItem('carrito', JSON.stringify(oldItems));
 				cargar_carrito();
+					new PNotify({
+                          title: 'Bien!',
+                          text: 'Producto añadido correctamente!.',
+                          type: 'success',
+                          delay: 1000
+                      });
+					setTimeout(function(){ $("#resaltar_texto").addClass("label label-info fa fa-hand-o-right") }, 500);
+					
+					
+					
+
 			})
 
 			$(document).on('click', '.removecart', function(event) {
@@ -417,6 +411,64 @@
 				$("#cart-qty").text(i);
 				$("#totalcart").text(total.format(0, 3, '.', ','));
 			}
+
+			$("#cargar_detalle_cotizacion").click(function(event) {
+				$("#detalle_cotizacion, #detalle_foot").text("");
+				var objcart = JSON.parse(localStorage.getItem("carrito"));;
+
+				if (!$.isEmptyObject(objcart)) {
+				var totaltotal = 0;
+					$.each(objcart, function(index, val) {
+						var total = parseInt(val.precio)*parseInt(val.cantidad);
+						$("#detalle_cotizacion").append('<tr><td>'+val.nom+'</td><td>'+val.precioformated+'</td><td>'+val.cantidad+'</td><td>$ '+total.format(0, 3, '.', ',')+'</td></tr>');
+						totaltotal += total;
+					});
+					$("#detalle_foot").append('<tr><td style="text-align: right; color: red" colspan="2">Total:</td><td style="text-align: center; color: red" colspan="2">$ '+totaltotal.format(0, 3, '.', ',')+'</td></tr>')
+				}else{
+					alert("Lo sentimos no tiene ningun producto en su carrito de cotizaciones");
+				}
+			});
+
+			$("#enviar_cotizacion").click(function(event) {
+				var email = $.trim($("#email_cliente").val());
+				var nombre = $.trim($("#nombre_cliente").val());
+				var adicional = $.trim($("#adicional_cliente").val())
+				var objcart = JSON.parse(localStorage.getItem("carrito"));;
+
+				if (email != "" && nombre != "" && adicional != "" && !$.isEmptyObject(objcart)) {
+					$.ajax({
+				          method:"POST",
+				          url: "<?=site_url('/contacto/sendEmailCotizacion')?>",
+				          datatype:'json',
+				          data: {"nombre": nombre, "email": email,"adicional": adicional, "detalle": objcart},
+				          success: function(response){
+				              	if (response.val == 1)
+				              	{
+				              		new PNotify({
+				                          title: 'Sí!',
+				                          text: 'Mensaje enviado exitosamente!.',
+				                          type: 'success',
+				                          delay: 1000
+				                      });
+				              		$("#email_cliente").val("");
+						            $("#nombre_cliente").val("");
+						            $("#adicional_cliente").val("");
+				              	}else if(response.val == 0)
+				              	{
+				              		new PNotify({
+				                      title: 'Oh No!',
+				                      text: 'Algo salió mal.',
+				                      type: 'notice',
+				                      delay: 1000
+				                  });
+				              	}
+				              }
+				          });	
+				}else{
+					alert("Lo sentimos existen campos vacíos o no posee productos en su carrito, favor revisar.");
+				}
+
+			});
 
 			Number.prototype.format = function(n, x, s, c) {
 			    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',

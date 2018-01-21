@@ -110,12 +110,13 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
+             <form action="<?=site_url('Adm_productos/crearproducto')?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
             <div class="form-horizontal">
               <div class="box-body">
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Nombre</label>
                   <div class="col-sm-11">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control" name="nombre" placeholder="Nombre">
                   </div>
                 </div>
 
@@ -123,34 +124,30 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Precio</label>
                   <div class="col-sm-11">
-                    <input type="text" class="form-control" id="precio" placeholder="Precio">
+                    <input type="number" min="1" max="100000000" class="form-control" name="precio" placeholder="Precio">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-1 control-label">Marca</label><!--  -->
+                  <label class="col-sm-1 control-label">Marca/Modelo</label><!--  -->
                   <div class="col-sm-11">
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
+                    <select name="modelo" class="form-control select2" style="width: 100%;">
+                      <?php if ($modelos != null): ?>
+                        <?php foreach ($modelos as $key => $value): ?>
+                          <option value="<?= $value->get("modelo_id")?>"><?= $value->get("marca_nombre")."/".$value->get("modelo_nombre")  ?></option>
+                        <?php endforeach ?>
+                      <?php endif ?>
                     </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Categoría</label><!--  -->
                   <div class="col-sm-11">
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
+                    <select name="categoria" class="form-control select2" style="width: 100%;">
+                      <?php if ($categorias != null): ?>
+                        <?php foreach ($categorias as $key => $value): ?>
+                          <option value="<?= $value->get("cat_id")?>"><?= $value->get("cat_nombre")  ?></option>
+                        <?php endforeach ?>
+                      <?php endif ?>
                     </select>
                   </div>
                 </div>
@@ -160,15 +157,15 @@
                     <label class="col-md-4 control-label">Estado</label>
                     <div class="col-sm-8">
                       <label>
-                        <input type="radio" name="r1" class="minimal" checked>
+                        <input type="radio" name="rentorsale" value='VENTA' class="minimal" checked>
                         <span style="font-weight: normal;">Producto para venta</span>
                       </label><br>
                       <label>
-                        <input type="radio" name="r1" class="minimal">
+                        <input type="radio" name="rentorsale" value="ARRIENDO" class="minimal">
                         <span style="font-weight: normal;">Producto para arriendo</span>
                       </label><br>
                       <label>
-                        <input type="radio" name="r1" class="minimal">
+                        <input type="radio" name="rentorsale" value="VENTA Y ARRIENDO" class="minimal">
                         <span style="font-weight: normal;">Producto para venta y arriendo</span>
                       </label>
                     </div>
@@ -177,11 +174,11 @@
                       <label class="col-sm-3 control-label">Tipo</label>
                       <div class="col-sm-8">
                         <label>
-                          <input type="radio" name="r2" class="minimal" checked>
+                          <input type="radio" name="tipo" value="Nuevo" class="minimal" checked>
                           <span style="font-weight: normal;">Producto nuevo</span>
                         </label><br>
                         <label>
-                          <input type="radio" name="r2" class="minimal">
+                          <input type="radio" name="tipo" value="Reacondicionado" class="minimal">
                           <span style="font-weight: normal;">Producto reacondicionado</span>
                         </label>
                       </div>
@@ -192,7 +189,7 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Descripción</label>
                   <div class="col-sm-11">
-                    <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
+                    <textarea class="form-control" rows="2" name="desc" placeholder="Descripción ..."></textarea>
                   </div>
                 </div>
 
@@ -215,10 +212,10 @@
                         <tbody>
                           <tr>
                             <td>
-                              <input name="file1" id="" type="file" required>
+                              <input name="files1" id="" type="file" required>
                             </td>
                             <td>
-                              <input name="file2" id="" type="file" required>
+                              <input name="files2" id="" type="file" required>
                             </td>
                           </tr>
                         </tbody>
@@ -229,14 +226,14 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label">PDF</label>
                   <div class="col-sm-11">
-                  <input type="file" accept="application/pdf" name="file" id="esp">
-                    <p class="help-block">Seleccione un archivo PDF con la información del producto.</p>
+                  <input type="text" name="linkpdf" placeholder="http://www.bremaice.it/static/upload/cb6/cb640-en.pdf" class="form-control">
+                    <p class="help-block">Link externo del manual o PDF</p>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-1 control-label">Link de Youtube</label>
                   <div class="col-sm-11">
-                    <input type="text" class="form-control" id="linkyoutube" placeholder="Link de video de Youtube">
+                    <input type="text" class="form-control" name="linkyoutube" placeholder="Link de video de Youtube">
                   </div>
                 </div>
               </div>
@@ -244,7 +241,7 @@
               <div class="box-footer">
                 <div class="row">
                   <div class="col-md-12">
-                    <button type="button" class="btn btn-block btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-block btn-primary">Agregar</button>
                   </div>
                 </div>
                 
@@ -253,6 +250,7 @@
               <!-- /.box-footer -->
               
             </div>
+          </form>
           </div>
           <!-- /.box -->
 
@@ -275,43 +273,25 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-                        <i class="fa fa-edit"></i>
-                      </button>
-                    </td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-                        <i class="fa fa-edit"></i>
-                      </button>
-                    </td>
-                    <td class="text-center">
-                    </button>
-                      <button type="button" class="btn btn-danger">
-                        <i class="fa fa-trash-o"></i>
-                      </button>
-                    </td>
-                  </tr>
+                  <?php if ($productos != null): ?>
+                    <?php foreach ($productos as $key => $value): ?>
+                      <tr>
+                        <td><?= $value->get("prod_nombre")  ?></td>
+                        <td><?= $value->moneda_chilena()  ?></td>
+                        <td><?= $value->get("cat_nombre")  ?></td>
+                        <td><?= $value->get("cat_desc")  ?></td>
+                        <td class="text-center">
+                          <button type="button" id="<?= $value->get("prod_id")."&".$value->get("prod_imagen1")."&".$value->get("prod_imagen2") ?>" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-edit"></i>
+                          </button>
+                        </td>
+                        <td class="text-center">
+                          <a href="<?=site_url('Adm_categorias/eliminarcategoria/').$value->get("prod_id")?>" onclick="return confirm('Estas seguro de eliminar este registro, recuerda que esta acción es irreversible?')" type="button" class="btn btn-danger">
+                          <i class="fa fa-trash-o"></i>
+                        </a></td>
+                      </tr>
+                    <?php endforeach ?>
+                  <?php endif ?>
                   </tbody>
                 </table>
               </div>
@@ -335,146 +315,133 @@
                 <h4 class="modal-title">Editar producto</h4>
               </div>
               <div class="modal-body">
+
+              <form action="<?=site_url('Adm_productos/crearproducto')?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                 <div class="form-horizontal">
-                  <div class="box-body">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Nombre</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-                  </div>
-                </div>
+                      <div class="box-body">
+                        <div class="form-group">
+                          <label class="col-sm-1 control-label">Nombre</label>
+                          <div class="col-sm-11">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-1 control-label">Precio</label>
+                          <div class="col-sm-11">
+                            <input type="number" min="1" max="100000000" class="form-control" name="precio" placeholder="Precio">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-1 control-label">Marca/Modelo</label><!--  -->
+                          <div class="col-sm-11">
+                            <select name="modelo" class="form-control select2" style="width: 100%;">
+                              <?php if ($modelos != null): ?>
+                                <?php foreach ($modelos as $key => $value): ?>
+                                  <option value="<?= $value->get("modelo_id")?>"><?= $value->get("marca_nombre")."/".$value->get("modelo_nombre")  ?></option>
+                                <?php endforeach ?>
+                              <?php endif ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-1 control-label">Categoría</label><!--  -->
+                          <div class="col-sm-11">
+                            <select name="categoria" class="form-control select2" style="width: 100%;">
+                              <?php if ($categorias != null): ?>
+                                <?php foreach ($categorias as $key => $value): ?>
+                                  <option value="<?= $value->get("cat_id")?>"><?= $value->get("cat_nombre")  ?></option>
+                                <?php endforeach ?>
+                              <?php endif ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="row">
+                            <div class="col-md-6">
+                            <label class="col-md-4 control-label">Estado</label>
+                            <div class="col-sm-8">
+                              <label>
+                                <input type="radio" name="rentorsale" value='VENTA' class="minimal" checked>
+                                <span style="font-weight: normal;">Producto para venta</span>
+                              </label><br>
+                              <label>
+                                <input type="radio" name="rentorsale" value="ARRIENDO" class="minimal">
+                                <span style="font-weight: normal;">Producto para arriendo</span>
+                              </label><br>
+                              <label>
+                                <input type="radio" name="rentorsale" value="VENTA Y ARRIENDO" class="minimal">
+                                <span style="font-weight: normal;">Producto para venta y arriendo</span>
+                              </label>
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="col-sm-3 control-label">Tipo</label>
+                              <div class="col-sm-8">
+                                <label>
+                                  <input type="radio" name="tipo" value="Nuevo" class="minimal" checked>
+                                  <span style="font-weight: normal;">Producto nuevo</span>
+                                </label><br>
+                                <label>
+                                  <input type="radio" name="tipo" value="Reacondicionado" class="minimal">
+                                  <span style="font-weight: normal;">Producto reacondicionado</span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
+                        <div class="form-group">
+                          <label class="col-sm-1 control-label">Descripción</label>
+                          <div class="col-sm-11">
+                            <textarea class="form-control" rows="2" name="desc" placeholder="Descripción ..."></textarea>
+                          </div>
+                        </div>
 
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Precio</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="precio" placeholder="Precio">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Marca</label><!--  -->
-                  <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Categoría</label><!--  -->
-                  <div class="col-sm-9">
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-md-6">
-                    <label class="col-md-4 control-label">Estado</label>
-                    <div class="col-sm-8">
-                      <label>
-                        <input type="radio" name="r1" class="minimal" checked>
-                        <span style="font-weight: normal;">Producto para venta</span>
-                      </label><br>
-                      <label>
-                        <input type="radio" name="r1" class="minimal">
-                        <span style="font-weight: normal;">Producto para arriendo</span>
-                      </label><br>
-                      <label>
-                        <input type="radio" name="r1" class="minimal">
-                        <span style="font-weight: normal;">Producto para venta y arriendo</span>
-                      </label>
-                    </div>
-                    </div>
-                    <div class="col-md-6">
-                      <label class="col-sm-3 control-label">Tipo</label>
-                      <div class="col-sm-8">
-                        <label>
-                          <input type="radio" name="r2" class="minimal" checked>
-                          <span style="font-weight: normal;">Producto nuevo</span>
-                        </label><br>
-                        <label>
-                          <input type="radio" name="r2" class="minimal">
-                          <span style="font-weight: normal;">Producto reacondicionado</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Descripción</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control" rows="2" id="descripcion" placeholder="Descripción ..."></textarea>
-                  </div>
-                </div>
-                <br>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Imagenes</label>
-                  <div class="col-sm-9">
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th style="text-align: center;">
-                              IMAGEN 1
-                            </th>
-                            <th style="text-align: center;">
-                              IMAGEN 2
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <img class="center-block" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
-                              <input type="file" id="files" name="files2">
-                              <p class="help-block">Seleccione una nueva imagen para el producto.</p>
-                            </td>
-                            <td>
-                              <img class="center-block" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
-                              <input type="file" id="files" name="files2">
-                              <p class="help-block">Seleccione una nueva imagen para el producto.</p>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">PDF</label>
-                  <div class="col-sm-9">
-                  <input type="file" accept="application/pdf"  id="esp">
-                    <p class="help-block">Seleccione un archivo PDF con la información del producto.</p>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Link de Youtube</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="linkyoutube" placeholder="Link de video de Youtube">
-                  </div>
-                </div>
-                <!-- <div class="form-group">
-                  <div class="col-sm-9 center">
-                    <img class="center-block" src="http://lenguajehtml.com/img/html5-logo.png" width="60%">
-                    <p class="help-block">Seleccione una nueva imagen para el producto.</p>
-                    <input type="file" id="files" name="files">
-                  </div>
-                </div> -->
-              </div>                  
+                        <div class="form-group">
+                          <label class="col-sm-1 control-label">Imagenes</label>
+                          <div class="col-sm-11">
+                            <p class="help-block">Seleccione las imagenes de este producto.</p>
+                            <div class="table-responsive">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th style="text-align: center;">
+                                      IMAGEN 1
+                                    </th>
+                                    <th style="text-align: center;">
+                                      IMAGEN 2
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <input name="files1" id="" type="file" required>
+                                    </td>
+                                    <td>
+                                      <input name="files2" id="" type="file" required>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-1 control-label">PDF</label>
+                          <div class="col-sm-11">
+                          <input type="text" name="linkpdf" placeholder="http://www.bremaice.it/static/upload/cb6/cb640-en.pdf" class="form-control">
+                            <p class="help-block">Link externo del manual o PDF</p>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-1 control-label">Link de Youtube</label>
+                          <div class="col-sm-11">
+                            <input type="text" class="form-control" name="linkyoutube" placeholder="Link de video de Youtube">
+                          </div>
+                        </div>
+                      </div>  
+
                   <!-- /.box-body -->
                   <div class="box-footer">
                     <div class="row">
@@ -488,6 +455,7 @@
                   </div>
                   <!-- /.box-footer -->
                 </div>
+                </form>  
               </div>
             </div>
             <!-- /.modal-content -->

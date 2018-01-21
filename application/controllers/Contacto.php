@@ -26,7 +26,7 @@ class Contacto extends CI_Controller {
 
 	public function sendEmailCotizacion()
 	{
-		if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['detalle']) {
+		if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['adicional']) && isset($_POST['detalle'])) {
 			$para      = 'correo@gmail.com';
 			$titulo    = $_POST['subject']."\r\n";
 			$mensaje   = $_POST['message']."\r\n"."Nombre: ".$_POST['name']."\r\n"."Correo: ".$_POST['email'];

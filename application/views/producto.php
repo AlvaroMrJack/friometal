@@ -52,6 +52,7 @@
 
 		<!-- Head Libs -->
 		<script src="<?=base_url('resources/vendor/modernizr/modernizr.min.js')?>"></script>
+		<link rel="stylesheet" href="<?=base_url('resources/css/pnotify.custom.min.css')?>">
 		<style type="text/css">
 			.embed-container {
 			    position: relative;
@@ -101,7 +102,7 @@
 											</div>
 
 											<div class="cart-actions">
-											<a class="btn btn-success" data-toggle="modal" data-target="#myModal">Confirmar</a>
+											<a class="btn btn-success" data-toggle="modal" id="cargar_detalle_cotizacion" data-target="#myModal">Confirmar</a>
 										</div>
 										</div>
 									</div>
@@ -171,9 +172,9 @@
 			<section class="page-header">
 				<div class="container">
 					<ul class="breadcrumb">
-						<li><a href="demo-shop-17.html">Inicio</a></li>
+						<li><a href="<?=site_url('/')?>">Inicio</a></li>
 
-						<li><a href="demo-shop-17-category-3col.html">Categoría</a></li>
+						<li><a href="<?=site_url('categoria/index/').$producto->get("prod_cat_id") ?>">Categoría</a></li>
 						<li class="active">Producto</li>
 					</ul>
 				</div>
@@ -256,13 +257,10 @@
 							<div id="product-desc" class="tab-pane active">
 								<div class="product-desc-area">
 									<div class="embed-container">
-										<iframe width="854" height="480" src="https://www.youtube.com/embed/C_mQqK-H0us" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+										<iframe width="854" height="480" src="<?= $producto->get("prod_link_video") ?>" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 									</div>
 								</div>
 							</div>
-							<!-- de este link          https://www.youtube.com/watch?v=C_mQqK-H0us
-								 tiene pasar a ser asi https://www.youtube.com/embed/C_mQqK-H0us
-								  -->
 							<div id="product-reviews" class="tab-pane">
 
 								<div class="add-product-review">
@@ -278,7 +276,8 @@
 			</div>
 
 			</div>
-			<!-- Modal -->
+
+			   <!-- Modal -->
 			<div id="myModal" class="modal fade" role="dialog">
 			  <div class="modal-dialog">
 
@@ -291,15 +290,15 @@
 			      <div class="modal-body">
 			        <div class="form-group">
 					  <label>Correo electrónico:</label>
-					  <input type="text" class="form-control">
+					  <input type="email" id="email_cliente" class="form-control">
 					</div>
 			        <div class="form-group">
 					  <label>Nombre:</label>
-					  <input type="text" class="form-control">
+					  <input type="text" id="nombre_cliente" class="form-control">
 					</div>
 					<div class="form-group">
 					  <label>Texto:</label>
-					  <input type="text" class="form-control">
+					  <input type="text" id="adicional_cliente" class="form-control">
 					</div>
 
 			      </div>
@@ -311,41 +310,21 @@
 							<thead>
 								<tr>
 									<th>
-										ID
-									</th>
-									<th>
-										Cantidad
-									</th>
-									<th>
 										Nombre
 									</th>
 									<th>
-										Precio
+										Precio/Unitario
+									</th>
+									<th>
+										Cantidad
 									</th>
 									<th>
 										Total
 									</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-									<td>
-										[CONTENT]
-									</td>
-								</tr>
-							</tbody>
+							<tbody id="detalle_cotizacion"></tbody>
+							<tfoot id="detalle_foot"></tfoot>
 						</table>
 					  </div>
 					</div>
@@ -353,6 +332,7 @@
 
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			        <button type="button" class="btn btn-success" id="enviar_cotizacion" data-dismiss="modal">Enviar</button>
 			      </div>
 			    </div>
 
@@ -409,6 +389,7 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url('resources/js/theme.init.js')?>"></script>
+		<script src="<?=base_url('resources/js/pnotify.custom.min.js')?>"></script>
 
 		<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-581b726c069c6315"></script>
 
@@ -442,6 +423,11 @@
 
 				localStorage.setItem('carrito', JSON.stringify(oldItems));
 				cargar_carrito();
+				new PNotify({
+                          title: 'Bien!',
+                          text: 'Producto añadido correctamente!.',
+                          type: 'success'
+                      });
 			})
 
 			$(document).on('click', '.removecart', function(event) {
@@ -473,49 +459,68 @@
 				$("#totalcart").text(total.format(0, 3, '.', ','));
 			}
 
+			$("#cargar_detalle_cotizacion").click(function(event) {
+				$("#detalle_cotizacion, #detalle_foot").text("");
+				var objcart = JSON.parse(localStorage.getItem("carrito"));;
+
+				if (!$.isEmptyObject(objcart)) {
+				var totaltotal = 0;
+					$.each(objcart, function(index, val) {
+						var total = parseInt(val.precio)*parseInt(val.cantidad);
+						$("#detalle_cotizacion").append('<tr><td>'+val.nom+'</td><td>'+val.precioformated+'</td><td>'+val.cantidad+'</td><td>$ '+total.format(0, 3, '.', ',')+'</td></tr>');
+						totaltotal += total;
+					});
+					$("#detalle_foot").append('<tr><td style="text-align: right; color: red" colspan="2">Total:</td><td style="text-align: center; color: red" colspan="2">$ '+totaltotal.format(0, 3, '.', ',')+'</td></tr>')
+				}else{
+					alert("Lo sentimos no tiene ningun producto en su carrito de cotizaciones");
+				}
+			});
+
+			$("#enviar_cotizacion").click(function(event) {
+				var email = $.trim($("#email_cliente").val());
+				var nombre = $.trim($("#nombre_cliente").val());
+				var adicional = $.trim($("#adicional_cliente").val())
+				var objcart = JSON.parse(localStorage.getItem("carrito"));;
+
+				if (email != "" && nombre != "" && adicional != "" && !$.isEmptyObject(objcart)) {
+					$.ajax({
+				          method:"POST",
+				          url: "<?=site_url('/contacto/sendEmailCotizacion')?>",
+				          datatype:'json',
+				          data: {"nombre": nombre, "email": email,"adicional": adicional, "detalle": objcart},
+				          success: function(response){
+				              	if (response.val == 1)
+				              	{
+				              		new PNotify({
+				                          title: 'Sí!',
+				                          text: 'Mensaje enviado exitosamente!.',
+				                          type: 'success'
+				                      });
+				              		$("#email_cliente").val("");
+						            $("#nombre_cliente").val("");
+						            $("#adicional_cliente").val("");
+				              	}else if(response.val == 0)
+				              	{
+				              		new PNotify({
+				                      title: 'Oh No!',
+				                      text: 'Algo salió mal.',
+				                      type: 'notice'
+				                  });
+				              	}
+				              }
+				          });	
+				}else{
+					alert("Lo sentimos existen campos vacíos o no posee productos en su carrito, favor revisar.");
+				}
+
+			});
+
 			Number.prototype.format = function(n, x, s, c) {
 			    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
 			        num = this.toFixed(Math.max(0, ~~n));
 
 			    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
 			};
-
-
-			/*input spinner*/
-			$(function() {
-			    var action;
-			    $(".number-spinner button").on('mousedown touchstart', function () {
-			        btn = $(this);
-			        input = btn.closest('.number-spinner').find('input');
-			        btn.closest('.number-spinner').find('button').prop("disabled", false);
-
-			    	if (btn.attr('data-dir') == 'up') {
-			            action = setInterval(function(){
-			                if ( input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max')) ) {
-			                    input.val(parseInt(input.val())+1);
-			                }else{
-			                    btn.prop("disabled", true);
-			                    clearInterval(action);
-			                }
-			            }, 50);
-			    	} else {
-			            action = setInterval(function(){
-			                if ( input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min')) ) {
-			                    input.val(parseInt(input.val())-1);
-			                }else{
-			                    btn.prop("disabled", true);
-			                    clearInterval(action);
-			                }
-			            }, 50);
-			    	}
-			    }).on('mouseup touchend', function () {
-			        clearInterval(action);
-			    });
-			});
-			/*input spinner*/
-
-
-
 
 
 		</script>
