@@ -285,6 +285,8 @@
                     <th>Precio</th>
                     <th>Categoría</th>
                     <th>Descripción</th>
+                    <th>Tipo</th>
+                    <th>Venta y/o Arriendo</th>
                     <th class="text-center">Editar</th>
                     <th class="text-center">eliminar</th>
                   </tr>
@@ -296,14 +298,16 @@
                         <td><?= $value->get("prod_nombre")  ?></td>
                         <td><?= $value->moneda_chilena()  ?></td>
                         <td><?= $value->get("cat_nombre")  ?></td>
-                        <td><?= $value->get("cat_desc")  ?></td>
+                        <td><?= $value->get("prod_desc")  ?></td>
+                        <td><?= $value->get("prod_tipo")  ?></td>
+                        <td><?= $value->get("prod_rentorsale")  ?></td>
                         <td class="text-center">
                           <button type="button" id="<?= $value->get("prod_id")."&".$value->get("prod_imagen1")."&".$value->get("prod_imagen2") ?>" class="btn btn-default" data-toggle="modal" data-target="#myModal">
                             <i class="fa fa-edit"></i>
                           </button>
                         </td>
                         <td class="text-center">
-                          <a href="<?=site_url('Adm_categorias/eliminarcategoria/').$value->get("prod_id")?>" onclick="return confirm('Estas seguro de eliminar este registro, recuerda que esta acción es irreversible?')" type="button" class="btn btn-danger">
+                          <a href="<?=site_url('Adm_productos/eliminarproducto/').$value->get("prod_id")?>" onclick="return confirm('Estas seguro de eliminar este registro, recuerda que esta acción es irreversible?')" type="button" class="btn btn-danger">
                           <i class="fa fa-trash-o"></i>
                         </a></td>
                       </tr>

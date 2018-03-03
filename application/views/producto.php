@@ -488,26 +488,29 @@
 				          method:"POST",
 				          url: "<?=site_url('/contacto/sendEmailCotizacion')?>",
 				          datatype:'json',
-				          data: {"nombre": nombre, "email": email,"adicional": adicional, "detalle": objcart},
+				          data: {"name": nombre, "email": email,"message": adicional, "detalle": objcart},
+				          beforeSend:function (argument) {
+				          	
+				          },
 				          success: function(response){
 				              	if (response.val == 1)
 				              	{
 				              		new PNotify({
 				                          title: 'Sí!',
 				                          text: 'Mensaje enviado exitosamente!.',
-				                          type: 'success',
-				                          delay: 1000
+				                          type: 'success'
 				                      });
 				              		$("#email_cliente").val("");
 						            $("#nombre_cliente").val("");
 						            $("#adicional_cliente").val("");
+						            localStorage.removeItem("carrito");
+						            cargar_carrito();
 				              	}else if(response.val == 0)
 				              	{
 				              		new PNotify({
 				                      title: 'Oh No!',
 				                      text: 'Algo salió mal.',
-				                      type: 'notice',
-				                      delay: 1000
+				                      type: 'info'
 				                  });
 				              	}
 				              }

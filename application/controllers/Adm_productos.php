@@ -80,6 +80,15 @@ class Adm_productos extends CI_Controller {
 		redirect('adm_categorias','refresh');
 	}
 
+	public function eliminarproducto($ideliminar = null)
+	{
+		$producto = $this->prod->findById($ideliminar);
+		if ($producto != null) {
+			$this->prod->eliminar($producto->get("prod_id"));
+		}
+		redirect('adm_productos','refresh');
+	}
+
 
 }
 

@@ -159,7 +159,7 @@
 			<div class="fullwidth-banner" style=" background-image: url(<?=base_url('resources/img/categorias/banner/banner2.jpg')?>);">
 				<img class="fullwidth-banner" src="<?=base_url('resources/img/categorias/banner/fabhielos.png')?>" style="width: 100%"">
 				<div>
-					<h2 style="-webkit-text-fill-color: white; -webkit-text-stroke: 1px black;">Fabricadoras de Hielo</h2>
+					<h2 style="-webkit-text-fill-color: white; -webkit-text-stroke: 1px black;"><?= $categoria->get("cat_nombre")  ?></h2>
 					<!-- <p>Set banners and description for any category of your website.</p> -->
 				</div>
 			</div>
@@ -439,26 +439,29 @@
 				          method:"POST",
 				          url: "<?=site_url('/contacto/sendEmailCotizacion')?>",
 				          datatype:'json',
-				          data: {"nombre": nombre, "email": email,"adicional": adicional, "detalle": objcart},
+				          data: {"name": nombre, "email": email,"message": adicional, "detalle": objcart},
+				          beforeSend:function (argument) {
+				          	
+				          },
 				          success: function(response){
 				              	if (response.val == 1)
 				              	{
 				              		new PNotify({
 				                          title: 'Sí!',
 				                          text: 'Mensaje enviado exitosamente!.',
-				                          type: 'success',
-				                          delay: 1000
+				                          type: 'success'
 				                      });
 				              		$("#email_cliente").val("");
 						            $("#nombre_cliente").val("");
 						            $("#adicional_cliente").val("");
+						            localStorage.removeItem("carrito");
+						            cargar_carrito();
 				              	}else if(response.val == 0)
 				              	{
 				              		new PNotify({
 				                      title: 'Oh No!',
 				                      text: 'Algo salió mal.',
-				                      type: 'notice',
-				                      delay: 1000
+				                      type: 'info'
 				                  });
 				              	}
 				              }

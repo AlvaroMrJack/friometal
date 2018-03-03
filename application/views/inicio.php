@@ -399,7 +399,7 @@
 				var  total = 0;
 				var objcart = JSON.parse(localStorage.getItem("carrito"));
 				$.each(objcart, function(index, val) {
-					$("#list_cart").append('<a class="fa fa-times removecart" idremove="'+val.id+'" ></a><div class="product-details-area"><h2 class="product-name"><a title="'+val.nom+'">'+val.nom+'</a></h2><div class="cart-qty-price">1 X <span class="product-price">'+val.precioformated+'</span></div></div>');
+					$("#list_cart").append('<a class="fa fa-times removecart" idremove="'+val.id+'" ></a><div class="product-details-area"><h2 class="product-name"><a title="'+val.nom+'">'+val.nom+'</a></h2><div class="cart-qty-price">'+val.cantidad+' X <span class="product-price">'+val.precioformated+'</span></div></div>');
 					total += parseInt(val.precio)*parseInt(val.cantidad);
 					 i++;
 				});
@@ -435,7 +435,7 @@
 				          method:"POST",
 				          url: "<?=site_url('/contacto/sendEmailCotizacion')?>",
 				          datatype:'json',
-				          data: {"nombre": nombre, "email": email,"adicional": adicional, "detalle": objcart},
+				          data: {"name": nombre, "email": email,"message": adicional, "detalle": objcart},
 				          beforeSend:function (argument) {
 				          	
 				          },
@@ -450,6 +450,8 @@
 				              		$("#email_cliente").val("");
 						            $("#nombre_cliente").val("");
 						            $("#adicional_cliente").val("");
+						            localStorage.removeItem("carrito");
+						            cargar_carrito();
 				              	}else if(response.val == 0)
 				              	{
 				              		new PNotify({
