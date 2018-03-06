@@ -89,16 +89,19 @@ class Contacto extends CI_Controller {
 	          </tr>
 	           '.$detalle.'
 	             <tfoot>
-				    <tr >
-				      <td style="text-align: right;" colspan="9"><u>Total:</u></td>
-				      <td colspan="3" style="text-align: right;">'.$this->moneda_chilena($total).'</td>
-				    </tr>
+				    <tr>
+				    	<td style="text-align: right; color: red" colspan="2">NETO:</td>
+				    	<td style="text-align: right; color: red" colspan="2">'.$this->moneda_chilena($total).'</tr><tr><td style="text-align: right; color: red" colspan="2">IVA (19%):</td>
+				    	<td style="text-align: right; color: red" colspan="2">'.$this->moneda_chilena($total*0.19).'</td></tr><tr><td style="text-align: right; color: red" colspan="2">TOTAL:</td>
+				    	<td style="text-align: right; color: red" colspan="2">'.$this->moneda_chilena($total*1.19).'</td></tr>
 				  </tfoot>
+
 				  <tbody>
 	        </table>
 		</body>
 		</html>
 		';
+
 
 		
 
