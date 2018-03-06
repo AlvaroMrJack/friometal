@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
 
-		<title>Fríometal</title>	
+		<title>Nosotros</title>	
 
 		<meta name="keywords" content="" />
 		<meta name="description" content="">
@@ -47,19 +47,53 @@
 		<!-- Demo CSS -->
 		<link rel="stylesheet" href="<?=base_url('resources/css/demos/demo-shop-17.css')?>">
 
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="<?=base_url('resources/css/custom.css')?>">
+
 		<!-- Head Libs -->
 		<script src="<?=base_url('resources/vendor/modernizr/modernizr.min.js')?>"></script>
-		<link rel="stylesheet" href="<?=base_url('resources/css/pnotify.custom.min.css')?>">
+		<style type="text/css">
+		@media (min-width:1000px) and (max-width:6000px) {
+			.style_prevu_kit
+			{
+			    display:inline-block;
+			    border:0;
+			    position: relative;
+			    -webkit-transition: all 200ms ease-in;
+			    -webkit-transform: scale(1); 
+			    -ms-transition: all 200ms ease-in;
+			    -ms-transform: scale(1); 
+			    -moz-transition: all 200ms ease-in;
+			    -moz-transform: scale(1);
+			    transition: all 200ms ease-in;
+			    transform: scale(1);   
 
+			}
+			.style_prevu_kit:hover
+			{
+			    box-shadow: 0px 0px 150px #000000;
+			    z-index: 2;
+			    -webkit-transition: all 200ms ease-in;
+			    -webkit-transform: scale(1.5);
+			    -ms-transition: all 200ms ease-in;
+			    -ms-transform: scale(1.5);   
+			    -moz-transition: all 200ms ease-in;
+			    -moz-transform: scale(1.5);
+			    transition: all 200ms;
+			    transform: scale(1.5);
+			}
+		}
+		</style>
 	</head>
 	<body>
 
 		<div class="body">
-			<header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 142, 'stickySetTop': '-36px', 'stickyChangeLogo': false}"  class=" transparent">
+			<header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 142, 'stickySetTop': '-36px', 'stickyChangeLogo': false}"  class="">
 				<div class="header-body">
 					<div class="header-top">
 						<div class="container">
 							
+
 							<div class="cart-dropdown">
 								<a href="#" class="cart-dropdown-icon">
 									<i class="minicart-icon"></i>
@@ -85,7 +119,6 @@
 
 										<div class="cart-actions">
 											<a class="btn btn-success" data-toggle="modal" id="cargar_detalle_cotizacion" data-target="#myModal">Confirmar</a>
-
 										</div>
 									</div>
 								</div>
@@ -96,6 +129,7 @@
 							<a href="#" class="mmenu-toggle-btn" title="Toggle menu">
 								<i class="fa fa-bars"></i>
 							</a>
+
 						</div>
 					</div>
 					<div class="header-container container">
@@ -155,84 +189,81 @@
 			<div id="mobile-menu-overlay"></div>
 
 			<div role="main" class="main">
-				
-			<div class="slider-container rev_slider_wrapper" style="height: 688px;">
-				<div id="revolutionSlider" class="slider rev_slider manual">
-					<ul>
-						<?php if ($anuncios != null): ?>
-							<?php foreach ($anuncios as $key => $value): ?>
-								<li data-transition="fade">
-								<img src="<?=base_url('resources/img/slides/sl1.jpg')?>"  
-									alt="slide bg"
-									data-bgposition="center center" 
-									data-bgfit="cover" 
-									data-bgrepeat="no-repeat"
-									class="rev-slidebg">
+				<div class="container about-container">
 
-								<div class="tp-caption text-primary"
-									data-x="left" data-hoffset="78"
-									data-y="center" data-voffset="-40"
-									data-start="500"
-									data-whitespace="nowrap"						 
-									data-transform_in="y:[100%];s:500;"
-									data-transform_out="opacity:0;s:500;"
-									style="z-index: 5; font-size: 26px; text-transform: uppercase; font-weight:600; line-height:1;color:#2c3232;"
-									data-mask_in="x:0px;y:0px;"><?= $value->get("anuncio_titulo")  ?></div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="h1 heading-primary">Conozca nuestros <strong>servicios</strong></h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<hr class="medium">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div align="center" class="col-md-3 style_prevu_kit" style="background-color: #FFF;">
+								<div class="service">
+				                 	<i class="fa fa-wrench"></i>
+				                 	<h2>Servicio técnico</h2>
+				                 	<hr>
+				                 	<div class="service_hoverly">
+				                    	<p>En nuestro amplio cartel de servicios contamos con la venta y distribución de hielo y productos congelados.
+				                        Somos el soporte para muchas empresas fabricadoras de hielo tanto dentro como fuera de santiago
+				                    	</p>
+				                 	</div>
+				               </div>
+							</div>
+							<div class="col-md-3 center style_prevu_kit" style="background-color: #FFF;">
+								<div class="service">
+				                 	<i class="fa fa-truck"></i>
+				                 	<h2>Despacho a domicilio</h2>
+				                 	<hr>
+				                 	<div class="service_hoverly">
+				                    	<p>En nuestro amplio cartel de servicios contamos con la venta y distribución de hielo y productos congelados.
+				                        Somos el soporte para muchas empresas fabricadoras de hielo tanto dentro como fuera de santiago
+				                    	</p>
+				                 	</div>
+				               </div>
+							</div>
+							<div class="col-md-3 center style_prevu_kit" style="background-color: #FFF;">
+								<div class="service">
+				                 	<i class="fa fa-gears"></i>
+				                 	<h2>Fabricación de maquinas</h2>
+				                 	<hr>
+				                 	<div class="service_hoverly">
+				                    	<p>En nuestro amplio cartel de servicios contamos con la venta y distribución de hielo y productos congelados.
+				                        Somos el soporte para muchas empresas fabricadoras de hielo tanto dentro como fuera de santiago
+				                    	</p>
+				                 	</div>
+				               </div>
+							</div>
+							<div class="col-md-3 center style_prevu_kit" style="background-color: #FFF;">
+								<div class="service">
+				                 	<i class="fa fa-wrench"></i>
+				                 	<h2>Cambio de repuestos</h2>
+				                 	<hr>
+				                 	<div class="service_hoverly">
+				                    	<p>En nuestro amplio cartel de servicios contamos con la venta y distribución de hielo y productos congelados.
+				                        Somos el soporte para muchas empresas fabricadoras de hielo tanto dentro como fuera de santiago
+				                    	</p>
+				                 	</div>
+				               </div>
+							</div>
 
-								<div class="tp-caption"
-									data-x="left" data-hoffset="73"
-									data-y="center" data-voffset="12"
-									data-start="1000"
-									data-whitespace="nowrap"						 
-									data-transform_in="y:[100%];s:500;"
-									data-transform_out="opacity:0;s:500;"
-									style="z-index: 5; font-size: 79px; text-transform: uppercase; font-weight:800; letter-spacing: -0.05em; padding-right: 0.05em;line-height:1;color:#2c3232;"
-									data-mask_in="x:0px;y:0px;"><?= $value->get("anuncio_subtitulo")  ?></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<hr class="medium">
+						</div>
+					</div>
 
-								<div class="tp-caption"
-									data-x="left" data-hoffset="78"
-									data-y="center" data-voffset="70"
-									data-start="1500"
-									style="z-index: 5; font-size: 24px; font-weight: 300; line-height:1.5;color:#2c3232;"
-									data-transform_in="y:[100%];opacity:0;s:500;"><?= $value->get("anuncio_texto")  ?>
-									</div>
-							</li>
-							<?php endforeach ?>
-						<?php endif ?>
-					</ul>
 				</div>
-			</div>
-			<div class="container">
-				<h1 class="h1 heading-primary mt-lg clearfix center">VENTA Y ARRIENDO DE MAQUINAS</h1>
-			</div>
-			<div class="container">
-				<ul class="products-grid columns4">
-					<?php if ($categorias != null): ?>
-						<?php foreach ($categorias as $key => $value): ?>
-							<li>
-								<div class="product">
-									<figure class="product-image-area">
-										<a href="<?=site_url('categoria/index/').$value->get("cat_id")?>" title="<?= $value->get("cat_nombre") ?>" class="product-image">
-											<img src="<?=base_url('resources/img/categorias/').$value->get("cat_img_ruta")?>" alt="<?= $value->get("cat_nombre") ?>">
-										</a>
-									</figure>
-									<div class="product-details-area">
-										<h2 class="product-name"><a href="<?=site_url('categoria/index/').$value->get("cat_id")?>" title="<?= $value->get("cat_nombre")  ?>"><?= $value->get("cat_nombre")  ?></a></h2>
-										<div class="product-price-box">
-											<span class="product-price">
-												<?= $value->get("cat_desc")  ?>
-											</span>
-										</div>
-									</div>
 
-								</div>
-							</li>	
-						<?php endforeach ?>
-					<?php endif ?>
-				</ul>
 			</div>
-			<br><br>
-
 			<!-- Modal -->
 			<div id="myModal" class="modal fade" role="dialog">
 			  <div class="modal-dialog">
@@ -303,31 +334,6 @@
 			  </div>
 			</div>
 			<!-- Modal -->
-
-			<div class="clients-container">
-				<div class="container">
-					<div class="clients-wrapper">
-						<div class="owl-carousel owl-theme manual clients-carousel owl-no-narrow">
-							<a title="Brema Ice Makers" class="client">
-								<img class="img-responsive" src="<?=base_url('resources/img/marcas/marca.png')?>" alt="Brema Ice Makers">
-							</a>
-							<a title="Brema Ice Makers" class="client">
-								<img class="img-responsive" src="<?=base_url('resources/img/marcas/brema.png')?>" alt="Brema Ice Makers">
-							</a>
-							<a title="ITV Ice Makers" class="client">
-								<img class="img-responsive" src="<?=base_url('resources/img/marcas/itv.png')?>" alt="ITV Ice Makers">
-							</a>
-							<a title="Brema Ice Makers" class="client">
-								<img class="img-responsive" src="<?=base_url('resources/img/marcas/marca.png')?>" alt="Brema Ice Makers">
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-
-			</div>
-
 			<footer id="footer" class="mt-none">
 				
 				<div class="footer-copyright">
@@ -369,8 +375,6 @@
 		<script src="<?=base_url('resources/js/theme.js')?>"></script>
 
 
-		<script src="<?=base_url('resources/vendor/rs-plugin/js/jquery.themepunch.tools.min.js')?>"></script>
-		<script src="<?=base_url('resources/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js')?>"></script>
 
 		<!-- Current Page Vendor and Views -->
 		<script src="<?=base_url('resources/js/views/view.contact.js')?>"></script>
@@ -422,7 +426,7 @@
 				$("#totalcart").text(total.format(0, 3, '.', ','));
 			}
 
-			$("#cargar_detalle_cotizacion").click(function(event) {
+						$("#cargar_detalle_cotizacion").click(function(event) {
 				$("#detalle_cotizacion, #detalle_foot").text("");
 				var objcart = JSON.parse(localStorage.getItem("carrito"));;
 

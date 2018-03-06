@@ -95,8 +95,9 @@
 								</div>
 							</div>		
 							
-							<p class="welcome-msg">Contáctenos al: <i class="fa fa-phone"></i> (+562) 9876 5432</p>
-
+							<a href="whatsapp://send?text=Consulta pedido sitio WEB:&phone=+56992345011">
+								<p class="welcome-msg">Contáctenos al: <i class="fa fa-phone"></i> (+569) 9234 5011</p>
+							</a>
 							<a href="#" class="mmenu-toggle-btn" title="Toggle menu">
 								<i class="fa fa-bars"></i>
 							</a>
@@ -128,6 +129,11 @@
 													</a>
 												</li>
 												<li class="pull-right">
+													<a href="<?=site_url('servicios/index')?>">
+														Servicios
+													</a>
+												</li>
+												<li class="pull-right">
 													<a href="<?=base_url()?>">
 														Inicio
 													</a>
@@ -154,7 +160,7 @@
 			
 			<div id="mobile-menu-overlay"></div>
 
-			<div role="main" class="main">
+			<div role="main" class="main"><br>
 				<!-- Google Maps - Go to the bottom of the page to change settings and map location. -->
 				<div class="container">
 					<div id="googlemaps" class="google-map"></div>
@@ -208,18 +214,17 @@
 								<ul class="list-unstyled list-contact">
 									<li>
 										<i class="fa fa-phone"></i> 
-										<div>0201 203 2032</div>
-										<div>0201 203 2032</div>
+										<div>+562 2621 9925</div>
+										<div>&nbsp</div>
 									</li>
-									<li>
+									<!-- <li>
 										<i class="fa fa-mobile"></i> 
 										<div>201-123-3922</div>
 										<div>302-123-3928</div>
-									</li>
+									</li> -->
 									<li>
 										<i class="fa fa-envelope"></i> 
-										<div>empresa@gmail.com</div>
-										<div>empresa@empresa.com</div>
+										<div>contacto@friometal.cl</div>
 									</li>
 									<!-- <li>
 										<i class="fa fa-facebook"></i> 
@@ -246,18 +251,26 @@
 			      </div>
 			      <div class="modal-body">
 			        <div class="form-group">
-					  <label>Correo electrónico:</label>
-					  <input type="email" id="email_cliente" class="form-control">
-					</div>
-			        <div class="form-group">
-					  <label>Nombre:</label>
-					  <input type="text" id="nombre_cliente" class="form-control">
+			        	<div class="row">
+			        		<div class="col-md-6">
+							  <label>Correo electrónico: (*)</label>
+							  <input type="email" id="email_cliente" class="form-control" required>
+			        		</div>
+			        		<div class="col-md-6">
+							  <label>Nombre: (*)</label>
+							  <input type="text" id="nombre_cliente" class="form-control" required>	
+			        		</div>
+			        	</div>
 					</div>
 					<div class="form-group">
-					  <label>Texto:</label>
-					  <input type="text" id="adicional_cliente" class="form-control">
+					  <label>Texto: (*)</label>
+					  <textarea type="textarea" id="adicional_cliente" class="form-control" required></textarea>
 					</div>
-
+					<div class="form-group">
+					  <label>Número de contacto:</label>
+					  <input type="tel" id="adicional_cliente" class="form-control">
+					</div>
+					<p>(*) Campos requeridos.</p>
 			      </div>
 			      <div class="modal-body">
 			        <div class="form-group">
@@ -299,6 +312,9 @@
 			<footer id="footer">
 				<div class="footer-copyright">
 					<div class="container">
+						<a class="logo" href="http://www.hielogradocero.cl" target="_blank">
+							<img title="Sitio web de venta de hielos" style="width: 120px;" alt="Sitio web de venta de hielos" class="img-responsive" src="<?=base_url('resources/img/hielogradocero.png')?>">
+						</a>
 						<a class="logo">
 							<img title="Sitio web optimizado con HTML5" style="width: 120px;" alt="Sitio web optimizado con HTML5" class="img-responsive" src="<?=base_url('resources/img/html5.png')?>">
 						</a>
