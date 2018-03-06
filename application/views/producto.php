@@ -109,7 +109,7 @@
 								</div>		
 							
 							<a href="whatsapp://send?text=Consulta pedido sitio WEB:&phone=+56992345011">
-								<p class="welcome-msg">Contáctenos al: <i class="fa fa-phone"></i> (+569) 9234 5011</p>
+								<i style="color: green;" class="fa fa-whatsapp"></i> (+569) 9234 5011
 							</a>
 							<a href="#" class="mmenu-toggle-btn" title="Toggle menu">
 								<i class="fa fa-bars"></i>
@@ -165,6 +165,7 @@
 				<div class="mobile-nav-wrapper">
 					<ul class="mobile-side-menu">
 						<li><a href="<?=base_url()?>">Inicio</a></li>
+						<li><a href="<?=site_url('servicios/index')?>">Servicios</a></li>
 						<li><a href="<?=site_url('nosotros/index')?>">Sobre nosotros</a></li>
 						<li><a href="<?=site_url('contacto/index')?>">Contacto</a></li>
 					</ul>
