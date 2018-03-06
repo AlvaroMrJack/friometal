@@ -91,10 +91,10 @@
 										</div>
 									</div>
 								</div>
-							</div>			
-							
-							<p class="welcome-msg">Contáctenos al: <i class="fa fa-phone"></i> (+562) 9876 5432</p>
-
+							</div>
+							<a href="whatsapp://send?text=Consulta pedido sitio WEB:&phone=+56992345011">
+								<p class="welcome-msg">Contáctenos al: <i class="fa fa-phone"></i> (+569) 9234 5011</p>
+							</a>
 							<a href="#" class="mmenu-toggle-btn" title="Toggle menu">
 								<i class="fa fa-bars"></i>
 							</a>
@@ -123,6 +123,11 @@
 												<li class="pull-right">
 													<a href="<?=site_url('nosotros/index')?>">
 														Sobre nosotros
+													</a>
+												</li>
+												<li class="pull-right">
+													<a href="<?=site_url('servicios/index')?>">
+														Servicios
 													</a>
 												</li>
 												<li class="pull-right">
@@ -183,7 +188,7 @@
 								</strong>
 							</h2>
 							<p class="lead">
-								En  1996  se  crea   Frío Metal, anterior a  eso  en el año  1990  se trabajaba solamente  en refrigeración para  productos alimenticios, desde ese entonces se  ha  perfeccionado en diversos seminarios, tanto nacional  como  internacional (Brasil, Argentina y España), en  cuanto  además se  a  modernizado el desarrollo  de los  productos, y  tener una  visión más profunda de  las  máquinas en su  funcionamiento.
+								En  1996  se  crea   Fríometal, anterior a  eso  en el año  1990  se trabajaba solamente  en refrigeración para  productos alimenticios, desde ese entonces se  ha  perfeccionado en diversos seminarios, tanto nacional  como  internacional (Brasil, Argentina y España), en  cuanto  además se  a  modernizado el desarrollo  de los  productos, y  tener una  visión más profunda de  las  máquinas en su  funcionamiento.
 							</p>
 						</div>
 					</div>
@@ -217,18 +222,26 @@
 			      </div>
 			      <div class="modal-body">
 			        <div class="form-group">
-					  <label>Correo electrónico:</label>
-					  <input type="email" id="email_cliente" class="form-control">
-					</div>
-			        <div class="form-group">
-					  <label>Nombre:</label>
-					  <input type="text" id="nombre_cliente" class="form-control">
+			        	<div class="row">
+			        		<div class="col-md-6">
+							  <label>Correo electrónico: (*)</label>
+							  <input type="email" id="email_cliente" class="form-control" required>
+			        		</div>
+			        		<div class="col-md-6">
+							  <label>Nombre: (*)</label>
+							  <input type="text" id="nombre_cliente" class="form-control" required>	
+			        		</div>
+			        	</div>
 					</div>
 					<div class="form-group">
-					  <label>Texto:</label>
-					  <input type="text" id="adicional_cliente" class="form-control">
+					  <label>Texto: (*)</label>
+					  <textarea type="textarea" id="adicional_cliente" class="form-control" required></textarea>
 					</div>
-
+					<div class="form-group">
+					  <label>Número de contacto:</label>
+					  <input type="tel" id="adicional_cliente" class="form-control">
+					</div>
+					<p>(*) Campos requeridos.</p>
 			      </div>
 			      <div class="modal-body">
 			        <div class="form-group">
@@ -271,6 +284,9 @@
 				
 				<div class="footer-copyright">
 					<div class="container">
+						<a class="logo" href="http://www.hielogradocero.cl" target="_blank">
+							<img title="Sitio web de venta de hielos" style="width: 120px;" alt="Sitio web de venta de hielos" class="img-responsive" src="<?=base_url('resources/img/hielogradocero.png')?>">
+						</a>
 						<a class="logo">
 							<img title="Sitio web optimizado con HTML5" style="width: 120px;" alt="Sitio web optimizado con HTML5" class="img-responsive" src="<?=base_url('resources/img/html5.png')?>">
 						</a>

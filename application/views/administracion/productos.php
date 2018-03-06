@@ -379,21 +379,21 @@
                         <div class="form-group">
                           <div class="row">
                             <div class="col-md-6">
-                            <label class="col-md-4 control-label">Estado</label>
-                            <div class="col-sm-8">
-                              <label>
-                                <input type="radio" name="rentorsale" value='VENTA' class="minimal" checked>
-                                <span style="font-weight: normal;">Producto para venta</span>
-                              </label><br>
-                              <label>
-                                <input type="radio" name="rentorsale" value="ARRIENDO" class="minimal">
-                                <span style="font-weight: normal;">Producto para arriendo</span>
-                              </label><br>
-                              <label>
-                                <input type="radio" name="rentorsale" value="VENTA Y ARRIENDO" class="minimal">
-                                <span style="font-weight: normal;">Producto para venta y arriendo</span>
-                              </label>
-                            </div>
+                              <label class="col-md-4 control-label">Estado</label>
+                              <div class="col-sm-8">
+                                <label>
+                                  <input type="radio" name="rentorsale" value='VENTA' class="minimal" checked>
+                                  <span style="font-weight: normal;">Producto para venta</span>
+                                </label><br>
+                                <label>
+                                  <input type="radio" name="rentorsale" value="ARRIENDO" class="minimal">
+                                  <span style="font-weight: normal;">Producto para arriendo</span>
+                                </label><br>
+                                <label>
+                                  <input type="radio" name="rentorsale" value="VENTA Y ARRIENDO" class="minimal">
+                                  <span style="font-weight: normal;">Producto para venta y arriendo</span>
+                                </label>
+                              </div>
                             </div>
                             <div class="col-md-6">
                               <label class="col-sm-3 control-label">Tipo</label>

@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
 
-		<title>Contacto</title>	
+		<title>Nosotros</title>	
 
 		<meta name="keywords" content="" />
 		<meta name="description" content="">
@@ -52,18 +52,47 @@
 
 		<!-- Head Libs -->
 		<script src="<?=base_url('resources/vendor/modernizr/modernizr.min.js')?>"></script>
+		<style type="text/css">
+		@media (min-width:1000px) and (max-width:6000px) {
+			.style_prevu_kit
+			{
+			    display:inline-block;
+			    border:0;
+			    position: relative;
+			    -webkit-transition: all 200ms ease-in;
+			    -webkit-transform: scale(1); 
+			    -ms-transition: all 200ms ease-in;
+			    -ms-transform: scale(1); 
+			    -moz-transition: all 200ms ease-in;
+			    -moz-transform: scale(1);
+			    transition: all 200ms ease-in;
+			    transform: scale(1);   
 
-		<!--pNotify-->
-		<link rel="stylesheet" href="<?=base_url('resources/css/pnotify.custom.min.css')?>">
+			}
+			.style_prevu_kit:hover
+			{
+			    box-shadow: 0px 0px 150px #000000;
+			    z-index: 2;
+			    -webkit-transition: all 200ms ease-in;
+			    -webkit-transform: scale(1.5);
+			    -ms-transition: all 200ms ease-in;
+			    -ms-transform: scale(1.5);   
+			    -moz-transition: all 200ms ease-in;
+			    -moz-transform: scale(1.5);
+			    transition: all 200ms;
+			    transform: scale(1.5);
+			}
+		}
+		</style>
 	</head>
 	<body>
 
 		<div class="body">
 			<header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 142, 'stickySetTop': '-36px', 'stickyChangeLogo': false}"  class="">
 				<div class="header-body">
-					<div class="header-body">
 					<div class="header-top">
 						<div class="container">
+							
 
 							<div class="cart-dropdown">
 								<a href="#" class="cart-dropdown-icon">
@@ -93,8 +122,7 @@
 										</div>
 									</div>
 								</div>
-							</div>		
-							
+							</div>
 							<a href="whatsapp://send?text=Consulta pedido sitio WEB:&phone=+56992345011">
 								<p class="welcome-msg">Contáctenos al: <i class="fa fa-phone"></i> (+569) 9234 5011</p>
 							</a>
@@ -160,86 +188,83 @@
 			
 			<div id="mobile-menu-overlay"></div>
 
-			<div role="main" class="main"><br>
-				<!-- Google Maps - Go to the bottom of the page to change settings and map location. -->
-				<div class="container">
-					<div id="googlemaps" class="google-map"></div>
-				</div>
+			<div role="main" class="main">
+				<div class="container about-container">
 
-				<div class="section-contact-area">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8">
-
-								<div class="alert alert-success hidden mt-lg" id="contactSuccess">
-									<strong>Success!</strong> Your message has been sent to us.
-								</div>
-
-								<div class="alert alert-danger hidden mt-lg" id="contactError">
-									<strong>Error!</strong> There was an error sending your message.
-									<span class="font-size-xs mt-sm display-block" id="mailErrorMessage"></span>
-								</div>
-
-								<h2 class="heading-text-color">Enviar un <strong>mensaje</strong></h2>
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="form-group">
-											<label>Nombre *</label>
-											<input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required>
-										</div>
-
-										<div class="form-group">
-											<label>Correo electrónico *</label>
-											<input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required>
-										</div>
-
-										<div class="form-group">
-											<label>Asunto </label>
-											<input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control" name="subject" id="subject" required>
-										</div>
-									</div>
-
-									<div class="col-sm-6">
-										<div class="form-group mb-lg">
-											<label>Mensaje *</label>
-											<textarea maxlength="5000" data-msg-required="Por favor ingrese el mensaje." rows="5" class="form-control" name="message" id="message" required></textarea>
-										</div>
-
-										<input type="button" onclick="sendEmail()" value="Enviar el mensaje" class="btn btn-primary mb-xlg">
-									</div>
-								</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="h1 heading-primary">Conozca nuestros <strong>servicios</strong></h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<hr class="medium">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div align="center" class="col-md-3 style_prevu_kit" style="background-color: #FFF;">
+								<div class="service">
+				                 	<i class="fa fa-wrench"></i>
+				                 	<h2>Servicio técnico</h2>
+				                 	<hr>
+				                 	<div class="service_hoverly">
+				                    	<p>En nuestro amplio cartel de servicios contamos con la venta y distribución de hielo y productos congelados.
+				                        Somos el soporte para muchas empresas fabricadoras de hielo tanto dentro como fuera de santiago
+				                    	</p>
+				                 	</div>
+				               </div>
 							</div>
-							<div class="col-md-4">
-								<h2 class="heading-text-color">Detalle de <strong>contacto</strong></h2>
-								<ul class="list-unstyled list-contact">
-									<li>
-										<i class="fa fa-phone"></i> 
-										<div>+562 2621 9925</div>
-										<div>&nbsp</div>
-									</li>
-									<!-- <li>
-										<i class="fa fa-mobile"></i> 
-										<div>201-123-3922</div>
-										<div>302-123-3928</div>
-									</li> -->
-									<li>
-										<i class="fa fa-envelope"></i> 
-										<div>contacto@friometal.cl</div>
-									</li>
-									<!-- <li>
-										<i class="fa fa-facebook"></i> 
-										<div>empresa_facebook</div>
-										<div>empresa_ltda</div>
-									</li> -->
-								</ul>
+							<div class="col-md-3 center style_prevu_kit" style="background-color: #FFF;">
+								<div class="service">
+				                 	<i class="fa fa-truck"></i>
+				                 	<h2>Despacho a domicilio</h2>
+				                 	<hr>
+				                 	<div class="service_hoverly">
+				                    	<p>En nuestro amplio cartel de servicios contamos con la venta y distribución de hielo y productos congelados.
+				                        Somos el soporte para muchas empresas fabricadoras de hielo tanto dentro como fuera de santiago
+				                    	</p>
+				                 	</div>
+				               </div>
+							</div>
+							<div class="col-md-3 center style_prevu_kit" style="background-color: #FFF;">
+								<div class="service">
+				                 	<i class="fa fa-gears"></i>
+				                 	<h2>Fabricación de maquinas</h2>
+				                 	<hr>
+				                 	<div class="service_hoverly">
+				                    	<p>En nuestro amplio cartel de servicios contamos con la venta y distribución de hielo y productos congelados.
+				                        Somos el soporte para muchas empresas fabricadoras de hielo tanto dentro como fuera de santiago
+				                    	</p>
+				                 	</div>
+				               </div>
+							</div>
+							<div class="col-md-3 center style_prevu_kit" style="background-color: #FFF;">
+								<div class="service">
+				                 	<i class="fa fa-wrench"></i>
+				                 	<h2>Cambio de repuestos</h2>
+				                 	<hr>
+				                 	<div class="service_hoverly">
+				                    	<p>En nuestro amplio cartel de servicios contamos con la venta y distribución de hielo y productos congelados.
+				                        Somos el soporte para muchas empresas fabricadoras de hielo tanto dentro como fuera de santiago
+				                    	</p>
+				                 	</div>
+				               </div>
 							</div>
 
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<hr class="medium">
+						</div>
+					</div>
+
 				</div>
 
 			</div>
-			   <!-- Modal -->
+			<!-- Modal -->
 			<div id="myModal" class="modal fade" role="dialog">
 			  <div class="modal-dialog">
 
@@ -309,7 +334,8 @@
 			  </div>
 			</div>
 			<!-- Modal -->
-			<footer id="footer">
+			<footer id="footer" class="mt-none">
+				
 				<div class="footer-copyright">
 					<div class="container">
 						<a class="logo" href="http://www.hielogradocero.cl" target="_blank">
@@ -363,15 +389,10 @@
 		
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url('resources/js/theme.init.js')?>"></script>
-
 		<script src="<?=base_url('resources/js/pnotify.custom.min.js')?>"></script>
 
+		<script type="text/javascript" charset="utf-8" >
 
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBpfxksLSvfLte9f77L5sL79etb9m2UfI"></script>
-
-		<script>
-
-				
 			$(function (argument) {
 				cargar_carrito();
 			})
@@ -405,7 +426,7 @@
 				$("#totalcart").text(total.format(0, 3, '.', ','));
 			}
 
-				$("#cargar_detalle_cotizacion").click(function(event) {
+						$("#cargar_detalle_cotizacion").click(function(event) {
 				$("#detalle_cotizacion, #detalle_foot").text("");
 				var objcart = JSON.parse(localStorage.getItem("carrito"));;
 
@@ -472,116 +493,9 @@
 
 			    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
 			};
-
-				function sendEmail(){
-				var name = $("#name").val();
-				var email = $("#email").val();
-				var subject = $("#subject").val();
-				var message = $("#message").val();
-
-				if(name === "" || email === "" || subject === "" || message === ""){
-				    new PNotify({
-		              title: 'Error!',
-		              text: 'Completa todos los datos.',
-		              type: 'notice'
-		          });
-				}else{
-				    $.ajax(
-		          {
-		          method:"POST",
-		          url: "<?=site_url('/contacto/sendEmail')?>",
-		          datatype:'json',
-		          data: {"name": name, "email": email,"subject": subject, "message": message},
-		          success: function(response){
-		              	if (response.val == 1)
-		              	{
-		              		new PNotify({
-		                          title: 'Sí!',
-		                          text: 'Mensaje enviado exitosamente!.',
-		                          type: 'success'
-		                      });
-		              		$("#name").val("");
-				            $("#email").val("");
-				            $("#subject").val("");
-				            $("#message").val("");
-		              	}else if(response.val == 0)
-		              	{
-		              		new PNotify({
-		                      title: 'Oh No!',
-		                      text: 'Algo salió mal.',
-		                      type: 'notice'
-		                  });
-		              	}
-		              }
-		          });
-				}	
-			}
-			/*Correo*/
-
-			/*
-			Map Settings
-
-				Find the Latitude and Longitude of your address:
-					- http://universimmedia.pagesperso-orange.fr/geo/loc.htm
-					- http://www.findlatitudeandlongitude.com/find-address-from-latitude-and-longitude/
-			*/
-
-			// Map Markers
-			var mapMarkers = [{
-				address: "Los Pamperos 238, Recoleta",
-				html: "<strong>Friometal</strong><br>Los Pamperos, 238",
-				icon: {
-					image: "<?=base_url('resources/img/pin.png')?>",
-					iconsize: [26, 46],
-					iconanchor: [12, 46]
-				},
-				popup: true
-			}];
-
-			// Map Initial Location
-			var initLatitude = -33.410572221256444;
-			var initLongitude = -70.63766419887543;
-
-			// Map Extended Settings
-			var mapSettings = {
-				controls: {
-					draggable: (($.browser.mobile) ? false : true),
-					panControl: true,
-					zoomControl: true,
-					mapTypeControl: true,
-					scaleControl: true,
-					streetViewControl: true,
-					overviewMapControl: true
-				},
-				scrollwheel: false,
-				markers: mapMarkers,
-				latitude: initLatitude,
-				longitude: initLongitude,
-				zoom: 16
-			};
-
-			var map = $('#googlemaps').gMap(mapSettings),
-				mapRef = $('#googlemaps').data('gMap.reference');
-
-			// Map Center At
-			var mapCenterAt = function(options, e) {
-				e.preventDefault();
-				$('#googlemaps').gMap("centerAt", options);
-			}
-
-			var mapRef = $('#googlemaps').data('gMap.reference');
-
-			// Styles from https://snazzymaps.com/
-			var styles = [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}];
-
-			var styledMap = new google.maps.StyledMapType(styles, {
-				name: 'Styled Map'
-			});
-
-			mapRef.mapTypes.set('map_style', styledMap);
-			mapRef.setMapTypeId('map_style');
-
 		</script>
+
+
 
 
 		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
