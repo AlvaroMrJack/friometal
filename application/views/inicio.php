@@ -120,6 +120,11 @@
 												</li>
 												<li class="pull-right">
 													<a href="<?=site_url('nosotros/index')?>">
+														Servicio Técnico
+													</a>
+												</li>
+												<li class="pull-right">
+													<a href="<?=site_url('nosotros/index')?>">
 														Sobre nosotros
 													</a>
 												</li>
@@ -418,7 +423,8 @@
 						$("#detalle_cotizacion").append('<tr><td>'+val.nom+'</td><td>'+val.precioformated+'</td><td>'+val.cantidad+'</td><td>$ '+total.format(0, 3, '.', ',')+'</td></tr>');
 						totaltotal += total;
 					});
-					$("#detalle_foot").append('<tr><td style="text-align: right; color: red" colspan="2">Total:</td><td style="text-align: center; color: red" colspan="2">$ '+totaltotal.format(0, 3, '.', ',')+'</td></tr>')
+					$("#detalle_foot").append('<tr><td style="text-align: right; color: red" colspan="2">NETO:</td><td style="text-align: right; color: red" colspan="2">$ '+totaltotal.format(0, 3, '.', ',')+'</tr><tr><td style="text-align: right; color: red" colspan="2">IVA (19%):</td><td style="text-align: right; color: red" colspan="2">$ '+(totaltotal*0.19).format(0, 3, '.', ',')+'</td></tr><tr><td style="text-align: right; color: red" colspan="2">TOTAL:</td><td style="text-align: right; color: red" colspan="2">$ '+(totaltotal*1.19).format(0, 3, '.', ',')+'</td></tr>');
+
 				}else{
 					alert("Lo sentimos no tiene ningun producto en su carrito de cotizaciones");
 				}
