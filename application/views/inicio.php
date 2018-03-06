@@ -119,11 +119,6 @@
 												</li>
 												<li class="pull-right">
 													<a href="<?=site_url('nosotros/index')?>">
-														Servicio Técnico
-													</a>
-												</li>
-												<li class="pull-right">
-													<a href="<?=site_url('nosotros/index')?>">
 														Sobre nosotros
 													</a>
 												</li>
