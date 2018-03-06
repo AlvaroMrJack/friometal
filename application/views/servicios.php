@@ -447,14 +447,15 @@
 				var email = $.trim($("#email_cliente").val());
 				var nombre = $.trim($("#nombre_cliente").val());
 				var adicional = $.trim($("#adicional_cliente").val())
+				var telefono = $.trim($("#telefono_cliente").val())
 				var objcart = JSON.parse(localStorage.getItem("carrito"));;
 
-				if (email != "" && nombre != "" && adicional != "" && !$.isEmptyObject(objcart)) {
+				if (email != "" && telefono != "" && nombre != "" && adicional != "" && !$.isEmptyObject(objcart)) {
 					$.ajax({
 				          method:"POST",
 				          url: "<?=site_url('/contacto/sendEmailCotizacion')?>",
 				          datatype:'json',
-				          data: {"name": nombre, "email": email,"message": adicional, "detalle": objcart},
+				          data: {"name": nombre, "email": email,"message": adicional, "detalle": objcart ,telefono:telefono},
 				          beforeSend:function (argument) {
 				          	
 				          },
@@ -469,6 +470,7 @@
 				              		$("#email_cliente").val("");
 						            $("#nombre_cliente").val("");
 						            $("#adicional_cliente").val("");
+						            $("#telefono_cliente").val("");
 						            localStorage.removeItem("carrito");
 						            cargar_carrito();
 				              	}else if(response.val == 0)

@@ -42,7 +42,7 @@ class Contacto extends CI_Controller {
 
 	public function sendEmailCotizacion()
 	{
-		if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message']) && isset($_POST['detalle'])) {
+		if (isset($_POST['name']) && isset($_POST["telefono"]) && isset($_POST['email']) && isset($_POST['message']) && isset($_POST['detalle'])) {
 
 		/*	 [0] => Array
         (
@@ -78,7 +78,7 @@ class Contacto extends CI_Controller {
 		  <title>Cotización maquinas sitio WEB www.friometal.cl</title>
 		</head>
 		<body>
-		  <p>¡Esta cotización fue realizada a traves de la pagina WEB por el cliente '.$_POST['name'].' !</p>
+		  <p>¡Esta cotización fue realizada a traves de la pagina WEB por el cliente '.$_POST['name'].' \n Telefono de contacto : '.$_POST['telefono'].' !</p>
 		  <table  style="text-align: center;">
 	          <tr border="1" colspan="6">
 	            <td colspan="3"><strong>Id</strong></td>
