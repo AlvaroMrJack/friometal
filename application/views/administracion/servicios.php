@@ -20,6 +20,12 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="<?=base_url('resources/img/logos/friometal.ico')?>" type="image/x-icon" />
 
+  <style type="text/css">
+    select{
+      font-family: FontAwesome, sans-serif;
+    }
+  </style>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -95,7 +101,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Publica una oferta
+        Crea un servicio
       </h1>
     </section>
 
@@ -104,7 +110,7 @@
 
       <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Completa los datos de la oferta</h3>
+              <h3 class="box-title">Completa la información del servicio</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -112,22 +118,27 @@
               <div class="form-horizontal">
               <div class="box-body">
                 <div class="form-group">
-                  <label class="col-sm-1 control-label">Título</label>
+                  <label class="col-sm-1 control-label">Nombre</label>
                   <div class="col-sm-11">
-                    <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Título">
+                    <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-1 control-label">Subtitulo</label>
-
+                  <label class="col-sm-1 control-label">Ícono</label><!--  -->
                   <div class="col-sm-11">
-                    <input type="text" name="subtitulo" class="form-control" id="Subtitulo" placeholder="Subtitulo">
+                    <select name="modelo" class="form-control select2" style="width: 100%;">
+                      <?php if ($icons != null): ?>
+                        <?php foreach ($icons as $key => $value): ?>
+                          <option value="<?= $key ?>">&#x<?=$value ?></option>
+                        <?php endforeach ?>
+                      <?php endif ?>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-1 control-label">Texto</label>
+                  <label class="col-sm-1 control-label">Descripción</label>
                   <div class="col-sm-11">
-                    <textarea class="form-control" name="texto" rows="5" id="texto" placeholder="Texto ..."></textarea>
+                    <textarea class="form-control" name="descripcion" rows="5" id="descripcion" placeholder="Descripción ..."></textarea>
                   </div>
                 </div>
               </div>
@@ -148,7 +159,7 @@
           <!-- /.box -->
           <div class="box box-info">
             <div class="box-header">
-              <h3 class="box-title">Edita o elimina una oferta</h3>
+              <h3 class="box-title">Edita o elimina un servicio</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
@@ -156,31 +167,27 @@
                 <table class="table table-striped">
                   <tr>
                     <th style="width: 10px">#</th>
-                    <th>Título</th>
-                    <th>Subtitutlo</th>
-                    <th>Texto</th>
+                    <th>Nombre</th>
+                    <th>Ícono</th>
+                    <th>Descripción</th>
                     <th class="text-center">Editar</th>
                     <th class="text-center">Eliminar</th>
                   </tr>
-                  <?php if ($anuncios != null): ?>
-                    <?php foreach ($anuncios as $key => $value): ?>
                       <tr>
-                        <td><?= $value->get("anuncio_id")  ?></td>
-                        <td id="titulo_<?= $value->get("anuncio_id")?>"><?= $value->get("anuncio_titulo")  ?></td>
-                        <td id="subtitulo_<?= $value->get("anuncio_id")?>"><?= $value->get("anuncio_subtitulo")  ?></td>
-                        <td id="texto_<?= $value->get("anuncio_id")?>"><?= $value->get("anuncio_texto")  ?></td>
+                        <td>id</td>
+                        <td id=""></td>
+                        <td id=""></td>
+                        <td id=""></td>
                         <td class="text-center">
-                          <button type="button" id="<?= $value->get("anuncio_id") ?>" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                          <button type="button" id="" class="btn btn-default" data-toggle="modal" data-target="#myModal">
                             <i class="fa fa-edit"></i>
                           </button>
                         </td>
                         <td class="text-center">
-                          <a href="<?=site_url('Adm_inicio/eliminaranuncio/').$value->get("anuncio_id")?>" onclick="return confirm('Estas seguro de eliminar este registro, recuerda que esta acción es irreversible?')" type="button" class="btn btn-danger">
+                          <a href="" onclick="" type="button" class="btn btn-danger">
                           <i class="fa fa-trash-o"></i>
                         </a></td>
                       </tr>
-                    <?php endforeach ?>
-                  <?php endif ?>
                 </table>
               </div>
             </div>
@@ -196,7 +203,7 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Editar una oferta</h4>
+                <h4 class="modal-title">Editar un servicio</h4>
               </div>
               <div class="modal-body">
 
@@ -205,22 +212,28 @@
                       <div class="form-horizontal">
                         <div class="box-body">
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">Título</label>
+                            <label class="col-sm-2 control-label">Nombre</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="titulo" id="tituloedit" placeholder="Título">
+                              <input type="text" class="form-control" name="Nombre" id="tituloedit" placeholder="Nombre">
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">Subtitulo</label>
+                            <label class="col-sm-2 control-label">Ícono</label>
 
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" name="subtitulo" id="subtituloedit" placeholder="Subtitulo">
+                              <select name="modelo" class="form-control select2" style="width: 100%;">
+                                <?php if ($icons != null): ?>
+                                  <?php foreach ($icons as $key => $value): ?>
+                                    <option value="<?= $key ?>">&#x<?=$value ?></option>
+                                  <?php endforeach ?>
+                                <?php endif ?>
+                              </select>
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">Texto</label>
+                            <label class="col-sm-2 control-label">Descripción</label>
                             <div class="col-sm-9">
-                              <textarea class="form-control" name="texto" rows="2" id="textoedit" placeholder="Texto ..."></textarea>
+                              <textarea class="form-control" name="descripcion" rows="2" id="textoedit" placeholder="Descripción ..."></textarea>
                             </div>
                           </div>
                         </div>

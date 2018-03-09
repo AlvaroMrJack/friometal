@@ -102,6 +102,11 @@
             <i class="fa fa-chevron-right"></i> <span>Marca - Modelo</span>
           </a>
         </li>
+        <li class="treeview">
+          <a href="<?=site_url('adm_servicios')?>">
+            <i class="fa fa-chevron-right"></i> <span>Servicios</span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
